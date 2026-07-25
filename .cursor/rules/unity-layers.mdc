@@ -1,25 +1,53 @@
 ---
-description: Unity Core and presentation layer conventions
+description: Core base systems and LongRoad feature/pipeline conventions
 globs: Assets/_Game/LongRoad.Core/**/*.cs,Assets/_Game/LongRoad/**/*.cs
 alwaysApply: false
 ---
 
 # LongRoad.Core & LongRoad
 
-## Core
+## Core (base systems — including shared game systems)
 
-- Bridge Domain to Unity: persistence, clocks, asset loading facades, service locators/DI.
-- May use Unity APIs; must not contain Oregon Trail rules that belong in Domain.
-- Reference Domain types; do not let presentation details leak into Domain interfaces.
+- Reusable building blocks: scriptable/entity bases, shared entities (`Person`, traits, statuses), `GameEventBase`, localization, input wrappers, `LongRoadBehaviourCore`.
+- May contain **shared game logic** (e.g. person heal/hunger/status helpers) when it is a base used by many features.
+- May use Unity APIs and Packages (NaughtyAttributes, DOTween, Localization).
+- Prefer Domain for pure algorithms that do not need Unity types.
+- Do **not** put the main turn/scene pipeline, screens, or one-off feature scripts here — that is LongRoad.
 
-## LongRoad (presentation)
+## LongRoad (main pipeline, UI, features)
 
-- MonoBehaviours, UI Toolkit/uGUI, Input System wiring, scene lifecycle.
-- Call into Domain/Core; avoid duplicating game rules in Update/UI callbacks.
-- Keep components thin: read state, send intents/commands, render results.
+- Composes Domain + Core into the playable game.
+- **Naming**: `*Manager` = `MonoBehaviour` controllers (prefer `LongRoadBehaviour`); `*Service` = plain classes implementing `IService`, placed in `Services/` (`LongRoad.Services`). Inject service dependencies via **constructor**, not `Init(...)`. Exception: `GamePipeline` (full turn loop) stays at assembly root, no `Service` suffix.
+- **`GameManager`**: global singleton (`DontDestroyOnLoad`) for shared services (input, localization).
+- **`LocalManager`**: owns `GameData` (store only), `GamePipeline`, `PersonService`, `InventoryService`, `GameTimeService`, `TravelService`, `LocationService`, `MoneyService`; calls `GameUIManager.Init` after services are ready.
+- **`GameUIManager`**: scene UI host (`UIDocument` + MainUI); caches slots (`Hud`, `Content`, `Party`, `Inventory`, `Location`, `Overlay`); initializes registered `GameUIElement` children. Access via `Local.UI`.
+- **`GameData`**: session fields only (Car, Turn, Day, IsDaytime, Money, TravelledKm, CurrentLocation, Route) — no events/logic.
+- **`GameTimeService`**: turn advance after phase 3; day/night every 3 turns; UI events `OnTurnChanged` / `OnDayNightChanged` / `OnDayChanged`.
+- **`TravelService`**: road progress (`DistancePerTurn` km) when not at a location; arrive on absolute route distance. UI: `OnTravelProgress` / `OnArrived` / `OnDeparted`.
+- **`LocationService`**: gas/shop/hospital/entertainment/leave at `CurrentLocation`. UI: `OnChanged`.
+- **`MoneyService`**: `TrySpend` / `Add` on `GameData.Money`. UI: `OnMoneyChanged`.
+- **`GamePipeline`**: (1) player, (2) modifiers + bound Status/Trait, (3) random `[UseGameEvent]`, then `AdvanceTurn` + `AdvanceTravel`. UI: `OnPhaseChanged`, `OnEnded`.
+- **`PersonService`** (`IService`): party; phase-2 tick. UI: `OnPersonAdded` / `OnPersonRemoved` / `OnModifiersApplied`.
+- **`InventoryService`** (`IService`): cargo; `UseItem` + bound Item events. UI: `OnChanged` / item add/remove/used.
+- Prefer subclassing `LongRoadBehaviour` for access to `Game` / `Local` / `UI`.
+- Concrete events subclass `GameEventBase`. Use `[UseGameEvent]` for phase-3; `[BoundGameEvent(kind, tag)]` for Status/Trait/Item. Catalogs cached.
+- UI subscribes to services / pipeline / entities — not `GameData`. Slot VisualElements come only from `GameUIManager`.
+- UI and feature systems call into Core/Domain bases; avoid reinventing shared entity rules in UI callbacks.
+- Keep MonoBehaviours thin: orchestrate, don’t bury reusable rules only usable from one screen.
+
+## Content & localization
+
+- Place game assets under `Assets/_Game/Resources/` (characters, cars, items, locations, routes, specialities, traits, locales, scenes).
+- Entity strings: `{Tag}_name`, `{Tag}_desc` (Entities table). UI strings: Main table.
+- Locales: `en-US`, `ru-RU`.
+- Inventory: global `InventoryService`; stacks by `Item.Tag`; weight limited by selected `Car.MaxWeight`.
+- Travel: `Route` stops with absolute `DistanceFromStartKm`; `Car.DistancePerTurn` km per road turn.
+
+## Motion
+
+- Use **DOTween** for simple animations (UI fades/moves, short feedback tweens).
 
 ## Both
 
 - Root namespaces: `LongRoad.Core` / `LongRoad`.
 - Do not reference Editor-only APIs from runtime assemblies.
-- Prefer composing Domain use-cases over embedding logic in Inspector-serialized fields.

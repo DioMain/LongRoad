@@ -1,4 +1,5 @@
 using LongRoad.Core;
+using LongRoad.Core.Localization;
 using LongRoad.Domain.Interfaces;
 using UnityEngine;
 
@@ -7,7 +8,11 @@ namespace LongRoad {
     {
         public static GameManager Instance;
 
+        [SerializeField]
+        private LocalizationManager localization;
+
         public PlayerInput Input { get; private set; }
+        public LocalizationManager Localization => localization;
 
         private void Awake()
         {
