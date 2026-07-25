@@ -1,13 +1,16 @@
 ---
-description: Pure Domain layer — no UnityEngine, testable game rules
+description: Domain layer — pure C# logic with no Unity dependencies
+globs: Assets/_Game/LongRoad.Domain/**/*.cs
 alwaysApply: false
 ---
 
 # LongRoad.Domain
 
 - Namespace: `LongRoad.Domain` (or nested under it).
-- **Forbidden**: `UnityEngine`, `UnityEditor`, MonoBehaviour, ScriptableObject, coroutines, `Debug.Log` via Unity.
+- **Criterion**: code that needs **no Unity**. Not “all game logic must live here.”
+- **Forbidden**: `UnityEngine`, `UnityEditor`, MonoBehaviour, ScriptableObject, coroutines, Unity `Debug.Log`.
 - Prefer plain C#: records/classes, enums, interfaces, pure functions.
-- Model trail gameplay (party, supplies, journey steps, random events, choices) as Domain types.
-- Side effects (save, UI, audio) stay behind interfaces implemented in Core/LongRoad.
+- Good fit: formulas, state transitions without SO, contracts (`IInit`, `IService`), testable rules.
+- Shared game systems that need ScriptableObjects, sprites, or coroutines belong in **Core**, not Domain.
+- Side effects (save, UI, audio, localization) stay behind interfaces implemented in Core/LongRoad.
 - Keep assemblies compilable without Unity engine references (`noEngineReferences: true`).

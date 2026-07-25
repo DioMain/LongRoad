@@ -10,3 +10,10 @@ alwaysApply: false
 - Must **not** reference `LongRoad`, `LongRoad.Core`, or `LongRoad.Domain`.
 - Keep vendor code isolated; game layers may reference this assembly.
 - Prefer upstream-friendly structure so updates do not entangle with game namespaces.
+
+## Current vendors
+
+- **NaughtyAttributes** — Inspector drawer attributes (used from Core scriptables).
+- **Demigiant DOTween** — preferred for simple animations (easing, fades, moves) from Core/LongRoad.
+
+Do not reimplement basic tweening when DOTween covers the case.

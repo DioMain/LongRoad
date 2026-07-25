@@ -9,22 +9,29 @@ Oregon Trail–style trail simulation. Code lives in assembly-defined layers und
 
 ## Layers
 
-- **LongRoad.Domain** (`Assets/_Game/LongRoad.Domain`) — pure C#, `noEngineReferences`. Party, journey, resources, events, rules.
-- **LongRoad.Core** (`Assets/_Game/LongRoad.Core`) — Unity adapters/services referencing Domain (+ Packages).
-- **LongRoad** (`Assets/_Game/LongRoad`) — MonoBehaviours, UI, scenes wiring; references Domain, Core, Packages.
-- **LongRoad.Packages** (`Assets/Packages`) — local/third-party code; never depends on game assemblies.
+- **LongRoad.Domain** — any logic that does **not** need Unity (`noEngineReferences`). Pure C# rules, interfaces, formulas.
+- **LongRoad.Core** — **base** systems and shared implementations (including shared **game** systems) that use Unity or are reused across features. References Domain + Packages.
+- **LongRoad** — main game pipeline, UI, scene managers, feature systems that compose Core/Domain.
+- **LongRoad.Packages** — local/third-party code; never depends on game assemblies.
 
 ## Dependency rule
 
 `Domain` is isolated (no Unity / no Packages). `Core` and `LongRoad` may use Domain and Packages. Packages never depends on game code.
 
-## Placement
+## Placement heuristic
 
-| Put here | Examples |
-|----------|----------|
-| Domain | Trail progress, rationing, event resolution, win/lose |
-| Core | Save adapters, time/clock bridges, DI/facades over Domain |
-| LongRoad | UI screens, input handlers, audio, scene controllers |
-| Packages | Vendored utilities unrelated to Long Road rules |
+| Put here | When | Examples |
+|----------|------|----------|
+| Domain | No Unity types needed | Pure rationing math, win/lose checks, interfaces (`IInit`), RNG resolution without SO |
+| Core | Shared base / reusable game system (may use Unity) | `LongRoadScriptable`, `Person` / `PersonEntity`, `GameEventBase`, `LocalizationManager`, behaviour bases |
+| LongRoad | Feature or pipeline that uses those bases | `GameManager`, `LocalManager`, `GameUIManager`, `GamePipeline`, services, UI panels, concrete events |
+| Packages | Vendored utilities | NaughtyAttributes, DOTween |
+| `_Game/Resources` | Game assets | Characters, traits, locale tables, scenes |
 
-Prefer Domain logic + thin Unity wrappers over fat MonoBehaviours.
+Do not treat Core as “Unity glue only” or as “everything game-related.” Prefer Domain when logic is pure; Core when it is a shared base; LongRoad when it is feature/orchestration/UI.
+
+## Naming — Manager vs Service
+
+- **`*Manager`**: `MonoBehaviour` controllers that own scene/global wiring (prefer `LongRoadBehaviour` / `LongRoadBehaviourCore`).
+- **`*Service`**: plain non-MonoBehaviour orchestration; implement `IService` (`LongRoad.Domain.Interfaces`); place under `Services/` (`LongRoad.Services`). Pass dependencies through the **constructor** (avoid service `Init` for wiring).
+- **Exception**: `GamePipeline` — full game turn loop; no `Service` suffix; lives at `LongRoad` assembly root (not under `Services/`).
