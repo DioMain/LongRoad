@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 581623580}
   - component: {fileID: 581623579}
   - component: {fileID: 581623581}
+  - component: {fileID: 581623582}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -325,7 +326,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.GameUIManager
   document: {fileID: 581623579}
-  elements: []
+  elements:
+  - {fileID: 581623582}
+--- !u!114 &581623582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581623578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a8e2f1b9d0476a8e3f5c1d2a0b7e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LongRoad::LongRoad.HudStatusUI
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,9 +470,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: LongRoad::LongRoad.LocalManager
   startingPerson: {fileID: 11400000, guid: 37f4c7b81c58fc641a99039c2d4b7747, type: 2}
   selectedCar: {fileID: 11400000, guid: 3f3ad6f1d18a584418f5235bd93ed72c, type: 2}
-  startingRoute: {fileID: 0}
+  startingRoute: {fileID: 11400000, guid: 1281ee473b68874409923b4ff4ae88bc, type: 2}
   startingMoney: 100
   ui: {fileID: 581623581}
+  carModel: {fileID: 1500000003}
+--- !u!1 &1500000001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500000002}
+  - component: {fileID: 1500000003}
+  m_Layer: 0
+  m_Name: Car
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1500000002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500000001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.99, y: -0.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500000001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e1bad82e4bbb64fa7529722cc15ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LongRoad::LongRoad.CarModelManager
+  CarContainer: {fileID: 1500000002}
 --- !u!1001 &4478655554617173950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522,6 +582,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1361723804}
+  - {fileID: 1500000002}
   - {fileID: 4478655554617173950}
   - {fileID: 619394802}
   - {fileID: 581623580}

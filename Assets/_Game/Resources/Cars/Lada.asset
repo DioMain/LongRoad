@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b064599f76f110947a2c2d18aa49698d, type: 3}
-  m_Name: testcar
+  m_Name: Lada
   m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.Car
-  Tag: testcar
+  Tag: lada
   FuelConsumption: 1
   Durability: 100
   MaxWeight: 100
-  Model: {fileID: 3556239789050325161, guid: 03ea9b9a13f94c842a147e0b785c52d1, type: 3}
+  DistancePerTurn: 10
+  StartingFuel: 50
+  Model: {fileID: 5558016714250436308, guid: fcbf47d1a3044ae4090ef0c82fba201f, type: 3}

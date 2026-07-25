@@ -14,12 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
   m_LocaleId:
     m_Code: ru-RU
-  m_SharedData: {fileID: 11400000, guid: 7cb1dcb6b4dbc0c439f5b117ae2f40b2, type: 2}
+  m_SharedData: {fileID: 11400000, guid: 87861cec3d9b57048a524b00d4259aed, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 44689604608
-    m_Localized: "\u0442\u0435\u0441\u0442"
+  - m_Id: 92085239808
+    m_Localized: "\u0425\u043E\u0434 {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 509842112512
+    m_Localized: "\u0414\u0435\u043D\u044C {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 512287391744
+    m_Localized: "\u0414\u0435\u043D\u044C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 555346116608
+    m_Localized: "\u041D\u043E\u0447\u044C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1094305792000
+    m_Localized: "\u041F\u043E\u0435\u0445\u0430\u043B\u0438"
     m_Metadata:
       m_Items: []
   references:

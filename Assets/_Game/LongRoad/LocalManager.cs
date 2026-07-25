@@ -20,6 +20,8 @@ namespace LongRoad
         private float startingMoney = 100f;
         [SerializeField]
         private GameUIManager ui;
+        [SerializeField]
+        private CarModelManager carModel;
 
         public GameData Data { get; private set; }
         public GamePipeline Pipeline { get; private set; }
@@ -30,6 +32,7 @@ namespace LongRoad
         public Services.LocationService Locations { get; private set; }
         public MoneyService Money { get; private set; }
         public GameUIManager UI => ui;
+        public CarModelManager CarModel => carModel;
 
         private void Start()
         {
@@ -60,8 +63,9 @@ namespace LongRoad
             Locations = new Services.LocationService(Data, People, Inventory, Travel, Money);
 
             Pipeline = new GamePipeline(People, Time, Travel);
-            StartCoroutine(Pipeline.Run(this));
 
+            carModel?.Init();
+            StartCoroutine(Pipeline.Run(this));
             ui?.Init();
         }
 

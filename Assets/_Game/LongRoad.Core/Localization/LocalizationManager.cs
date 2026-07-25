@@ -19,18 +19,18 @@ namespace LongRoad.Core.Localization
             StartCoroutine(SetLocale(locale.GetLocaleCode()));
         }
 
-        public string GetMainString(string tag)
+        public string GetMainString(string tag, params object[] args)
         {
             var lstr = new LocalizedString(MainTable, tag);
 
-            return lstr.GetLocalizedString();
+            return lstr.GetLocalizedString(args);
         }
 
-        public string GetEntityString(string tag)
+        public string GetEntityString(string tag, params object[] args)
         {
             var lstr = new LocalizedString(EntitiesTable, tag);
 
-            return lstr.GetLocalizedString();
+            return lstr.GetLocalizedString(args);
         }
 
         private IEnumerator SetLocale(string localeCode)

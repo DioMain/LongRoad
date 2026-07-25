@@ -1,7 +1,14 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/MainUI.uss?fileID=7433441132597879392&amp;guid=9d5c4b3a2e1f0d9c8b7a695847362514&amp;type=3#MainUI"/>
     <ui:VisualElement name="main-root" picking-mode="Ignore">
-        <ui:VisualElement name="hud" style="height: 25%;"/>
+        <ui:VisualElement name="hud">
+            <ui:VisualElement name="hud-status" picking-mode="Ignore">
+                <ui:Label name="turn-label" text="Turn 0"/>
+                <ui:Label name="day-label" text="Day 1"/>
+                <ui:Label name="period-label" text="Day"/>
+            </ui:VisualElement>
+            <ui:Button name="go-button" text="Поехали"/>
+        </ui:VisualElement>
         <ui:VisualElement name="body" picking-mode="Ignore">
             <ui:VisualElement name="party"/>
             <ui:VisualElement name="content"/>

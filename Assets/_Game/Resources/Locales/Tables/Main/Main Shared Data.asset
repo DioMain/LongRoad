@@ -13,20 +13,36 @@ MonoBehaviour:
   m_Name: Main Shared Data
   m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
   m_TableCollectionName: Main
-  m_TableCollectionNameGuidString: 7cb1dcb6b4dbc0c439f5b117ae2f40b2
+  m_TableCollectionNameGuidString: 87861cec3d9b57048a524b00d4259aed
   m_Entries:
-  - m_Id: 44689604608
-    m_Key: testKey
+  - m_Id: 92085239808
+    m_Key: hud_turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 509842112512
+    m_Key: hud_day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 512287391744
+    m_Key: hud_daytime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 555346116608
+    m_Key: hud_night
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1094305792000
+    m_Key: hud_go
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 3837977854462918868
+    rid: 3837977854462919131
   references:
     version: 2
     RefIds:
-    - rid: 3837977854462918868
+    - rid: 3837977854462919131
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1784976500020
+        m_CustomEpoch: 1785018637292
