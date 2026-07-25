@@ -19,8 +19,10 @@ alwaysApply: false
 - Composes Domain + Core into the playable game.
 - **Naming**: `*Manager` = `MonoBehaviour` controllers (prefer `LongRoadBehaviour`); `*Service` = plain classes implementing `IService`, placed in `Services/` (`LongRoad.Services`). Inject service dependencies via **constructor**, not `Init(...)`. Exception: `GamePipeline` (full turn loop) stays at assembly root, no `Service` suffix.
 - **`GameManager`**: global singleton (`DontDestroyOnLoad`) for shared services (input, localization).
-- **`LocalManager`**: owns `GameData` (store only), `GamePipeline`, `PersonService`, `InventoryService`, `GameTimeService`, `TravelService`, `LocationService`, `MoneyService`; calls `GameUIManager.Init` after services are ready.
+- **`LocalManager`**: owns `GameData` (store only), `GamePipeline`, `PersonService`, `InventoryService`, `GameTimeService`, `TravelService`, `LocationService`, `MoneyService`; calls `CarModelManager.Init` / `GameUIManager.Init` after services are ready.
 - **`GameUIManager`**: scene UI host (`UIDocument` + MainUI); caches slots (`Hud`, `Content`, `Party`, `Inventory`, `Location`, `Overlay`); initializes registered `GameUIElement` children. Access via `Local.UI`.
+- **`CarModelManager`**: spawns `CarModel`; `SetState` / `RefreshState` from pipeline/travel/fuel events (services do not know about managers).
+- **`HudStatusUI`**: HUD turn/day/period + Continue («Поехали»).
 - **`GameData`**: session fields only (Car, Turn, Day, IsDaytime, Money, TravelledKm, CurrentLocation, Route) — no events/logic.
 - **`GameTimeService`**: turn advance after phase 3; day/night every 3 turns; UI events `OnTurnChanged` / `OnDayNightChanged` / `OnDayChanged`.
 - **`TravelService`**: road progress (`DistancePerTurn` km) when not at a location; arrive on absolute route distance. UI: `OnTravelProgress` / `OnArrived` / `OnDeparted`.

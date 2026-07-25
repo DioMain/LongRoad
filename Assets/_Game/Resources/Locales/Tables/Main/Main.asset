@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
   m_Name: Main
   m_EditorClassIdentifier: Unity.Localization.Editor::UnityEditor.Localization.StringTableCollection
-  m_SharedTableData: {fileID: 11400000, guid: 7cb1dcb6b4dbc0c439f5b117ae2f40b2, type: 2}
+  m_SharedTableData: {fileID: 11400000, guid: 87861cec3d9b57048a524b00d4259aed, type: 2}
   m_Tables:
-  - {fileID: 11400000, guid: d5b437b96efd23143ae8f8814c81021a, type: 2}
-  - {fileID: 11400000, guid: 8c3eac1e3b04ce648a66292595b9f48b, type: 2}
+  - {fileID: 11400000, guid: b5fd5274da3273d4f9913b83e0165ef3, type: 2}
+  - {fileID: 11400000, guid: 342024541b6cf39469c1ed11b344cf1b, type: 2}
   m_Extensions: []
   m_Group: String Table
   references:

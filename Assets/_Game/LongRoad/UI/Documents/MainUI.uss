@@ -10,6 +10,30 @@
     width: 100%;
     height: 64px;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#hud-status {
+    flex-direction: row;
+    align-items: center;
+}
+
+#turn-label,
+#day-label,
+#period-label {
+    margin-right: 16px;
+    font-size: 16px;
+    color: rgb(240, 240, 240);
+    -unity-text-align: middle-left;
+}
+
+#go-button {
+    height: 36px;
+    min-width: 120px;
+    font-size: 16px;
 }
 
 #body {

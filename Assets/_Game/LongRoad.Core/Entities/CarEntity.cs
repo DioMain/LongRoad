@@ -26,6 +26,7 @@ namespace LongRoad.Core
         public CarEntity(Car entity) : base(entity)
         {
             Durability = entity.Durability;
+            Fuel = Mathf.Max(0, entity.StartingFuel);
         }
 
         public void SetFuel(int value)
@@ -53,7 +54,7 @@ namespace LongRoad.Core
             if (Entity.Model == null)
                 return null;
 
-            ModelInstance = GameObject.Instantiate(Entity.Model, parent);
+            ModelInstance = GameObject.Instantiate(Entity.Model, parent.position, parent.rotation, parent);
             ModelInstance.Init();
             return ModelInstance;
         }

@@ -48,8 +48,10 @@ Core **may** contain shared game logic. LongRoad owns the **main pipeline** and 
 ## Runtime wiring
 
 - **`GameManager`** — global singleton (`DontDestroyOnLoad`): shared services (e.g. `PlayerInput`, `LocalizationManager`).
-- **`LocalManager`** — manager for the active **game scene**; owns `GameData`, `GamePipeline`, `PersonService`, `InventoryService`, `GameTimeService`, `TravelService`, `LocationService`, `MoneyService`, and kicks `GameUIManager.Init` after services are ready.
+- **`LocalManager`** — manager for the active **game scene**; owns `GameData`, `GamePipeline`, `PersonService`, `InventoryService`, `GameTimeService`, `TravelService`, `LocationService`, `MoneyService`, and kicks `CarModelManager.Init` / `GameUIManager.Init` after services are ready.
 - **`GameUIManager`** — scene UI host (`UIDocument` + `MainUI.uxml`); caches named slots (`Hud`, `Content`, `Party`, `Inventory`, `Location`, `Overlay`); stores and initializes child `GameUIElement` scripts. Access via `Local.UI` / `GameUIManager.Instance`. Child panels use slots from the manager — do not add separate `UIDocument`s for in-game panels.
+- **`CarModelManager`** — spawns `CarModel`; exposes `SetState` / `RefreshState`. Subscribes to `Pipeline.OnPhaseChanged`, `Travel.OnArrived` / `OnDeparted`, `Car.OnFuelChanged` (services never reference the manager). States: `Off` (no fuel), `Idle` (Player phase or at location), `Drive` (Modifiers/Event on the road).
+- **`HudStatusUI`** (`GameUIElement`) — HUD turn / day / day-night labels + «Поехали» (`Local.Continue`); enabled only in `GamePhase.Player`.
 - **`GameData`** — session **data store only** (Car, Turn, Day, IsDaytime, Money, TravelledKm, CurrentLocation, Route). No events/logic; services read/write fields.
 - **`GameTimeService`** (`IService`) — advances turn after pipeline phase 3; every 3 turns flips day/night; after night→day increments `Day`. UI: `OnTurnChanged`, `OnDayNightChanged`, `OnDayChanged`.
 - **`TravelService`** (`IService`) — after turn advance, adds `Car.DistancePerTurn` km while on the road (`CurrentLocation == null`); arrives when `TravelledKm` hits absolute route stop distance. UI: `OnTravelProgress`, `OnArrived`, `OnDeparted`.

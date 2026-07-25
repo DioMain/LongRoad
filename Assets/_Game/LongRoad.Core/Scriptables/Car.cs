@@ -14,6 +14,8 @@ namespace LongRoad.Core.Scriptables
 
         public float DistancePerTurn = 10f;
 
+        public int StartingFuel = 50;
+
         public CarModel Model;
     }
 }
