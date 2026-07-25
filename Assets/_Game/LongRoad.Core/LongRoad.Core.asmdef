@@ -1,0 +1,17 @@
+{
+    "name": "LongRoad.Core",
+    "rootNamespace": "LongRoad.Core",
+    "references": [
+        "GUID:7f3e8a1c2b4d5e6f7890abcdef123456",
+        "GUID:0c6f1d4f5e7a8b9c0123def456789abc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,30 @@
+---
+description: Long Road project architecture and assembly boundaries
+alwaysApply: true
+---
+
+# Long Road Architecture
+
+Oregon Trail–style trail simulation. Code lives in assembly-defined layers under `Assets/_Game/` and `Assets/Packages/`.
+
+## Layers
+
+- **LongRoad.Domain** (`Assets/_Game/LongRoad.Domain`) — pure C#, `noEngineReferences`. Party, journey, resources, events, rules.
+- **LongRoad.Core** (`Assets/_Game/LongRoad.Core`) — Unity adapters/services referencing Domain (+ Packages).
+- **LongRoad** (`Assets/_Game/LongRoad`) — MonoBehaviours, UI, scenes wiring; references Domain, Core, Packages.
+- **LongRoad.Packages** (`Assets/Packages`) — local/third-party code; never depends on game assemblies.
+
+## Dependency rule
+
+`Domain` is isolated (no Unity / no Packages). `Core` and `LongRoad` may use Domain and Packages. Packages never depends on game code.
+
+## Placement
+
+| Put here | Examples |
+|----------|----------|
+| Domain | Trail progress, rationing, event resolution, win/lose |
+| Core | Save adapters, time/clock bridges, DI/facades over Domain |
+| LongRoad | UI screens, input handlers, audio, scene controllers |
+| Packages | Vendored utilities unrelated to Long Road rules |
+
+Prefer Domain logic + thin Unity wrappers over fat MonoBehaviours.

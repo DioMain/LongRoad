@@ -1,0 +1,12 @@
+---
+description: Local Packages assembly conventions
+globs: Assets/Packages/**/*.cs
+alwaysApply: false
+---
+
+# LongRoad.Packages
+
+- Assembly for local/third-party scripts under `Assets/Packages` (not UPM `Packages/`).
+- Must **not** reference `LongRoad`, `LongRoad.Core`, or `LongRoad.Domain`.
+- Keep vendor code isolated; game layers may reference this assembly.
+- Prefer upstream-friendly structure so updates do not entangle with game namespaces.
