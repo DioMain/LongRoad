@@ -1,2 +1,9 @@
 ﻿<Solution>
+  <Project Path="NaughtyAttributes.Test.csproj" />
+  <Project Path="NaughtyAttributes.Core.csproj" />
+  <Project Path="NaughtyAttributes.Editor.csproj" />
+  <Project Path="LongRoad.Packages.csproj" />
+  <Project Path="LongRoad.Core.csproj" />
+  <Project Path="LongRoad.csproj" />
+  <Project Path="LongRoad.Domain.csproj" />
 </Solution>

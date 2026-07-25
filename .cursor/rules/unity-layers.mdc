@@ -1,0 +1,25 @@
+---
+description: Unity Core and presentation layer conventions
+globs: Assets/_Game/LongRoad.Core/**/*.cs,Assets/_Game/LongRoad/**/*.cs
+alwaysApply: false
+---
+
+# LongRoad.Core & LongRoad
+
+## Core
+
+- Bridge Domain to Unity: persistence, clocks, asset loading facades, service locators/DI.
+- May use Unity APIs; must not contain Oregon Trail rules that belong in Domain.
+- Reference Domain types; do not let presentation details leak into Domain interfaces.
+
+## LongRoad (presentation)
+
+- MonoBehaviours, UI Toolkit/uGUI, Input System wiring, scene lifecycle.
+- Call into Domain/Core; avoid duplicating game rules in Update/UI callbacks.
+- Keep components thin: read state, send intents/commands, render results.
+
+## Both
+
+- Root namespaces: `LongRoad.Core` / `LongRoad`.
+- Do not reference Editor-only APIs from runtime assemblies.
+- Prefer composing Domain use-cases over embedding logic in Inspector-serialized fields.
