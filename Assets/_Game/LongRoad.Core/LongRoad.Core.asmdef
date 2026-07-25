@@ -3,7 +3,9 @@
     "rootNamespace": "LongRoad.Core",
     "references": [
         "GUID:7f3e8a1c2b4d5e6f7890abcdef123456",
-        "GUID:0c6f1d4f5e7a8b9c0123def456789abc"
+        "GUID:0c6f1d4f5e7a8b9c0123def456789abc",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
