@@ -18,8 +18,8 @@ namespace LongRoad
         public VisualElement Content { get; private set; }
         public VisualElement Party { get; private set; }
         public VisualElement Inventory { get; private set; }
-        public VisualElement Location { get; private set; }
         public VisualElement Overlay { get; private set; }
+        public VisualElement Dialog { get; private set; }
 
         private void Awake()
         {
@@ -39,8 +39,8 @@ namespace LongRoad
             Content = Root.Q("content");
             Party = Root.Q("party");
             Inventory = Root.Q("inventory");
-            Location = Root.Q("location");
             Overlay = Root.Q("overlay");
+            Dialog = Root.Q("dialog");
 
             if (elements == null)
                 return;

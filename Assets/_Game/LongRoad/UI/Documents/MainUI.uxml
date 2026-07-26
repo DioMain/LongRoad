@@ -1,22 +1,85 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="DialogChoiceItem" src="project://database/Assets/_Game/LongRoad/UI/Documents/DialogChoiceItem/DialogChoiceItem.uxml?fileID=9197481963319205126&amp;guid=7f98c5620acc3f54b9561e9156c271fa&amp;type=3#DialogChoiceItem"/>
+    <ui:Template name="person-card" src="project://database/Assets/_Game/LongRoad/UI/Documents/PersonCard/person-card.uxml?fileID=9197481963319205126&amp;guid=3a7bb3bd40a404b4999df33083ff9fc4&amp;type=3#person-card"/>
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/MainUI.uss?fileID=7433441132597879392&amp;guid=9d5c4b3a2e1f0d9c8b7a695847362514&amp;type=3#MainUI"/>
-    <ui:VisualElement name="main-root" picking-mode="Ignore">
-        <ui:VisualElement name="hud">
-            <ui:VisualElement name="hud-status" picking-mode="Ignore">
-                <ui:Label name="turn-label" text="Turn 0"/>
-                <ui:Label name="day-label" text="Day 1"/>
-                <ui:Label name="period-label" text="Day"/>
+    <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/SharedStyles.uss?fileID=7433441132597879392&amp;guid=dc8a010e021c2594baa1fdf5ae619031&amp;type=3#SharedStyles"/>
+    <ui:VisualElement name="main-root" picking-mode="Ignore" enabled="true">
+        <ui:VisualElement name="hud" style="position: absolute; flex-direction: column; flex-grow: 1; height: 100%;">
+            <ui:VisualElement style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 160px;">
+                <ui:VisualElement name="main-info" style="width: 1049px; flex-grow: 0;">
+                    <ui:VisualElement name="day-content" style="padding-left: 28px;">
+                        <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-829042481604233788&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_8" name="day-image"/>
+                        <ui:VisualElement style="flex-grow: 1; padding-top: 0; padding-right: 12px; padding-bottom: 0; padding-left: 12px;">
+                            <ui:Label text="День 3" name="day-text" class="text" style="-unity-text-align: upper-center; padding-top: 0; margin-bottom: 0; padding-bottom: 0; margin-top: 0; color: rgb(230, 190, 150); font-size: 52px;"/>
+                            <ui:Label text="вторник" name="week-day-text" class="text" style="-unity-text-align: upper-center; margin-bottom: 0; padding-bottom: 0; padding-top: 0; margin-top: 0; font-size: 38px; letter-spacing: 8px;"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="car-status" style="flex-grow: 0; width: 344px; padding-left: 24px; padding-right: 24px;">
+                        <ui:VisualElement name="" style="flex-grow: 1;">
+                            <ui:VisualElement style="flex-grow: 1; padding-bottom: 8px; flex-direction: row;">
+                                <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-7033360883150334446&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_14"/>
+                                <ui:Label text="Лада" class="text" style="-unity-text-align: middle-center; flex-grow: 1; font-size: 52px; color: rgb(239, 198, 159);"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="car-heal-bar" style="flex-grow: 0; height: 18px; background-color: rgb(55, 41, 32); flex-direction: row;">
+                                <ui:VisualElement name="car-heal-bar-front" style="flex-grow: 0; width: 125px; background-color: rgb(106, 190, 50);"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="gas-status" style="flex-grow: 1; padding-right: 36px; flex-direction: row;">
+                        <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=1748951914829495369&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_13"/>
+                        <ui:VisualElement name="" style="flex-grow: 1; margin-left: 6px;">
+                            <ui:Label text="Label" double-click-selects-word="false" triple-click-selects-line="false" class="text" style="color: rgb(239, 194, 153); -unity-text-align: upper-center; margin-top: 0; padding-top: 0; padding-bottom: 0; margin-bottom: 0; font-size: 48px;">
+                                <Bindings>
+                                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(237429251719168)"/>
+                                </Bindings>
+                            </ui:Label>
+                            <ui:VisualElement style="flex-grow: 1; flex-direction: row; justify-content: space-between;">
+                                <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=8791704020646865730&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_20"/>
+                                <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=1014394811&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_26"/>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="gas-bar" style="flex-grow: 1; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_22&quot;); flex-direction: row; margin-top: 3px;">
+                                <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-6891876578642037120&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_19" name="gas-bar-cursor" style="transform-origin: center; align-self: flex-end;"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement name="money" style="justify-content: space-between; padding-left: 40px;">
+                    <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-3576213905205349036&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_16"/>
+                    <ui:Label text="1500" class="text" style="align-self: center; font-size: 92px;"/>
+                </ui:VisualElement>
+                <ui:Button text="Багаж" name="inventory-button" icon-image="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-3664798624849525966&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_15" triple-click-selects-line="false" class="button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(225087503810560)"/>
+                    </Bindings>
+                </ui:Button>
             </ui:VisualElement>
-            <ui:Button name="go-button" text="Поехали"/>
-        </ui:VisualElement>
-        <ui:VisualElement name="body" picking-mode="Ignore">
-            <ui:VisualElement name="party"/>
-            <ui:VisualElement name="content"/>
-            <ui:VisualElement name="side" picking-mode="Ignore">
-                <ui:VisualElement name="inventory"/>
-                <ui:VisualElement name="location"/>
+            <ui:VisualElement style="flex-grow: 0; height: 220px; flex-direction: row; justify-content: space-between;">
+                <ui:VisualElement name="party-content" style="flex-direction: row;">
+                    <ui:Instance template="person-card" name="person-card"/>
+                    <ui:Instance template="person-card" name="person-card"/>
+                    <ui:Instance template="person-card" name="person-card"/>
+                    <ui:Instance template="person-card" name="person-card"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="distance-status">
+                    <ui:Label text="Пройденное расстояние" class="text" style="color: rgb(235, 192, 145); -unity-text-align: upper-center; font-size: 32px; margin-top: 24px;">
+                        <Bindings>
+                            <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(269059844554752)"/>
+                        </Bindings>
+                    </ui:Label>
+                    <ui:Label text="1500 КМ" name="reach-distance-text" class="text"/>
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="overlay" picking-mode="Ignore"/>
+        <ui:VisualElement name="inventory" style="flex-grow: 1; position: absolute;"/>
+        <ui:VisualElement focusable="false" name="dialog" enabled="true" style="flex-grow: 0; min-width: 40%; min-height: 100%; max-width: 40px; max-height: 100px; align-items: stretch; justify-content: center; display: none; position: absolute; align-self: flex-end;">
+            <ui:VisualElement name="DialogBody" class="dialog-body" style="flex-grow: 0; min-width: 100%; min-height: auto; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_17&quot;);">
+                <ui:Label text="Some event text" name="Text" class="dialog-body-text"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="DialogChoiceSlot" class="dialog-button-slot">
+                <ui:Instance template="DialogChoiceItem" name="DialogChoiceItem"/>
+                <ui:Instance template="DialogChoiceItem" name="DialogChoiceItem"/>
+                <ui:Instance template="DialogChoiceItem" name="DialogChoiceItem"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
