@@ -38,6 +38,18 @@ MonoBehaviour:
     m_Localized: Let`s Go
     m_Metadata:
       m_Items: []
+  - m_Id: 225087503810560
+    m_Localized: Baggage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 237429251719168
+    m_Localized: Gas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 269059844554752
+    m_Localized: Distance traveled
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

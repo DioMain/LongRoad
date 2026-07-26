@@ -126,7 +126,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 24
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -150,7 +150,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -178,10 +178,10 @@ TextureImporter:
       name: Hud_Ui_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 124
-        width: 232
-        height: 35
+        x: 1
+        y: 179
+        width: 234
+        height: 37
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,10 +200,10 @@ TextureImporter:
       name: Hud_Ui_1
       rect:
         serializedVersion: 2
-        x: 235
-        y: 124
-        width: 73
-        height: 35
+        x: 234
+        y: 179
+        width: 75
+        height: 37
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,10 +222,10 @@ TextureImporter:
       name: Hud_Ui_2
       rect:
         serializedVersion: 2
-        x: 309
-        y: 124
-        width: 73
-        height: 35
+        x: 308
+        y: 179
+        width: 75
+        height: 37
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: Hud_Ui_3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 75
-        width: 297
-        height: 48
+        x: 1
+        y: 128
+        width: 299
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +266,10 @@ TextureImporter:
       name: Hud_Ui_4
       rect:
         serializedVersion: 2
-        x: 300
-        y: 75
-        width: 82
-        height: 48
+        x: 299
+        y: 129
+        width: 84
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: Hud_Ui_5
       rect:
         serializedVersion: 2
-        x: 2
-        y: 36
-        width: 71
-        height: 38
+        x: 3
+        y: 92
+        width: 69
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,12 +310,12 @@ TextureImporter:
       name: Hud_Ui_6
       rect:
         serializedVersion: 2
-        x: 74
-        y: 58
-        width: 32
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 75
+        y: 114
+        width: 30
+        height: 10
+      alignment: 9
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -332,12 +332,12 @@ TextureImporter:
       name: Hud_Ui_7
       rect:
         serializedVersion: 2
-        x: 74
-        y: 49
-        width: 32
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 75
+        y: 105
+        width: 30
+        height: 8
+      alignment: 9
+      pivot: {x: -0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -355,7 +355,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 107
-        y: 40
+        y: 95
         width: 25
         height: 28
       alignment: 0
@@ -377,11 +377,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 132
-        y: 40
+        y: 95
         width: 25
         height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -399,7 +399,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 157
-        y: 40
+        y: 95
         width: 25
         height: 28
       alignment: 0
@@ -421,7 +421,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 182
-        y: 40
+        y: 95
         width: 25
         height: 28
       alignment: 0
@@ -443,7 +443,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 207
-        y: 40
+        y: 95
         width: 25
         height: 28
       alignment: 0
@@ -465,7 +465,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 233
-        y: 40
+        y: 95
         width: 23
         height: 24
       alignment: 0
@@ -487,7 +487,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 259
-        y: 40
+        y: 95
         width: 26
         height: 18
       alignment: 0
@@ -509,11 +509,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 288
-        y: 39
+        y: 95
         width: 24
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -531,7 +531,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 315
-        y: 40
+        y: 95
         width: 13
         height: 21
       alignment: 0
@@ -552,13 +552,13 @@ TextureImporter:
       name: Hud_Ui_17
       rect:
         serializedVersion: 2
-        x: 333
-        y: 26
-        width: 49
-        height: 48
+        x: 332
+        y: 78
+        width: 51
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 8, y: 8, z: 8, w: 8}
+      border: {x: 9, y: 9, z: 9, w: 9}
       customData: 
       outline: []
       physicsShape: []
@@ -574,12 +574,12 @@ TextureImporter:
       name: Hud_Ui_18
       rect:
         serializedVersion: 2
-        x: 74
-        y: 40
-        width: 32
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 75
+        y: 96
+        width: 30
+        height: 8
+      alignment: 9
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -596,12 +596,12 @@ TextureImporter:
       name: Hud_Ui_19
       rect:
         serializedVersion: 2
-        x: 120
-        y: 28
-        width: 5
-        height: 6
+        x: 121
+        y: 84
+        width: 3
+        height: 4
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -618,12 +618,12 @@ TextureImporter:
       name: Hud_Ui_20
       rect:
         serializedVersion: 2
-        x: 126
-        y: 28
-        width: 5
-        height: 7
+        x: 127
+        y: 84
+        width: 3
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -637,35 +637,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hud_Ui_21
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 29
-        width: 70
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9c2e11074b9e96af0800000000000000
-      internalID: -402533730489343287
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Hud_Ui_22
       rect:
         serializedVersion: 2
-        x: 73
-        y: 28
-        width: 46
-        height: 7
+        x: 74
+        y: 84
+        width: 44
+        height: 5
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -681,81 +659,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hud_Ui_23
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 22
-        width: 70
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 477a8d48eb52cc830800000000000000
-      internalID: 4092687661575743348
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hud_Ui_24
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 13
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 22df1932b4da135b0800000000000000
-      internalID: -5390336740754850526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hud_Ui_25
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 4
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4549fbe4bf0e95c70800000000000000
-      internalID: 8960440303592903764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Hud_Ui_26
       rect:
         serializedVersion: 2
-        x: 132
-        y: 28
-        width: 5
-        height: 7
+        x: 133
+        y: 84
+        width: 3
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -764,6 +676,28 @@ TextureImporter:
       bones: []
       spriteID: 4814be6d673974e429a841bd31c29d8b
       internalID: 1014394811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hud_Ui_21
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 50
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf97f7e8a729ce45acdfa8325ccf48b
+      internalID: -402533730489343287
       vertices: []
       indices: 
       edges: []
@@ -802,6 +736,8 @@ TextureImporter:
       Hud_Ui_24: -5390336740754850526
       Hud_Ui_25: 8960440303592903764
       Hud_Ui_26: 1014394811
+      Hud_Ui_27: -1663693948
+      Hud_Ui_28: 1624826233
       Hud_Ui_3: 1213143178219758767
       Hud_Ui_4: 4271070227727408036
       Hud_Ui_5: 4785137545692993955

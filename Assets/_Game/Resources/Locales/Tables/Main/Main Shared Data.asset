@@ -35,6 +35,18 @@ MonoBehaviour:
     m_Key: hud_go
     m_Metadata:
       m_Items: []
+  - m_Id: 225087503810560
+    m_Key: hud_invetory_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 237429251719168
+    m_Key: hud_gas
+    m_Metadata:
+      m_Items: []
+  - m_Id: 269059844554752
+    m_Key: hud_distance_reached
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
