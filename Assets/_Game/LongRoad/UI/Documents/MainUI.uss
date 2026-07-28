@@ -6,20 +6,16 @@
     -unity-font-definition: resource("Fonts/Raw/Tiny5-Regular");
 }
 
-#hud {
-    width: 100%;
-    flex-direction: row;
-    padding: 16px;
-    justify-content: space-between;
-    height: auto;
-}
-
-#inventory {
-    flex-grow: 1;
-    width: 100%;
-}
-
 #dialog {
+    flex-grow: 0;
+    min-width: 40%;
+    min-height: 100%;
+    max-width: 40px;
+    max-height: 100px;
+    align-items: stretch;
+    justify-content: center;
+    position: absolute;
+    align-self: flex-end;
 }
 
 #dialog-next-button {
@@ -44,8 +40,16 @@
     justify-content: center;
 }
 
-.dialog-button-slot #DialogChoiceItem {
+.dialog-button-slot #dialog-button-item {
     min-width: 50%;
+}
+
+#hud {
+    width: 100%;
+    flex-direction: row;
+    padding: 16px;
+    justify-content: space-between;
+    height: auto;
 }
 
 #main-info {
@@ -107,4 +111,50 @@
     padding-right: 32px;
     padding-bottom: 32px;
     padding-left: 32px;
+}
+
+#inventory {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-end;
+    margin-bottom: 240px;
+    margin-top: 180px;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+#inventory-button-slot {
+    flex-grow: 0;
+    padding-top: 16px;
+    flex-direction: column;
+}
+
+#inventory-weight {
+    font-size: 32px;
+    -unity-text-align: middle-right;
+}
+
+#inventory-scroll-view {
+    flex-grow: 1;
+}
+
+#inventory-scroll-view Scroller {
+}
+
+#inventory-content {
+    width: 35%;
+    flex-grow: 0;
+    padding-right: 32px;
+    padding-left: 32px;
+    background-image: resource("Sprites/Hud_Ui#Hud_Ui_17");
+    margin-bottom: 16px;
+    margin-top: 16px;
+    padding-bottom: 48px;
+    padding-top: 48px;
+}
+
+.inventory-drop-button {
+    height: 100px;
+    width: 325px;
 }

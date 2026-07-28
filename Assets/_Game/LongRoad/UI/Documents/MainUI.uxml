@@ -1,11 +1,9 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:Template name="DialogChoiceItem" src="project://database/Assets/_Game/LongRoad/UI/Documents/DialogChoiceItem/DialogChoiceItem.uxml?fileID=9197481963319205126&amp;guid=7f98c5620acc3f54b9561e9156c271fa&amp;type=3#DialogChoiceItem"/>
-    <ui:Template name="person-card" src="project://database/Assets/_Game/LongRoad/UI/Documents/PersonCard/person-card.uxml?fileID=9197481963319205126&amp;guid=3a7bb3bd40a404b4999df33083ff9fc4&amp;type=3#person-card"/>
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/MainUI.uss?fileID=7433441132597879392&amp;guid=9d5c4b3a2e1f0d9c8b7a695847362514&amp;type=3#MainUI"/>
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/SharedStyles.uss?fileID=7433441132597879392&amp;guid=dc8a010e021c2594baa1fdf5ae619031&amp;type=3#SharedStyles"/>
     <ui:VisualElement name="main-root" picking-mode="Ignore" enabled="true">
-        <ui:VisualElement name="hud" style="position: absolute; flex-direction: column; flex-grow: 1; height: 100%;">
-            <ui:VisualElement style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 160px;">
+        <ui:VisualElement name="hud" style="position: absolute; flex-direction: column; flex-grow: 1; height: 100%; display: flex;">
+            <ui:VisualElement style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 160px; flex-shrink: 0;">
                 <ui:VisualElement name="main-info" style="width: 1049px; flex-grow: 0;">
                     <ui:VisualElement name="day-content" style="padding-left: 28px;">
                         <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-829042481604233788&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_8" name="day-image"/>
@@ -53,33 +51,52 @@
                     </Bindings>
                 </ui:Button>
             </ui:VisualElement>
-            <ui:VisualElement style="flex-grow: 0; height: 220px; flex-direction: row; justify-content: space-between;">
-                <ui:VisualElement name="party-content" style="flex-direction: row;">
-                    <ui:Instance template="person-card" name="person-card"/>
-                    <ui:Instance template="person-card" name="person-card"/>
-                    <ui:Instance template="person-card" name="person-card"/>
-                    <ui:Instance template="person-card" name="person-card"/>
-                </ui:VisualElement>
-                <ui:VisualElement name="distance-status">
-                    <ui:Label text="Пройденное расстояние" class="text" style="color: rgb(235, 192, 145); -unity-text-align: upper-center; font-size: 32px; margin-top: 24px;">
+            <ui:VisualElement style="flex-grow: 0; justify-content: flex-end;">
+                <ui:VisualElement name="" style="flex-grow: 0; height: 110px; margin-bottom: 12px; flex-direction: row; justify-content: flex-end;">
+                    <ui:Button text="Button" name="go-button" class="button" style="width: 442px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; display: none;">
                         <Bindings>
-                            <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(269059844554752)"/>
+                            <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(1094305792000)"/>
                         </Bindings>
-                    </ui:Label>
-                    <ui:Label text="1500 КМ" name="reach-distance-text" class="text"/>
+                    </ui:Button>
+                </ui:VisualElement>
+                <ui:VisualElement style="flex-grow: 0; height: 220px; flex-direction: row; justify-content: space-between; flex-shrink: 0;">
+                    <ui:VisualElement name="party-content" style="flex-direction: row;"/>
+                    <ui:VisualElement name="distance-status">
+                        <ui:Label text="Пройденное расстояние" class="text" style="color: rgb(235, 192, 145); -unity-text-align: upper-center; font-size: 32px; margin-top: 24px;">
+                            <Bindings>
+                                <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(269059844554752)"/>
+                            </Bindings>
+                        </ui:Label>
+                        <ui:Label text="1500 КМ" name="reach-distance-text" class="text"/>
+                    </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="inventory" style="flex-grow: 1; position: absolute;"/>
-        <ui:VisualElement focusable="false" name="dialog" enabled="true" style="flex-grow: 0; min-width: 40%; min-height: 100%; max-width: 40px; max-height: 100px; align-items: stretch; justify-content: center; display: none; position: absolute; align-self: flex-end;">
-            <ui:VisualElement name="DialogBody" class="dialog-body" style="flex-grow: 0; min-width: 100%; min-height: auto; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_17&quot;);">
-                <ui:Label text="Some event text" name="Text" class="dialog-body-text"/>
+        <ui:VisualElement name="inventory" style="display: none;">
+            <ui:VisualElement name="inventory-button-slot" style="display: none;">
+                <ui:Button text="Button" name="drop-one-button" class="button inventory-drop-button">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(1025005067780096)"/>
+                    </Bindings>
+                </ui:Button>
+                <ui:Button text="Button" name="drop-all-button" class="button inventory-drop-button" style="margin-top: 6px;">
+                    <Bindings>
+                        <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(1025121094811648)"/>
+                    </Bindings>
+                </ui:Button>
             </ui:VisualElement>
-            <ui:VisualElement name="DialogChoiceSlot" class="dialog-button-slot">
-                <ui:Instance template="DialogChoiceItem" name="DialogChoiceItem"/>
-                <ui:Instance template="DialogChoiceItem" name="DialogChoiceItem"/>
-                <ui:Instance template="DialogChoiceItem" name="DialogChoiceItem"/>
+            <ui:VisualElement name="inventory-content" style="flex-grow: 0; display: flex;">
+                <ui:ScrollView name="inventory-scroll-view" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible"/>
+                <ui:VisualElement style="flex-grow: 0; height: 42px; margin-top: 12px; flex-direction: row; justify-content: flex-end;">
+                    <ui:Label text="200kg / 200kg" name="inventory-weight" class="text"/>
+                </ui:VisualElement>
             </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="dialog" enabled="true" style="display: none;">
+            <ui:VisualElement name="" class="dialog-body" style="flex-grow: 0; min-width: 100%; min-height: auto; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_17&quot;);">
+                <ui:Label text="Some event text" name="dialog-text" class="dialog-body-text"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="dialog-button-slot" class="dialog-button-slot"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

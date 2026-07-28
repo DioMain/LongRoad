@@ -47,6 +47,14 @@ MonoBehaviour:
     m_Key: hud_distance_reached
     m_Metadata:
       m_Items: []
+  - m_Id: 1025005067780096
+    m_Key: hud_inventory-drop-one
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1025121094811648
+    m_Key: hud_inventory-drop-all
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

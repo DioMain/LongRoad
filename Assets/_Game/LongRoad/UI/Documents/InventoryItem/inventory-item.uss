@@ -1,0 +1,32 @@
+#inventory-item {
+    height: 64px;
+    flex-direction: row;
+    margin-bottom: 6px;
+    flex-grow: 1;
+}
+
+#inventory-item:hover {
+    background-color: rgba(0, 0, 0, 0.102);
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+#item-icon {
+    flex-grow: 0;
+    width: 64px;
+}
+
+#item-name {
+    -unity-text-align: middle-left;
+    flex-grow: 0;
+    flex-shrink: 1;
+    color: rgb(241, 205, 155);
+    margin-left: 16px;
+}
+
+#item-counter {
+    flex-grow: 0;
+    -unity-text-align: middle-left;
+}

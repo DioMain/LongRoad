@@ -1,7 +1,7 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/DialogChoiceItem/DialogChoiceItemStyles.uss?fileID=7433441132597879392&amp;guid=4c5e69b1e45eab84da014fd463a66f10&amp;type=3#DialogChoiceItemStyles"/>
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/SharedStyles.uss?fileID=7433441132597879392&amp;guid=dc8a010e021c2594baa1fdf5ae619031&amp;type=3#SharedStyles"/>
-    <ui:VisualElement name="DialogChoiceItem">
+    <ui:VisualElement name="dialog-button-item">
         <ui:Button name="item-button" enabled="true" text="test" class="button" style="flex-grow: 1;"/>
     </ui:VisualElement>
 </ui:UXML>
