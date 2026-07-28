@@ -1,5 +1,65 @@
-:root {
+#person-card {
+    flex-grow: 0;
+    width: 300px;
+    height: 100%;
+    margin-top: 0;
+    margin-right: 8px;
+    margin-bottom: 0;
+    margin-left: 0;
+    flex-direction: row;
+    align-items: stretch;
 }
 
-#person-card {
+.person-card-hovered {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+#person-heal-bar {
+    flex-grow: 0;
+    background-image: resource("Sprites/Hud_Ui#Hud_Ui_6");
+    height: 44px;
+    width: 100%;
+    align-self: flex-start;
+    background-position-x: left 0;
+    -unity-background-scale-mode: scale-and-crop;
+    -unity-slice-type: tiled;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+#person-hunger-bar {
+    flex-grow: 0;
+    background-image: resource("Sprites/Hud_Ui#Hud_Ui_7");
+    height: 35px;
+    margin-top: 4px;
+    background-position-x: left 0;
+    align-self: flex-start;
+    width: 100%;
+    -unity-background-scale-mode: scale-and-crop;
+    align-items: flex-start;
+    transform-origin: left;
+    -unity-slice-type: tiled;
+}
+
+#person-mood-bar {
+    flex-grow: 0;
+    margin-top: 4px;
+    background-image: resource("Sprites/Hud_Ui#Hud_Ui_18");
+    height: 35px;
+    width: 100%;
+    -unity-background-scale-mode: scale-and-crop;
+    -unity-slice-type: tiled;
+    align-self: flex-start;
+    background-position-x: left 0;
+}
+
+#person-image {
+    flex-grow: 1;
+    visibility: visible;
+    padding-top: 13px;
+    padding-right: 13px;
+    padding-bottom: 13px;
+    padding-left: 13px;
 }

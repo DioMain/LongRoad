@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/InventoryItem/inventory-item.uss?fileID=7433441132597879392&amp;guid=d75987eeb99f9484f9687dd2077c4149&amp;type=3#inventory-item"/>
+    <ui:VisualElement name="inventory-item" style="margin-right: 6px;">
+        <ui:Image name="item-icon" source="project://database/Assets/_Game/Resources/Sprites/icons.png?fileID=-2978653956524333172&amp;guid=b1cde689221903743afc69195caf2161&amp;type=3#icons_0"/>
+        <ui:Label text="Бензин" name="item-name" class="text"/>
+        <ui:Label text="......................................................." class="text" style="-unity-text-align: middle-left; flex-grow: 1; flex-shrink: 1; text-overflow: clip; overflow: hidden;"/>
+        <ui:Label text="x99" name="item-counter" class="text"/>
+    </ui:VisualElement>
+</ui:UXML>

@@ -50,6 +50,14 @@ MonoBehaviour:
     m_Localized: Distance traveled
     m_Metadata:
       m_Items: []
+  - m_Id: 1025005067780096
+    m_Localized: Drop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1025121094811648
+    m_Localized: Drop all
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

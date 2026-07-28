@@ -1,13 +1,13 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/PersonCard/person-card-styles.uss?fileID=7433441132597879392&amp;guid=e2c91fa68789f6842bf5bd093fe66360&amp;type=3#person-card-styles"/>
-    <ui:VisualElement name="person-card" style="flex-grow: 0; width: 300px; height: 100%; margin-top: 0; margin-right: 8px; margin-bottom: 0; margin-left: 0; flex-direction: row; align-items: stretch;">
+    <ui:VisualElement name="person-card">
         <ui:VisualElement name="" style="flex-grow: 1;">
-            <ui:Image source="project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4584671053970592468&amp;guid=cbd7d29873541f34b89bae5a831369fd&amp;type=3#console.infoicon@2x" name="person-image" style="flex-grow: 1; visibility: visible; padding-top: 13px; padding-right: 13px; padding-bottom: 13px; padding-left: 13px;"/>
+            <ui:Image source="project://database/Assets/_Game/Resources/Sprites/icons.png?fileID=2189712646507832853&amp;guid=b1cde689221903743afc69195caf2161&amp;type=3#icons_9" name="person-image"/>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 0; width: 135px; padding-top: 17px; position: relative; height: 100%; padding-right: 4px;">
-            <ui:VisualElement name="person-heal-bar" style="flex-grow: 0; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_6&quot;); height: 44px; width: 100%; align-self: flex-start; background-position-x: left 0; -unity-background-scale-mode: scale-and-crop; -unity-slice-type: tiled; justify-content: flex-start; align-items: flex-start; flex-direction: column;"/>
-            <ui:VisualElement name="person-hunger-bar" style="flex-grow: 0; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_7&quot;); height: 35px; padding-top: 0; margin-top: 4px; background-position-x: left 0; align-self: flex-start; width: 100%; -unity-background-scale-mode: scale-and-crop; align-items: flex-start; transform-origin: left; -unity-slice-type: tiled;"/>
-            <ui:VisualElement name="person-mood-bar" style="flex-grow: 0; margin-top: 4px; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_18&quot;); height: 35px; width: 100%; -unity-background-scale-mode: scale-and-crop; -unity-slice-type: tiled; align-self: flex-start; background-position-x: left 0;"/>
+            <ui:VisualElement name="person-heal-bar"/>
+            <ui:VisualElement name="person-hunger-bar"/>
+            <ui:VisualElement name="person-mood-bar"/>
         </ui:VisualElement>
         <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=4785137545692993955&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_5" style="position: absolute; flex-grow: 1; width: 100%; height: 100%;"/>
     </ui:VisualElement>
