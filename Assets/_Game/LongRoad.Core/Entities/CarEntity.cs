@@ -26,7 +26,7 @@ namespace LongRoad.Core
         public CarEntity(Car entity) : base(entity)
         {
             Durability = entity.Durability;
-            Fuel = Mathf.Max(0, entity.StartingFuel);
+            Fuel = Mathf.Max(0, entity.DefaultFuel);
         }
 
         public void SetFuel(int value)

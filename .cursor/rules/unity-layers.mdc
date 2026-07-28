@@ -20,9 +20,9 @@ alwaysApply: false
 - **Naming**: `*Manager` = `MonoBehaviour` controllers (prefer `LongRoadBehaviour`); `*Service` = plain classes implementing `IService`, placed in `Services/` (`LongRoad.Services`). Inject service dependencies via **constructor**, not `Init(...)`. Exception: `GamePipeline` (full turn loop) stays at assembly root, no `Service` suffix.
 - **`GameManager`**: global singleton (`DontDestroyOnLoad`) for shared services (input, localization).
 - **`LocalManager`**: owns `GameData` (store only), `GamePipeline`, `PersonService`, `InventoryService`, `GameTimeService`, `TravelService`, `LocationService`, `MoneyService`; calls `CarModelManager.Init` / `GameUIManager.Init` after services are ready.
-- **`GameUIManager`**: scene UI host (`UIDocument` + MainUI); caches slots (`Hud`, `Content`, `Party`, `Inventory`, `Location`, `Overlay`); initializes registered `GameUIElement` children. Access via `Local.UI`.
+- **`GameUIManager`**: scene UI host (`UIDocument` + `Documents/MainUI`); caches `Root` / `Hud` / `Inventory` / `Dialog`; inits child `LongRoadUIElement`s. Access via `Local.UI`. Details: `.cursor/rules/ui.mdc`.
+- **`LongRoadUIElement`**: UI panel base (`UI` → `Local.UI`). Concrete `*UI` scripts in `UI/Elements/`. `Init` = query slots + subscribe; `Dispose` = unsubscribe.
 - **`CarModelManager`**: spawns `CarModel`; `SetState` / `RefreshState` from pipeline/travel/fuel events (services do not know about managers).
-- **`HudStatusUI`**: HUD turn/day/period + Continue («Поехали»).
 - **`GameData`**: session fields only (Car, Turn, Day, IsDaytime, Money, TravelledKm, CurrentLocation, Route) — no events/logic.
 - **`GameTimeService`**: turn advance after phase 3; day/night every 3 turns; UI events `OnTurnChanged` / `OnDayNightChanged` / `OnDayChanged`.
 - **`TravelService`**: road progress (`DistancePerTurn` km) when not at a location; arrive on absolute route distance. UI: `OnTravelProgress` / `OnArrived` / `OnDeparted`.
@@ -31,9 +31,9 @@ alwaysApply: false
 - **`GamePipeline`**: (1) player, (2) modifiers + bound Status/Trait, (3) random `[UseGameEvent]`, then `AdvanceTurn` + `AdvanceTravel`. UI: `OnPhaseChanged`, `OnEnded`.
 - **`PersonService`** (`IService`): party; phase-2 tick. UI: `OnPersonAdded` / `OnPersonRemoved` / `OnModifiersApplied`.
 - **`InventoryService`** (`IService`): cargo; `UseItem` + bound Item events. UI: `OnChanged` / item add/remove/used.
-- Prefer subclassing `LongRoadBehaviour` for access to `Game` / `Local` / `UI`.
+- Prefer subclassing `LongRoadBehaviour` for `Game` / `Local`; UI panels subclass `LongRoadUIElement` for `UI` too.
 - Concrete events subclass `GameEventBase`. Use `[UseGameEvent]` for phase-3; `[BoundGameEvent(kind, tag)]` for Status/Trait/Item. Catalogs cached.
-- UI subscribes to services / pipeline / entities — not `GameData`. Slot VisualElements come only from `GameUIManager`.
+- UI: subscribe to services / pipeline / entities — not `GameData`. Query only through `GameUIManager` slots + kebab-case UXML names. Markup in `UI/Documents/`, scripts in `UI/Elements/`.
 - UI and feature systems call into Core/Domain bases; avoid reinventing shared entity rules in UI callbacks.
 - Keep MonoBehaviours thin: orchestrate, don’t bury reusable rules only usable from one screen.
 

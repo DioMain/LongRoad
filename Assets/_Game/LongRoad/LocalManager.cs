@@ -2,6 +2,7 @@
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
 using LongRoad.Services;
+using LongRoad.UI;
 using UnityEngine;
 
 namespace LongRoad
@@ -64,9 +65,11 @@ namespace LongRoad
 
             Pipeline = new GamePipeline(People, Time, Travel);
 
-            carModel?.Init();
+            carModel.Init();
+
+            ui.Init();
+
             StartCoroutine(Pipeline.Run(this));
-            ui?.Init();
         }
 
         public void Continue()

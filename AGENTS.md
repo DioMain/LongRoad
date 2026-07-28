@@ -1,6 +1,6 @@
 # Long Road — Agent Guide
 
-Text adventure / trail simulation in the spirit of *The Oregon Trail*. Unity 6 (6000.4) + URP 2D + Input System + Unity Localization.
+Text adventure / trail simulation in the spirit of _The Oregon Trail_. Unity 6 (6000.4) + URP 2D + Input System + Unity Localization.
 
 ## Assemblies (dependency direction)
 
@@ -11,12 +11,12 @@ LongRoad.Core      → Domain, Packages
 LongRoad           → Domain, Core, Packages
 ```
 
-| Folder | Assembly | Role |
-|--------|----------|------|
-| `Assets/_Game/LongRoad.Domain` | `LongRoad.Domain` | Any logic that needs **no Unity** — pure C# rules, contracts, formulas |
-| `Assets/_Game/LongRoad.Core` | `LongRoad.Core` | **Base** systems & implementations (including shared game systems) that use Unity or are reused by features |
-| `Assets/_Game/LongRoad` | `LongRoad` | Main game pipeline, UI, scene wiring, feature systems that **compose** Core/Domain |
-| `Assets/Packages` | `LongRoad.Packages` | Local/third-party scripts (not UPM) |
+| Folder                         | Assembly            | Role                                                                                                        |
+| ------------------------------ | ------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `Assets/_Game/LongRoad.Domain` | `LongRoad.Domain`   | Any logic that needs **no Unity** — pure C# rules, contracts, formulas                                      |
+| `Assets/_Game/LongRoad.Core`   | `LongRoad.Core`     | **Base** systems & implementations (including shared game systems) that use Unity or are reused by features |
+| `Assets/_Game/LongRoad`        | `LongRoad`          | Main game pipeline, UI, scene wiring, feature systems that **compose** Core/Domain                          |
+| `Assets/Packages`              | `LongRoad.Packages` | Local/third-party scripts (not UPM)                                                                         |
 
 Game assets live under `Assets/_Game/Resources/` (ScriptableObjects, locales, scenes). Do not put game content in `Assets/Resources`.
 
@@ -24,11 +24,11 @@ Game assets live under `Assets/_Game/Resources/` (ScriptableObjects, locales, sc
 
 Ask in order:
 
-1. **Does it need Unity** (`UnityEngine`, SO, MonoBehaviour, coroutines, sprites, localization APIs)?  
-   - No → **Domain**  
+1. **Does it need Unity** (`UnityEngine`, SO, MonoBehaviour, coroutines, sprites, localization APIs)?
+   - No → **Domain**
    - Yes → continue
-2. **Is it a reusable base building block** (shared entity/scriptable, event runner, localization, input wrapper, shared person/status model)?  
-   - Yes → **Core**  
+2. **Is it a reusable base building block** (shared entity/scriptable, event runner, localization, input wrapper, shared person/status model)?
+   - Yes → **Core**
    - No → **LongRoad** (feature, screen, one-off event, turn/scene pipeline)
 
 Core **may** contain shared game logic. LongRoad owns the **main pipeline** and feature-specific systems that call into those bases.
@@ -49,9 +49,9 @@ Core **may** contain shared game logic. LongRoad owns the **main pipeline** and 
 
 - **`GameManager`** — global singleton (`DontDestroyOnLoad`): shared services (e.g. `PlayerInput`, `LocalizationManager`).
 - **`LocalManager`** — manager for the active **game scene**; owns `GameData`, `GamePipeline`, `PersonService`, `InventoryService`, `GameTimeService`, `TravelService`, `LocationService`, `MoneyService`, and kicks `CarModelManager.Init` / `GameUIManager.Init` after services are ready.
-- **`GameUIManager`** — scene UI host (`UIDocument` + `MainUI.uxml`); caches named slots (`Hud`, `Content`, `Party`, `Inventory`, `Location`, `Overlay`); stores and initializes child `GameUIElement` scripts. Access via `Local.UI` / `GameUIManager.Instance`. Child panels use slots from the manager — do not add separate `UIDocument`s for in-game panels.
+- **`GameUIManager`** — scene UI host (`UIDocument` + `Documents/MainUI.uxml`); caches slots `Root` / `Hud` / `Inventory` / `Dialog`; finds child `LongRoadUIElement`s and calls `Init`. Access via `Local.UI`. One document only — panels query those slots, never add another `UIDocument`.
+- **`LongRoadUIElement`** — abstract UI panel base (`LongRoad.UI`); exposes `UI` → `Local.UI`. Concrete panels live in `UI/Elements/` (`LongRoad.UI.Elements`), e.g. `DayCounterUI`. Override `Init` (query + subscribe) and `Dispose` (unsubscribe).
 - **`CarModelManager`** — spawns `CarModel`; exposes `SetState` / `RefreshState`. Subscribes to `Pipeline.OnPhaseChanged`, `Travel.OnArrived` / `OnDeparted`, `Car.OnFuelChanged` (services never reference the manager). States: `Off` (no fuel), `Idle` (Player phase or at location), `Drive` (Modifiers/Event on the road).
-- **`HudStatusUI`** (`GameUIElement`) — HUD turn / day / day-night labels + «Поехали» (`Local.Continue`); enabled only in `GamePhase.Player`.
 - **`GameData`** — session **data store only** (Car, Turn, Day, IsDaytime, Money, TravelledKm, CurrentLocation, Route). No events/logic; services read/write fields.
 - **`GameTimeService`** (`IService`) — advances turn after pipeline phase 3; every 3 turns flips day/night; after night→day increments `Day`. UI: `OnTurnChanged`, `OnDayNightChanged`, `OnDayChanged`.
 - **`TravelService`** (`IService`) — after turn advance, adds `Car.DistancePerTurn` km while on the road (`CurrentLocation == null`); arrives when `TravelledKm` hits absolute route stop distance. UI: `OnTravelProgress`, `OnArrived`, `OnDeparted`.
@@ -60,11 +60,22 @@ Core **may** contain shared game logic. LongRoad owns the **main pipeline** and 
 - **`GamePipeline`** — turn loop: (1) player (`Continue`), (2) modifiers + bound Status/Trait events, (3) random `[UseGameEvent]`, then `AdvanceTurn` + `AdvanceTravel`. UI: `OnPhaseChanged`, `OnEnded`.
 - **`PersonService`** (`IService`) — party roster; phase-2 hunger/heal tick. UI: `OnPersonAdded` / `OnPersonRemoved` / `OnModifiersApplied`.
 - **`InventoryService`** (`IService`) — session cargo; `TryAdd` respects `Car.MaxWeight`; `UseItem` runs bound Item events. UI: `OnChanged` / `OnItemAdded` / `OnItemRemoved` / `OnItemUsed`.
-- Scene MonoBehaviours should subclass `LongRoadBehaviour` for access to `Game` / `Local` / `UI`.
+- Scene MonoBehaviours subclass `LongRoadBehaviour` for `Game` / `Local`. UI panels subclass `LongRoadUIElement` for `UI` as well.
 
-## UI events
+## UI
 
-Subscribe to **services / `GamePipeline` / entities**, not `GameData`. Resolve VisualElement slots only through **`GameUIManager`** (`Local.UI` / `UI.Hud`, `UI.Content`, …):
+Layout and coding conventions: see `.cursor/rules/ui.mdc` (applies under `Assets/_Game/LongRoad/UI/`).
+
+| Path                            | Role                                                            |
+| ------------------------------- | --------------------------------------------------------------- |
+| `UI/GameUIManager.cs`           | Host + slot cache                                               |
+| `UI/LongRoadUIElement.cs`       | Panel base                                                      |
+| `UI/Elements/*UI.cs`            | Concrete panels                                                 |
+| `UI/Documents/MainUI.*`         | Shell UXML/USS                                                  |
+| `UI/Documents/SharedStyles.uss` | Shared `.button` / `.text`                                      |
+| `UI/Documents/<Template>/`      | Reusable UXML+USS (PersonCard, InventoryItem, DialogChoiceItem) |
+
+Subscribe to **services / `GamePipeline` / entities**, not `GameData`. Resolve nodes only via manager slots + kebab-case `Q("…")` names from UXML:
 
 - **Time**: `Local.Time` — turn / day-night / day
 - **Travel / Location / Money**: `Local.Travel`, `Local.Locations`, `Local.Money`
@@ -72,6 +83,7 @@ Subscribe to **services / `GamePipeline` / entities**, not `GameData`. Resolve V
 - **People**: `Local.People` + `PersonEntity.OnStatsChanged` (heal/hunger/mood) / status events
 - **Inventory**: `Local.Inventory`
 - **Car**: `Data.Car.OnFuelChanged` / `OnDurabilityChanged` (via `SetFuel` / `SetDurability`)
+- Dynamic UI strings: `Game.Localization.GetMainString` or `Game.Localization.GetEntityString`; static labels may use UXML Localization bindings.
 
 ## Game events
 

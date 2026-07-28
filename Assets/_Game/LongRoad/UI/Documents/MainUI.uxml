@@ -3,20 +3,20 @@
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/SharedStyles.uss?fileID=7433441132597879392&amp;guid=dc8a010e021c2594baa1fdf5ae619031&amp;type=3#SharedStyles"/>
     <ui:VisualElement name="main-root" picking-mode="Ignore" enabled="true">
         <ui:VisualElement name="hud" style="position: absolute; flex-direction: column; flex-grow: 1; height: 100%; display: flex;">
-            <ui:VisualElement style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 160px; flex-shrink: 0;">
+            <ui:VisualElement name="VisualElement" style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 160px; flex-shrink: 0;">
                 <ui:VisualElement name="main-info" style="width: 1049px; flex-grow: 0;">
                     <ui:VisualElement name="day-content" style="padding-left: 28px;">
                         <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-829042481604233788&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_8" name="day-image"/>
                         <ui:VisualElement style="flex-grow: 1; padding-top: 0; padding-right: 12px; padding-bottom: 0; padding-left: 12px;">
                             <ui:Label text="День 3" name="day-text" class="text" style="-unity-text-align: upper-center; padding-top: 0; margin-bottom: 0; padding-bottom: 0; margin-top: 0; color: rgb(230, 190, 150); font-size: 52px;"/>
-                            <ui:Label text="вторник" name="week-day-text" class="text" style="-unity-text-align: upper-center; margin-bottom: 0; padding-bottom: 0; padding-top: 0; margin-top: 0; font-size: 38px; letter-spacing: 8px;"/>
+                            <ui:Label text="понедельник" name="week-day-text" class="text" style="-unity-text-align: upper-center; margin-bottom: 0; padding-bottom: 0; padding-top: 0; margin-top: 0; font-size: 29px; letter-spacing: 8px;"/>
                         </ui:VisualElement>
                     </ui:VisualElement>
                     <ui:VisualElement name="car-status" style="flex-grow: 0; width: 344px; padding-left: 24px; padding-right: 24px;">
                         <ui:VisualElement name="" style="flex-grow: 1;">
                             <ui:VisualElement style="flex-grow: 1; padding-bottom: 8px; flex-direction: row;">
                                 <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-7033360883150334446&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_14"/>
-                                <ui:Label text="Лада" class="text" style="-unity-text-align: middle-center; flex-grow: 1; font-size: 52px; color: rgb(239, 198, 159);"/>
+                                <ui:Label text="Лада" name="car-name" class="text" style="-unity-text-align: middle-center; flex-grow: 1; font-size: 52px; color: rgb(239, 198, 159);"/>
                             </ui:VisualElement>
                             <ui:VisualElement name="car-heal-bar" style="flex-grow: 0; height: 18px; background-color: rgb(55, 41, 32); flex-direction: row;">
                                 <ui:VisualElement name="car-heal-bar-front" style="flex-grow: 0; width: 125px; background-color: rgb(106, 190, 50);"/>
@@ -36,7 +36,7 @@
                                 <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=1014394811&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_26"/>
                             </ui:VisualElement>
                             <ui:VisualElement name="gas-bar" style="flex-grow: 1; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_22&quot;); flex-direction: row; margin-top: 3px;">
-                                <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-6891876578642037120&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_19" name="gas-bar-cursor" style="transform-origin: center; align-self: flex-end;"/>
+                                <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-6891876578642037120&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_19" name="gas-bar-cursor" style="transform-origin: center; align-self: flex-end; translate: 0 0;"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>
