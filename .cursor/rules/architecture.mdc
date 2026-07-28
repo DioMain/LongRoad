@@ -24,7 +24,7 @@ Oregon Trail–style trail simulation. Code lives in assembly-defined layers und
 |----------|------|----------|
 | Domain | No Unity types needed | Pure rationing math, win/lose checks, interfaces (`IInit`), RNG resolution without SO |
 | Core | Shared base / reusable game system (may use Unity) | `LongRoadScriptable`, `Person` / `PersonEntity`, `GameEventBase`, `LocalizationManager`, behaviour bases |
-| LongRoad | Feature or pipeline that uses those bases | `GameManager`, `LocalManager`, `GameUIManager`, `GamePipeline`, services, UI panels, concrete events |
+| LongRoad | Feature or pipeline that uses those bases | `GameManager`, `LocalManager`, `GameUIManager`, `GamePipeline`, services, `LongRoadUIElement` panels (`UI/Elements`), concrete events |
 | Packages | Vendored utilities | NaughtyAttributes, DOTween |
 | `_Game/Resources` | Game assets | Characters, traits, locale tables, scenes |
 

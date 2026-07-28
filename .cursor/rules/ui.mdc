@@ -1,0 +1,75 @@
+---
+description: UI Toolkit layout, LongRoadUIElement panels, Documents/Elements conventions
+globs: Assets/_Game/LongRoad/UI/**/*
+alwaysApply: false
+---
+
+# Long Road UI
+
+UI Toolkit only. One scene `UIDocument` on `GameUIManager` — no extra documents for in-game panels.
+
+## Folder layout
+
+```
+UI/
+  GameUIManager.cs          # host; caches named slots; inits child elements
+  LongRoadUIElement.cs      # abstract panel base
+  Elements/                 # MonoBehaviour panels (*UI)
+  Documents/                # UXML + USS
+    MainUI.uxml / MainUI.uss
+    SharedStyles.uss        # shared .button / .text
+    PersonCard/             # reusable template + styles
+    InventoryItem/
+    DialogChoiceItem/
+```
+
+- Scripts → `Elements/` (`LongRoad.UI.Elements`). Markup/styles → `Documents/` (subfolder per reusable template).
+- Do not put panel logic next to UXML or invent a second `UIDocument`.
+
+## Class hierarchy
+
+`LongRoadBehaviourCore` → `LongRoadBehaviour` (`Game`, `Local`) → `LongRoadUIElement` (`UI` = `Local.UI`) → concrete `*UI`.
+
+```csharp
+// ✅ panel
+public class DayCounterUI : LongRoadUIElement { ... }
+
+// ❌ do not revive GameUIElement; do not put UI logic on plain LongRoadBehaviour
+```
+
+## GameUIManager
+
+- Serializes `UIDocument`; `Init` reads `rootVisualElement`, caches slots, then `GetComponentsInChildren<LongRoadUIElement>()` → each `Init()`.
+- Current slots: `Root`, `Hud`, `Inventory`, `Dialog` (UXML names `hud`, `inventory`, `dialog`).
+- Access: `Local.UI` / `GameUIManager` on `LocalManager`. Add a new top-level region → name it in MainUI, cache `Root.Q(...)` on the manager, use that slot from elements.
+
+## Element pattern
+
+1. In `Init`: resolve nodes from a manager slot (`UI.Hud.Q("day-content")`), then nested `Q` / `Q<T>`.
+2. Subscribe to **services / pipeline / entities**, not `GameData`.
+3. In `Dispose`: unsubscribe (mirror `Init`).
+4. Strings: `Game.Localization.GetMainString(key, …)` (or `(Game.Localization.GetEntityString(key, …))` for entities) for dynamic text; UXML Localization bindings OK for static labels.
+5. Keep panels thin — intents via `Local.*` / `Local.Continue()`, no game rules in UI.
+
+```csharp
+public override void Init()
+{
+    dayContent = UI.Hud.Q("day-content");
+    dayCounter = dayContent.Q<Label>("day-text");
+    Local.Time.OnDayChanged += OnDayChanged;
+}
+
+public override void Dispose()
+{
+    Local.Time.OnDayChanged -= OnDayChanged;
+}
+```
+
+## UXML / USS
+
+- Element `name`s: **kebab-case** (`day-content`, `go-button`) — must match `Q("…")`.
+- Layout/region styles in `MainUI.uss` (`#hud`, `#inventory`, …); shared look in `SharedStyles.uss`; template-local USS beside its UXML.
+- Prefer USS classes over long inline styles for repeated look (`.button`, `.text`).
+- Reusable rows/cards: clone template UXML (`PersonCard`, `InventoryItem`, `DialogChoiceItem`) into a slot — do not duplicate trees in MainUI.
+- Sprites/fonts via `resource("…")` under `_Game/Resources` when possible.
+- Motion: DOTween for simple feedback; USS transitions OK for hover/tint.

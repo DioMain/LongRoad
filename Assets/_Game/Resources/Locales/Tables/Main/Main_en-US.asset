@@ -58,6 +58,34 @@ MonoBehaviour:
     m_Localized: Drop all
     m_Metadata:
       m_Items: []
+  - m_Id: 1040325899796480
+    m_Localized: Monday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1040531286474752
+    m_Localized: Tuesday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1040533375238144
+    m_Localized: Wednesday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1040534688055296
+    m_Localized: Thursday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041003560910848
+    m_Localized: Friday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041005490290688
+    m_Localized: Saturday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041006496923648
+    m_Localized: Sunday
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

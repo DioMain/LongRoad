@@ -34,6 +34,14 @@ MonoBehaviour:
     m_Localized: test speciality
     m_Metadata:
       m_Items: []
+  - m_Id: 1229392226631680
+    m_Localized: Lada
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1229612419203072
+    m_Localized: This is my dad car
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

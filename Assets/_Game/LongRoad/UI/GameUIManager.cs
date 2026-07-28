@@ -1,30 +1,18 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace LongRoad
+namespace LongRoad.UI
 {
     public class GameUIManager : LongRoadBehaviour
     {
-        public static GameUIManager Instance { get; private set; }
-
         [SerializeField]
         private UIDocument document;
 
-        [SerializeField]
-        private GameUIElement[] elements;
-
         public VisualElement Root { get; private set; }
-        public VisualElement Hud { get; private set; }
-        public VisualElement Content { get; private set; }
-        public VisualElement Party { get; private set; }
-        public VisualElement Inventory { get; private set; }
-        public VisualElement Overlay { get; private set; }
-        public VisualElement Dialog { get; private set; }
 
-        private void Awake()
-        {
-            Instance = this;
-        }
+        public VisualElement Hud { get; private set; }
+        public VisualElement Inventory { get; private set; }
+        public VisualElement Dialog { get; private set; }
 
         public override void Init()
         {
@@ -34,24 +22,21 @@ namespace LongRoad
                 return;
             }
 
+            var elements = GetComponentsInChildren<LongRoadUIElement>();
+
             Root = document.rootVisualElement;
+            
             Hud = Root.Q("hud");
-            Content = Root.Q("content");
-            Party = Root.Q("party");
             Inventory = Root.Q("inventory");
-            Overlay = Root.Q("overlay");
             Dialog = Root.Q("dialog");
 
             if (elements == null)
                 return;
 
-            for (var i = 0; i < elements.Length; i++)
-                elements[i]?.Init();
-        }
-
-        public VisualElement GetSlot(string name)
-        {
-            return Root?.Q(name);
+            foreach (var item in elements)
+            {
+                item.Init();
+            }
         }
     }
 }

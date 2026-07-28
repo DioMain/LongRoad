@@ -55,6 +55,38 @@ MonoBehaviour:
     m_Key: hud_inventory-drop-all
     m_Metadata:
       m_Items: []
+  - m_Id: 1040325899796480
+    m_Key: weakday_monday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1040531286474752
+    m_Key: weakday_tuesday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1040533375238144
+    m_Key: weakday_wednesday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1040534688055296
+    m_Key: weakday_thursday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041003560910848
+    m_Key: weakday_friday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041005490290688
+    m_Key: weakday_saturday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041006496923648
+    m_Key: weakday_sunday
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041486002339840
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
