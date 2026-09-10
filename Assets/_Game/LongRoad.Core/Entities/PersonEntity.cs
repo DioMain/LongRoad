@@ -16,7 +16,7 @@ namespace LongRoad.Core
 
         public IReadOnlyList<LiveStatus> LiveStatuses => _liveStatutes;
 
-        public IReadOnlyList<Trait> Traits => Entity.Traits;
+        public IReadOnlyList<Trait> Traits => Prototype.Traits;
 
         public event Action<PersonEntity> OnStatsChanged;
         public event Action<PersonEntity, LiveStatus> OnStatusAdded;

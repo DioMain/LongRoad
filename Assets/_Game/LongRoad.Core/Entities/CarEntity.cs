@@ -10,13 +10,13 @@ namespace LongRoad.Core
         public int Fuel { get; private set; }
         public int Durability { get; private set; }
 
-        public int FuelConsumption => Entity.FuelConsumption;
+        public int FuelConsumption => Prototype.FuelConsumption;
 
-        public float MaxWeight => Entity.MaxWeight;
+        public float MaxWeight => Prototype.MaxWeight;
 
-        public float DistancePerTurn => Entity.DistancePerTurn;
+        public float DistancePerTurn => Prototype.DistancePerTurn;
 
-        public CarModel ModelPrefab => Entity.Model;
+        public CarModel ModelPrefab => Prototype.Model;
 
         public CarModel ModelInstance { get; private set; }
 
@@ -51,10 +51,10 @@ namespace LongRoad.Core
 
         public CarModel SpawnModel(Transform parent = null)
         {
-            if (Entity.Model == null)
+            if (Prototype.Model == null)
                 return null;
 
-            ModelInstance = GameObject.Instantiate(Entity.Model, parent.position, parent.rotation, parent);
+            ModelInstance = GameObject.Instantiate(Prototype.Model, parent.position, parent.rotation, parent);
             ModelInstance.Init();
             return ModelInstance;
         }

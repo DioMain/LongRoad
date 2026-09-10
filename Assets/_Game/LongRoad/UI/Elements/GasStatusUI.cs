@@ -26,8 +26,8 @@ namespace LongRoad.UI.Elements
 
         private void OnFuelChanged(CarEntity car, int fuel)
         {
-            var max = car.Entity.DefaultFuel;
-            var ratio = max / car.Fuel - .04f;
+            var max = car.Prototype.DefaultFuel;
+            var ratio = car.Fuel / (float)max - .04f;
 
             gasBarCursor.style.left = Length.Percent(ratio * 100f);
         }

@@ -1,4 +1,5 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="inventory-item" src="project://database/Assets/_Game/LongRoad/UI/Documents/InventoryItem/inventory-item.uxml?fileID=9197481963319205126&amp;guid=269e3516f9eba2a4585731dccf3b8cf0&amp;type=3#inventory-item"/>
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/MainUI.uss?fileID=7433441132597879392&amp;guid=9d5c4b3a2e1f0d9c8b7a695847362514&amp;type=3#MainUI"/>
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/SharedStyles.uss?fileID=7433441132597879392&amp;guid=dc8a010e021c2594baa1fdf5ae619031&amp;type=3#SharedStyles"/>
     <ui:VisualElement name="main-root" picking-mode="Ignore" enabled="true">
@@ -73,7 +74,7 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="inventory" style="display: none;">
-            <ui:VisualElement name="inventory-button-slot" style="display: none;">
+            <ui:VisualElement name="inventory-button-slot" style="display: flex;">
                 <ui:Button text="Button" name="drop-one-button" class="button inventory-drop-button">
                     <Bindings>
                         <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(1025005067780096)"/>
@@ -86,8 +87,10 @@
                 </ui:Button>
             </ui:VisualElement>
             <ui:VisualElement name="inventory-content" style="flex-grow: 0; display: flex;">
-                <ui:ScrollView name="inventory-scroll-view" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible"/>
-                <ui:VisualElement style="flex-grow: 0; height: 42px; margin-top: 12px; flex-direction: row; justify-content: flex-end;">
+                <ui:ScrollView name="inventory-scroll-view" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible">
+                    <ui:Instance template="inventory-item"/>
+                </ui:ScrollView>
+                <ui:VisualElement name="" style="flex-grow: 0; height: 42px; margin-top: 12px; flex-direction: row; justify-content: flex-end;">
                     <ui:Label text="200kg / 200kg" name="inventory-weight" class="text"/>
                 </ui:VisualElement>
             </ui:VisualElement>

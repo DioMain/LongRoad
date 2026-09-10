@@ -12,9 +12,6 @@ namespace LongRoad
         private CarEntity Car => Local?.Data?.Car;
 
         private CarModel model;
-        private GamePhase _phase = GamePhase.Player;
-        private bool _subscribed;
-
         public CarModel Model => model;
 
         public CarModelState State => model != null ? model.State : CarModelState.Off;
@@ -49,13 +46,13 @@ namespace LongRoad
                 return;
             }
 
-            if (_phase == GamePhase.Player || Local.Data.CurrentLocation != null)
+            if (Local.Pipeline.Phase == GamePhase.Player || Local.Data.CurrentLocation != null)
             {
                 SetState(CarModelState.Idle);
                 return;
             }
 
-            if (_phase == GamePhase.Modifiers || _phase == GamePhase.Event)
+            if (Local.Pipeline.Phase == GamePhase.Modifiers || Local.Pipeline.Phase == GamePhase.Event)
             {
                 SetState(CarModelState.Drive);
                 return;
@@ -67,7 +64,7 @@ namespace LongRoad
         public override void Dispose()
         {
             Unsubscribe();
-            model?.Dispose();
+            model.Dispose();
         }
 
         private void OnDestroy()
@@ -77,56 +74,21 @@ namespace LongRoad
 
         private void Subscribe()
         {
-            if (_subscribed)
-                return;
-
-            if (Local?.Pipeline != null)
-                Local.Pipeline.OnPhaseChanged += HandlePhaseChanged;
-
-            if (Local?.Travel != null)
-            {
-                Local.Travel.OnArrived += HandleArrived;
-                Local.Travel.OnDeparted += HandleDeparted;
-            }
+            Local.Pipeline.OnPhaseChanged += HandlePhaseChanged;
 
             if (Car != null)
                 Car.OnFuelChanged += HandleFuelChanged;
-
-            _subscribed = true;
         }
 
         private void Unsubscribe()
         {
-            if (!_subscribed)
-                return;
-
-            if (Local?.Pipeline != null)
-                Local.Pipeline.OnPhaseChanged -= HandlePhaseChanged;
-
-            if (Local?.Travel != null)
-            {
-                Local.Travel.OnArrived -= HandleArrived;
-                Local.Travel.OnDeparted -= HandleDeparted;
-            }
+            Local.Pipeline.OnPhaseChanged -= HandlePhaseChanged;
 
             if (Car != null)
                 Car.OnFuelChanged -= HandleFuelChanged;
-
-            _subscribed = false;
         }
 
-        private void HandlePhaseChanged(GamePhase phase)
-        {
-            _phase = phase;
-            RefreshState();
-        }
-
-        private void HandleArrived(Location _)
-        {
-            RefreshState();
-        }
-
-        private void HandleDeparted(Location _)
+        private void HandlePhaseChanged(GamePhase _)
         {
             RefreshState();
         }

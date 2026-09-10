@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Lada
   m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.Car
   Tag: lada
-  FuelConsumption: 1
+  FuelConsumption: 10
   Durability: 100
   MaxWeight: 100
   DistancePerTurn: 10
-  StartingFuel: 50
+  DefaultFuel: 50
   Model: {fileID: 5558016714250436308, guid: fcbf47d1a3044ae4090ef0c82fba201f, type: 3}

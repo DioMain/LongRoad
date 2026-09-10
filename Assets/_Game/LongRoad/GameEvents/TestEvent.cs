@@ -1,4 +1,4 @@
-﻿using LongRoad.Core.GameEvent;
+﻿using LongRoad.Core.GameEvent.Abstractions;
 using System.Collections;
 using UnityEngine;
 

@@ -3,6 +3,7 @@ using LongRoad.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace LongRoad.Services
 {
@@ -38,13 +39,13 @@ namespace LongRoad.Services
             if (_data.Route == null || _data.Car == null)
                 return;
 
-            if (_data.CurrentLocation != null)
-                return;
-
             if (_data.Car.Fuel <= 0)
                 return;
 
-            _data.TravelledKm += _data.Car.DistancePerTurn;
+            if (_data.CurrentLocation != null)
+                LeaveLocation();
+
+            _data.TravelledKm += Mathf.RoundToInt(_data.Car.DistancePerTurn * UnityEngine.Random.Range(0.75f, 1.25f));
             _data.Car.SetFuel(_data.Car.Fuel - _data.Car.FuelConsumption);
             OnTravelProgress?.Invoke(_data.TravelledKm);
 

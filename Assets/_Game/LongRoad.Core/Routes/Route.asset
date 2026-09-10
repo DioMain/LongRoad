@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.Route
   Tag: Route
   Stops:
-  - Location: {fileID: 0}
+  - Location: {fileID: 11400000, guid: 03144e753967319438aa0a515e80e1cc, type: 2}
     DistanceFromStartKm: 100

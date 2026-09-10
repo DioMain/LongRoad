@@ -1,3 +1,5 @@
+using LongRoad.Core.GameEvent.Abstractions;
+using LongRoad.Core.Scriptables.Abstractions;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -8,15 +10,14 @@ namespace LongRoad.Core.GameEvent
     {
         public static IEnumerator Run(
             BoundGameEventKind kind,
-            string tag,
-            MonoBehaviour host,
-            PersonEntity source = null,
-            PersonEntity target = null)
+            LongRoadScriptable source,
+            PersonEntity target,
+            MonoBehaviour host)
         {
-            if (host == null || string.IsNullOrWhiteSpace(tag))
+            if (host == null)
                 yield break;
 
-            var types = BoundEventCatalog.Get(kind, tag);
+            var types = BoundEventCatalog.Get(kind, source.Tag);
             for (var i = 0; i < types.Count; i++)
             {
                 if (!(Activator.CreateInstance(types[i]) is GameEventBase gameEvent))

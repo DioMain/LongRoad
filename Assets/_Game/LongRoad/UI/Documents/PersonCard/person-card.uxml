@@ -5,7 +5,7 @@
             <ui:Image source="project://database/Assets/_Game/Resources/Sprites/icons.png?fileID=2189712646507832853&amp;guid=b1cde689221903743afc69195caf2161&amp;type=3#icons_9" name="person-image"/>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 0; width: 135px; padding-top: 17px; position: relative; height: 100%; padding-right: 4px;">
-            <ui:VisualElement name="person-heal-bar"/>
+            <ui:VisualElement name="person-heal-bar" style="overflow: visible;"/>
             <ui:VisualElement name="person-hunger-bar"/>
             <ui:VisualElement name="person-mood-bar"/>
         </ui:VisualElement>
