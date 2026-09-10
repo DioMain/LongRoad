@@ -95,10 +95,9 @@ namespace LongRoad.Services
 
             yield return BoundEventRunner.Run(
                 BoundGameEventKind.Item,
-                item.Tag,
-                host,
-                source,
-                target);
+                item,
+                target, 
+                host);
         }
 
         private float GetMaxWeight()

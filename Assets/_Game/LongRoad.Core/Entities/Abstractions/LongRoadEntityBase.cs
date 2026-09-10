@@ -5,11 +5,11 @@ namespace LongRoad.Core.Entities.Abstraction
     public abstract class LongRoadEntityBase<T> 
         where T : LongRoadScriptable
     {
-        public T Entity { get; private set; }
+        public T Prototype { get; private set; }
 
-        public LongRoadEntityBase(T entity)
+        public LongRoadEntityBase(T prototype)
         {
-            Entity = entity;
+            Prototype = prototype;
         }
     }
 }

@@ -26,7 +26,7 @@ namespace LongRoad
 
         public GameData Data { get; private set; }
         public GamePipeline Pipeline { get; private set; }
-        public PersonService People { get; private set; }
+        public PersonService Persons { get; private set; }
         public InventoryService Inventory { get; private set; }
         public GameTimeService Time { get; private set; }
         public TravelService Travel { get; private set; }
@@ -53,17 +53,17 @@ namespace LongRoad
             if (selectedCar != null)
                 Data.Car = new CarEntity(selectedCar);
 
-            People = new PersonService();
+            Persons = new PersonService();
             if (startingPerson != null)
-                People.LoadRoster(new[] { startingPerson });
+                Persons.LoadRoster(new[] { startingPerson });
 
             Inventory = new InventoryService(Data);
             Time = new GameTimeService(Data);
             Travel = new TravelService(Data);
             Money = new MoneyService(Data);
-            Locations = new Services.LocationService(Data, People, Inventory, Travel, Money);
+            Locations = new Services.LocationService(Data, Persons, Inventory, Travel, Money);
 
-            Pipeline = new GamePipeline(People, Time, Travel);
+            Pipeline = new GamePipeline(Persons, Time, Travel);
 
             carModel.Init();
 

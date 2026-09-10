@@ -1,4 +1,5 @@
 using LongRoad.Core.GameEvent;
+using LongRoad.Core.GameEvent.Abstractions;
 using LongRoad.Services;
 using System;
 using System.Collections;
@@ -33,6 +34,17 @@ namespace LongRoad
         private bool _continueRequested;
 
         public GameEndState EndState { get; private set; } = GameEndState.None;
+
+        private GamePhase phase = GamePhase.Player;
+        public GamePhase Phase
+        {
+            get => phase;
+            private set
+            {
+                phase = value;
+                OnPhaseChanged(value);
+            }
+        }
 
         public event Action<GameEndState> OnEnded;
         public event Action<GamePhase> OnPhaseChanged;
@@ -92,7 +104,7 @@ namespace LongRoad
 
         private IEnumerator PlayerPhase()
         {
-            OnPhaseChanged?.Invoke(GamePhase.Player);
+            Phase = GamePhase.Player;
             _continueRequested = false;
 
             while (!_continueRequested && EndState == GameEndState.None)
@@ -101,7 +113,7 @@ namespace LongRoad
 
         private IEnumerator ModifiersPhase(MonoBehaviour listener)
         {
-            OnPhaseChanged?.Invoke(GamePhase.Modifiers);
+            Phase = GamePhase.Modifiers;
             _people?.ApplyPhaseModifiers();
 
             if (_people == null)
@@ -124,10 +136,10 @@ namespace LongRoad
                         continue;
 
                     yield return BoundEventRunner.Run(
-                        BoundGameEventKind.Status,
-                        status.Tag,
-                        listener,
-                        source: person);
+                        BoundGameEventKind.LiveStatus,
+                        status,
+                        person, 
+                        listener);
                 }
             }
 
@@ -152,16 +164,16 @@ namespace LongRoad
 
                     yield return BoundEventRunner.Run(
                         BoundGameEventKind.Trait,
-                        trait.Tag,
-                        listener,
-                        source: person);
+                        trait,
+                        person, 
+                        listener);
                 }
             }
         }
 
         private IEnumerator EventPhase(MonoBehaviour listener)
         {
-            OnPhaseChanged?.Invoke(GamePhase.Event);
+            Phase = GamePhase.Event;
             var pool = new List<(Type Type, float Probability)>(GetEventCatalog());
 
             while (pool.Count > 0 && EndState == GameEndState.None)

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace LongRoad.Core.GameEvent
+namespace LongRoad.Core.GameEvent.Abstractions
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
     public sealed class UseGameEventAttribute : Attribute

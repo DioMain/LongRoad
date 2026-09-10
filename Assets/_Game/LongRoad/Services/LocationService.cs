@@ -90,7 +90,7 @@ namespace LongRoad.Services
             if (!_money.TrySpend(location.PriceForHospital))
                 return false;
 
-            person.SetHeal(person.Entity.DefaultHeal);
+            person.SetHeal(person.Prototype.DefaultHeal);
             OnChanged?.Invoke();
             return true;
         }
@@ -126,15 +126,6 @@ namespace LongRoad.Services
 
             _shopStock[index] = stock - count;
             OnChanged?.Invoke();
-            return true;
-        }
-
-        public bool LeaveLocation()
-        {
-            if (_data.CurrentLocation == null)
-                return false;
-
-            _travel.LeaveLocation();
             return true;
         }
 

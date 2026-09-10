@@ -1,6 +1,6 @@
 using System;
 
-namespace LongRoad.Core.GameEvent
+namespace LongRoad.Core.GameEvent.Abstractions
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = true)]
     public sealed class BoundGameEventAttribute : Attribute

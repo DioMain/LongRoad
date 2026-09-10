@@ -40,7 +40,7 @@ namespace LongRoad.UI.Elements
 
         public string GetWeekDayKey(int day)
         {
-            return (day - 1 % 7) switch
+            return (day - 1 % 6) switch
             {
                 0 => "weakday_monday",
                 1 => "weakday_tuesday",

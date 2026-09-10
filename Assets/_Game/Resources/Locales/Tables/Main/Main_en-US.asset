@@ -86,6 +86,10 @@ MonoBehaviour:
     m_Localized: Sunday
     m_Metadata:
       m_Items: []
+  - m_Id: 1041486002339840
+    m_Localized: '{0} KM'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

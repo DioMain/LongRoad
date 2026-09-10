@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.Person
   Tag: test
+  Sprite: {fileID: 3542127132570728493, guid: 9387dafd3f0de144891c58256fc92de5, type: 3}
   Specailty: {fileID: 11400000, guid: ee83799dd9d8df04ba2ecd5395ffa8f5, type: 2}
   Traits: []
   DefaultHeal: 100
   DefaultHunger: 100
+  DefaultMood: 100

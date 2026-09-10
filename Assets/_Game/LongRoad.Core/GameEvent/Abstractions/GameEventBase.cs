@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace LongRoad.Core.GameEvent
+namespace LongRoad.Core.GameEvent.Abstractions
 {
     public abstract class GameEventBase
     {

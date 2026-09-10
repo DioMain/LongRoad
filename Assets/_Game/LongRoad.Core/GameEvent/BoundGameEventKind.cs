@@ -2,7 +2,7 @@ namespace LongRoad.Core.GameEvent
 {
     public enum BoundGameEventKind
     {
-        Status,
+        LiveStatus,
         Trait,
         Item
     }

@@ -21,7 +21,7 @@ namespace LongRoad.UI.Elements
             carName = carStatus.Q<Label>("car-name");
             healBarFront = carStatus.Q("car-heal-bar-front");
 
-            carName.text = car.Entity.GetName(Game.Localization);
+            carName.text = car.Prototype.GetName(Game.Localization);
 
             car.OnDurabilityChanged += OnDurabilityChanged;
             OnDurabilityChanged(car, car.Durability);
@@ -29,7 +29,7 @@ namespace LongRoad.UI.Elements
 
         private void OnDurabilityChanged(CarEntity _, int durability)
         {
-            var max = car.Entity.Durability;
+            var max = car.Prototype.Durability;
             var ratio = max > 0 ? (float)durability / max : 0f;
             healBarFront.style.width = Length.Percent(ratio * 100f);
         }

@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -347,6 +348,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
+  m_ComponentVersion: 1
+  m_AssetsPPU: 72
+  m_RefResolutionX: 1280
+  m_RefResolutionY: 720
+  m_CropFrame: 4
+  m_GridSnapping: 0
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &525070134
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +421,10 @@ GameObject:
   - component: {fileID: 530290856}
   - component: {fileID: 530290857}
   - component: {fileID: 530290858}
+  - component: {fileID: 530290859}
+  - component: {fileID: 530290860}
+  - component: {fileID: 530290861}
+  - component: {fileID: 530290862}
   m_Layer: 0
   m_Name: ElementsPool
   m_TagString: Untagged
@@ -460,6 +489,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360abb94e04bc654195424a74915424c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.GasStatusUI
+--- !u!114 &530290859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530290854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c9b41d11026ae42a1421d7f454821a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.MoneyBar
+--- !u!114 &530290860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530290854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dad2094c7cffd246a89fbfab7f22530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.PartyUI
+  personCardPrefab: {fileID: 9197481963319205126, guid: 3a7bb3bd40a404b4999df33083ff9fc4, type: 3}
+--- !u!114 &530290861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530290854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6ccc24f2d95bd4da0f74142b464741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.GoButtonUI
+--- !u!114 &530290862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530290854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f325046e3250a9d4481fa82508315512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.DistanceStatusUI
 --- !u!1 &581623578
 GameObject:
   m_ObjectHideFlags: 0
