@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 
 namespace LongRoad.UI.Elements
 {
-    public class InvetoryUI : LongRoadUIElement
+    public class InventoryUI : LongRoadUIElement
     {
         public Button inventoryButton;
 
