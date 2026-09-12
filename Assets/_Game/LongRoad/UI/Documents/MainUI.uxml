@@ -72,7 +72,7 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="inventory" style="display: flex;">
+        <ui:VisualElement name="inventory" style="display: none;">
             <ui:VisualElement name="inventory-content" style="flex-grow: 0; display: flex; width: 42%;">
                 <ui:ScrollView name="inventory-scroll-view" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible"/>
                 <ui:VisualElement name="" style="flex-grow: 0; height: 42px; margin-top: 12px; flex-direction: row; justify-content: flex-end;">
@@ -95,7 +95,7 @@
                                 <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(17717183135432704)"/>
                             </Bindings>
                         </ui:Label>
-                        <ui:Button text="" name="close-modal" icon-image="project://database/Packages/com.unity.2d.animation/Editor/Assets/EditorIcons/Dark/d_Visibility_Hidded@3x.png?fileID=21300000&amp;guid=6d082a477f1715f498c6a28543125ec8&amp;type=3#d_Visibility_Hidded@3x" class="icon-button button-image64" style="height: 51px; width: 51px; align-items: center; justify-content: space-around; align-self: center;"/>
+                        <ui:Button text="" name="close-modal-button" icon-image="project://database/Assets/_Game/Resources/Sprites/icons.png?fileID=-1808354166&amp;guid=b1cde689221903743afc69195caf2161&amp;type=3#icons_18" class="icon-button button-image48" style="height: 51px; width: 51px; align-items: center; justify-content: center; align-self: center;"/>
                     </ui:VisualElement>
                     <ui:VisualElement name="person-selector-content" style="flex-grow: 1;"/>
                 </ui:VisualElement>
