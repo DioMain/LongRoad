@@ -87,6 +87,14 @@ MonoBehaviour:
     m_Key: hud_distance_km
     m_Metadata:
       m_Items: []
+  - m_Id: 17717183135432704
+    m_Key: hud_person_select_modal_label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17719230832394240
+    m_Key: hud_inventory_weight_km
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

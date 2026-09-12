@@ -5,5 +5,6 @@
         <ui:Label text="Бензин" name="item-name" class="text"/>
         <ui:Label text="......................................................." class="text" style="-unity-text-align: middle-left; flex-grow: 1; flex-shrink: 1; text-overflow: clip; overflow: hidden;"/>
         <ui:Label text="x99" name="item-counter" class="text"/>
+        <ui:Button icon-image="project://database/Packages/com.unity.collab-proxy/Editor/Assets/Images/d_icondeletedremote@2x.png?fileID=2800000&amp;guid=626b9cddb29049e4cac50cd87b419945&amp;type=3#d_icondeletedremote@2x" name="item-delete-button" class="icon-button" style="height: 49px; width: 49px; align-self: center;"/>
     </ui:VisualElement>
 </ui:UXML>

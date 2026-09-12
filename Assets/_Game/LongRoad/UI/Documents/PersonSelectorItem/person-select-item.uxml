@@ -1,0 +1,4 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/PersonSelectorItem/person-select-item.uss?fileID=7433441132597879392&amp;guid=8ce10b7fb8d50014ca3a49bab490ff2e&amp;type=3#person-select-item"/>
+    <ui:Button text="PersonName" name="person-select-item-button" icon-image="project://database/Assets/_Game/Resources/Sprites/Chars.png?fileID=-952632683968858797&amp;guid=7804c05492110624687f76e690bf6067&amp;type=3#Chars_1"/>
+</ui:UXML>
