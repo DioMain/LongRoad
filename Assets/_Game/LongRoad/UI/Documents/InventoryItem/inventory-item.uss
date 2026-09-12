@@ -6,7 +6,7 @@
 }
 
 #inventory-item:hover {
-    background-color: rgba(0, 0, 0, 0.102);
+    background-color: rgba(0, 0, 0, 0.2);
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;

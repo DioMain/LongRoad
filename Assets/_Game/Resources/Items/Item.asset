@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d38300c7ac7b54fb08176ddb60c43b, type: 3}
   m_Name: Item
   m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.Item
-  Tag: 
+  Tag: fuel_low
   Weight: 1
-  Icon: {fileID: 0}
+  Icon: {fileID: -2978653956524333172, guid: b1cde689221903743afc69195caf2161, type: 3}
