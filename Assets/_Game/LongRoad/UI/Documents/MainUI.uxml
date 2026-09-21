@@ -95,7 +95,7 @@
                                 <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(17717183135432704)"/>
                             </Bindings>
                         </ui:Label>
-                        <ui:Button text="" name="close-modal-button" icon-image="project://database/Assets/_Game/Resources/Sprites/icons.png?fileID=-1808354166&amp;guid=b1cde689221903743afc69195caf2161&amp;type=3#icons_18" class="icon-button button-image48" style="height: 51px; width: 51px; align-items: center; justify-content: center; align-self: center;"/>
+                        <ui:Button text="" name="close-modal-button" icon-image="project://database/Assets/_Game/Resources/Sprites/icons.png?fileID=-1808354166&amp;guid=b1cde689221903743afc69195caf2161&amp;type=3#icons_18" class="icon-button button-image96" style="height: 67px; width: 67px; align-items: center; justify-content: center; align-self: center; overflow: hidden;"/>
                     </ui:VisualElement>
                     <ui:VisualElement name="person-selector-content" style="flex-grow: 1;"/>
                 </ui:VisualElement>
