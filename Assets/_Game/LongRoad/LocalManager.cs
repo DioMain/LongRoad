@@ -1,12 +1,23 @@
 ﻿using LongRoad.Core;
+using LongRoad.Core.Inventory;
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
 using LongRoad.Services;
 using LongRoad.UI;
+using NaughtyAttributes;
+using System;
 using UnityEngine;
 
 namespace LongRoad
 {
+    [Serializable]
+    public struct ItemPresetItem
+    {
+        public Item Item;
+        public int Count;
+    }
+
+
     public class LocalManager : MonoBehaviour, IInit
     {
         public static LocalManager Instance;
@@ -19,6 +30,10 @@ namespace LongRoad
         private Route startingRoute;
         [SerializeField]
         private float startingMoney = 100f;
+        [SerializeField]
+        [ReorderableList]
+        private ItemPresetItem[] startingItems;
+        [Space]
         [SerializeField]
         private GameUIManager ui;
         [SerializeField]
@@ -62,6 +77,11 @@ namespace LongRoad
             Travel = new TravelService(Data);
             Money = new MoneyService(Data);
             Locations = new Services.LocationService(Data, Persons, Inventory, Travel, Money);
+
+            foreach (var item in startingItems)
+            {
+                Inventory.TryAdd(item.Item, item.Count);
+            }
 
             Pipeline = new GamePipeline(Persons, Time, Travel);
 

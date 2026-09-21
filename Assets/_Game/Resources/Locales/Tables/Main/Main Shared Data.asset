@@ -95,6 +95,10 @@ MonoBehaviour:
     m_Key: hud_inventory_weight_km
     m_Metadata:
       m_Items: []
+  - m_Id: 17745595614969856
+    m_Key: hud_inventory_item_count
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

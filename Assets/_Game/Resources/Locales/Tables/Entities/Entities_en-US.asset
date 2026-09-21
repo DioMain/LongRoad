@@ -42,6 +42,14 @@ MonoBehaviour:
     m_Localized: This is my dad car
     m_Metadata:
       m_Items: []
+  - m_Id: 17925730423095296
+    m_Localized: Small canister
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17926041309102080
+    m_Localized: Restore 20 fuel points
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

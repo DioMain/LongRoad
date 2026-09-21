@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: Item
   m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.Item
   Tag: fuel_low
-  Weight: 1
   Icon: {fileID: -2978653956524333172, guid: b1cde689221903743afc69195caf2161, type: 3}
+  Weight: 1
+  IsFood: 0
+  HungerResotre: 0
+  IsMedicine: 0
+  MedicineResotre: 0
+  IsFuel: 1
+  FuelResotre: 20

@@ -39,6 +39,14 @@ MonoBehaviour:
     m_Key: lada_desc
     m_Metadata:
       m_Items: []
+  - m_Id: 17925730423095296
+    m_Key: fuel_low_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17926041309102080
+    m_Key: fuel_low_desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

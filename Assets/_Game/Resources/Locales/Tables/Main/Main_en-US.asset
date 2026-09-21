@@ -95,7 +95,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17719230832394240
-    m_Localized: '{0}km / {1}km'
+    m_Localized: '{0}kg / {1}kg'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17745595614969856
+    m_Localized: '{0}x'
     m_Metadata:
       m_Items: []
   references:

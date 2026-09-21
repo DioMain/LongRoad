@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 530290860}
   - component: {fileID: 530290861}
   - component: {fileID: 530290862}
+  - component: {fileID: 530290863}
   m_Layer: 0
   m_Name: ElementsPool
   m_TagString: Untagged
@@ -538,6 +539,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f325046e3250a9d4481fa82508315512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.DistanceStatusUI
+--- !u!114 &530290863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530290854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218b27fec87963640a9f04ae3debac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.InventoryUI
+  inventoryItemPrefab: {fileID: 9197481963319205126, guid: 269e3516f9eba2a4585731dccf3b8cf0, type: 3}
 --- !u!1 &581623578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +1027,9 @@ MonoBehaviour:
   selectedCar: {fileID: 11400000, guid: 3f3ad6f1d18a584418f5235bd93ed72c, type: 2}
   startingRoute: {fileID: 11400000, guid: 1281ee473b68874409923b4ff4ae88bc, type: 2}
   startingMoney: 100
+  startingItems:
+  - Item: {fileID: 11400000, guid: adc12bffd9aa3ec4abee07d7190318fe, type: 2}
+    Count: 3
   ui: {fileID: 581623581}
   carModel: {fileID: 1500000003}
 --- !u!1 &1500000001

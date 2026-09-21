@@ -1,4 +1,5 @@
 using LongRoad.Core.Scriptables;
+using System;
 
 namespace LongRoad.Core.Inventory
 {

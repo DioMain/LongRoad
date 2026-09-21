@@ -3,6 +3,7 @@
     flex-direction: row;
     margin-bottom: 6px;
     flex-grow: 1;
+    padding-right: 8px;
 }
 
 #inventory-item:hover {
