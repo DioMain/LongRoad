@@ -35,7 +35,7 @@ namespace LongRoad.Core
             if (Fuel == value)
                 return;
 
-            Fuel = value;
+            Fuel = Mathf.Clamp(value, 0, Prototype.DefaultFuel);
             OnFuelChanged?.Invoke(this, Fuel);
         }
 

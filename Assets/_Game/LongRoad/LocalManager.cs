@@ -10,30 +10,13 @@ using UnityEngine;
 
 namespace LongRoad
 {
-    [Serializable]
-    public struct ItemPresetItem
-    {
-        public Item Item;
-        public int Count;
-    }
+
 
 
     public class LocalManager : MonoBehaviour, IInit
     {
         public static LocalManager Instance;
 
-        [SerializeField]
-        private Person startingPerson;
-        [SerializeField]
-        private Car selectedCar;
-        [SerializeField]
-        private Route startingRoute;
-        [SerializeField]
-        private float startingMoney = 100f;
-        [SerializeField]
-        [ReorderableList]
-        private ItemPresetItem[] startingItems;
-        [Space]
         [SerializeField]
         private GameUIManager ui;
         [SerializeField]
@@ -59,26 +42,28 @@ namespace LongRoad
 
         public void Init()
         {
+            var preset = GameManager.Instance.StartPreset;
+
             Data = new GameData
             {
-                Money = startingMoney,
-                Route = startingRoute
+                Money = preset.StartingMoney,
+                Route = preset.StartingRoute
             };
 
-            if (selectedCar != null)
-                Data.Car = new CarEntity(selectedCar);
+            if (preset.SelectedCar != null)
+                Data.Car = new CarEntity(preset.SelectedCar);
 
             Persons = new PersonService();
-            if (startingPerson != null)
-                Persons.LoadRoster(new[] { startingPerson });
+            if (preset.StartingPersons.Length > 0)
+                Persons.LoadRoster(preset.StartingPersons);
 
-            Inventory = new InventoryService(Data);
             Time = new GameTimeService(Data);
             Travel = new TravelService(Data);
             Money = new MoneyService(Data);
+            Inventory = new InventoryService(Data, Persons);
             Locations = new Services.LocationService(Data, Persons, Inventory, Travel, Money);
 
-            foreach (var item in startingItems)
+            foreach (var item in preset.StartingItems)
             {
                 Inventory.TryAdd(item.Item, item.Count);
             }

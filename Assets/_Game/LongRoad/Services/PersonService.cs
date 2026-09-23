@@ -2,18 +2,18 @@ using LongRoad.Core;
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace LongRoad.Services
 {
-    public class PersonService : IService
+    public class PersonService : IService, IEnumerable<PersonEntity>
     {
         private const int HungerDrainPerTurn = 5;
         private const int StarvationDamagePerTurn = 5;
 
         private readonly List<PersonEntity> _people = new();
-
         public IReadOnlyList<PersonEntity> People => _people;
 
         public event Action<PersonEntity> OnPersonAdded;
@@ -73,6 +73,16 @@ namespace LongRoad.Services
             }
 
             OnModifiersApplied?.Invoke();
+        }
+
+        public IEnumerator<PersonEntity> GetEnumerator()
+        {
+            return _people.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

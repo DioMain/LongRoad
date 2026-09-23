@@ -1,5 +1,11 @@
-﻿using LongRoad.UI.Elements.Models;
+﻿using LongRoad.Core;
+using LongRoad.Core.Inventory;
+using LongRoad.Core.Scriptables;
+using LongRoad.UI.Elements.Models;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,12 +18,16 @@ namespace LongRoad.UI.Elements
         [SerializeField]
         private VisualTreeAsset inventoryItemPrefab;
 
+        public bool IsItemUsing => useItemCoroutine != null;
+
         private Button inventoryButton;
         private VisualElement inventory;
         private VisualElement inventoryContent;
         private Label weightLabel;
 
         private bool isOpen = false;
+
+        private Coroutine useItemCoroutine;
 
         public override void Init()
         {
@@ -30,6 +40,17 @@ namespace LongRoad.UI.Elements
             weightLabel = inventory.Q<Label>("inventory-weight");
 
             Local.Inventory.OnChanged += Inventory_OnChanged;
+        }
+
+        public void UseItem(InventoryStack stack)
+        {
+            if (IsItemUsing)
+            {
+                Debug.LogWarning("Some item using now");
+                return;
+            }
+
+            useItemCoroutine = StartCoroutine(UseItemPipeline(stack));
         }
 
         private void UpdateInventory()
@@ -53,6 +74,11 @@ namespace LongRoad.UI.Elements
 
                 var item = new InventoryItemUI(root, stack, Local.Inventory);
                 item.UpdateInformation();
+
+                item.OnItemClicked += (stack) =>
+                {
+                    UseItem(stack);
+                };
 
                 _inventoryItems.Add(item);
             }
@@ -96,6 +122,37 @@ namespace LongRoad.UI.Elements
             Local.Inventory.OnChanged -= Inventory_OnChanged;
 
             ClearList();
+        }
+
+        private IEnumerator UseItemPipeline(InventoryStack stack)
+        {
+            PersonEntity[] persons;
+            bool canceled = false;
+
+            switch (stack.Item.TargetKind)
+            {
+                case ItemTargetKind.Person:
+                    yield return UI.PersonSelector.StartSelect();
+
+                    persons = new PersonEntity[1] { UI.PersonSelector.SelectResult };
+                    canceled = UI.PersonSelector.IsCanceled;
+                    break;
+                case ItemTargetKind.AllPersons:
+                    persons = Local.Persons.People.ToArray();
+                    break;
+                case ItemTargetKind.None:
+                default:
+                    persons = Array.Empty<PersonEntity>();
+                    break;
+            }
+
+
+            if (!canceled)
+            {
+                yield return Local.Inventory.UseItem(stack.Item, this, persons);
+            }
+
+            useItemCoroutine = null;
         }
     }
 }

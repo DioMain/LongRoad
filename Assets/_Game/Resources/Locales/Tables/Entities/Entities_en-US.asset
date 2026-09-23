@@ -50,6 +50,22 @@ MonoBehaviour:
     m_Localized: Restore 20 fuel points
     m_Metadata:
       m_Items: []
+  - m_Id: 21893820525658112
+    m_Localized: Big medicine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21893822660558848
+    m_Localized: Restore party 40 heal points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21893891635888128
+    m_Localized: Apple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21893892722212864
+    m_Localized: Restore person 15 hunger points
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

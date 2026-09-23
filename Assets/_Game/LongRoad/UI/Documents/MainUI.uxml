@@ -89,7 +89,7 @@
         <ui:VisualElement name="person-selector" style="display: none;">
             <ui:VisualElement style="flex-grow: 0; flex-direction: row; justify-content: center; align-self: stretch; min-height: 10%;">
                 <ui:VisualElement name="person-selector-modal" style="padding-left: 32px; padding-right: 32px; padding-bottom: 32px; padding-top: 32px;">
-                    <ui:VisualElement style="flex-grow: 1; flex-direction: row; align-items: stretch; justify-content: space-between;">
+                    <ui:VisualElement name="" style="flex-grow: 1; flex-direction: row; align-items: stretch; justify-content: space-between;">
                         <ui:Label text="Label" class="text" style="text-overflow: ellipsis;">
                             <Bindings>
                                 <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(17717183135432704)"/>

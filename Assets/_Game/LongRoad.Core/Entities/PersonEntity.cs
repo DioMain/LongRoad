@@ -3,6 +3,7 @@ using LongRoad.Core.Scriptables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace LongRoad.Core
 {
@@ -35,7 +36,7 @@ namespace LongRoad.Core
             if (Heal == value)
                 return;
 
-            Heal = value;
+            Heal = Mathf.Clamp(value, 0, Prototype.DefaultHeal);
             OnStatsChanged?.Invoke(this);
         }
 
@@ -45,7 +46,7 @@ namespace LongRoad.Core
             if (Hunger == value)
                 return;
 
-            Hunger = value;
+            Hunger = Mathf.Clamp(value, 0, Prototype.DefaultHunger);
             OnStatsChanged?.Invoke(this);
         }
 
@@ -55,7 +56,7 @@ namespace LongRoad.Core
             if (Mood == value)
                 return;
 
-            Mood = value;
+            Mood = Mathf.Clamp(value, 0, Prototype.DefaultMood);
             OnStatsChanged?.Invoke(this);
         }
 

@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95d38300c7ac7b54fb08176ddb60c43b, type: 3}
-  m_Name: Item
+  m_Name: BigMedicine
   m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.Item
-  Tag: fuel_low
-  Icon: {fileID: -2978653956524333172, guid: b1cde689221903743afc69195caf2161, type: 3}
-  Weight: 1
+  Tag: big_medicine
+  Icon: {fileID: -2248273014285675650, guid: b1cde689221903743afc69195caf2161, type: 3}
+  Weight: 5
   IsFood: 0
   HungerResotre: 0
-  IsMedicine: 0
-  MedicineResotre: 0
-  IsFuel: 1
-  FuelResotre: 20
+  IsMedicine: 1
+  MedicineRestore: 40
+  IsFuel: 0
+  FuelResotre: 0
+  TargetKind: 2

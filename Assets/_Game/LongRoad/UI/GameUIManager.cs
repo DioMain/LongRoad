@@ -1,3 +1,4 @@
+using LongRoad.UI.Elements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -13,6 +14,8 @@ namespace LongRoad.UI
         public VisualElement Hud { get; private set; }
         public VisualElement Inventory { get; private set; }
         public VisualElement Dialog { get; private set; }
+
+        public PersonSelectorUI PersonSelector;
 
         public override void Init()
         {

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad8f3f0c7c17594cb30536d5a062bc3, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.GameStartPreset
+  Tag: sp_default
+  StartingPersons:
+  - {fileID: 11400000, guid: 37f4c7b81c58fc641a99039c2d4b7747, type: 2}
+  SelectedCar: {fileID: 11400000, guid: 3f3ad6f1d18a584418f5235bd93ed72c, type: 2}
+  StartingRoute: {fileID: 11400000, guid: 1281ee473b68874409923b4ff4ae88bc, type: 2}
+  StartingMoney: 100
+  StartingItems:
+  - Item: {fileID: 11400000, guid: 47d908298a7bc5c4a8b8bed7f5717cfd, type: 2}
+    Count: 3
+  - Item: {fileID: 11400000, guid: 5dd00618eb7bfb64fb68ce56605c251d, type: 2}
+    Count: 10
+  - Item: {fileID: 11400000, guid: adc12bffd9aa3ec4abee07d7190318fe, type: 2}
+    Count: 5

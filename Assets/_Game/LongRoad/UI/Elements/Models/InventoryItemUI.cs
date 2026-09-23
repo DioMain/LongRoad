@@ -18,6 +18,8 @@ namespace LongRoad.UI.Elements.Models
 
         private Button deleteButton;
 
+        public Action<InventoryStack> OnItemClicked;
+
         public InventoryItemUI(
             VisualElement root, 
             InventoryStack stack, 
@@ -27,7 +29,7 @@ namespace LongRoad.UI.Elements.Models
             _stack = stack;
             _invetoryService = inventoryService;
 
-            root.RegisterCallback<ClickEvent>(OnItemClicked);
+            root.RegisterCallback<ClickEvent>(OnItemClickedCallback);
 
             icon = root.Q<Image>("item-icon");
 
@@ -62,15 +64,15 @@ namespace LongRoad.UI.Elements.Models
             }
         }
 
-        private void OnItemClicked(ClickEvent clickEvent)
+        private void OnItemClickedCallback(ClickEvent clickEvent)
         {
-            Debug.Log("Item clicked");
+            OnItemClicked?.Invoke(_stack);
         }
 
         public void Dispose()
         {
             deleteButton.UnregisterCallback<ClickEvent>(OnDeleteButtonClicked);
-            _root.UnregisterCallback<ClickEvent>(OnItemClicked);
+            _root.UnregisterCallback<ClickEvent>(OnItemClickedCallback);
         }
     }
 }

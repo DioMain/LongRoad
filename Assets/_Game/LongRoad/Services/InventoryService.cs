@@ -14,6 +14,7 @@ namespace LongRoad.Services
     {
         private readonly Inventory _inventory = new();
         private readonly GameData _data;
+        private readonly PersonService _persons;
 
         public IReadOnlyList<InventoryStack> Stacks => _inventory.Stacks;
         public float CurrentWeight => _inventory.CurrentWeight;
@@ -21,11 +22,12 @@ namespace LongRoad.Services
         public event Action OnChanged;
         public event Action<Item, int> OnItemAdded;
         public event Action<string, int> OnItemRemoved;
-        public event Action<Item, PersonEntity, PersonEntity> OnItemUsed;
+        public event Action<Item, PersonEntity> OnItemUsed;
 
-        public InventoryService(GameData data)
+        public InventoryService(GameData data, PersonService persons)
         {
             _data = data ?? throw new ArgumentNullException(nameof(data));
+            _persons = persons ?? throw new ArgumentNullException(nameof(persons));
         }
 
         public bool CanAdd(Item item, int count)
@@ -76,8 +78,7 @@ namespace LongRoad.Services
         public IEnumerator UseItem(
             Item item,
             MonoBehaviour host,
-            PersonEntity target = null,
-            PersonEntity source = null)
+            params PersonEntity[] targets)
         {
             if (item == null || host == null || string.IsNullOrEmpty(item.Tag))
                 yield break;
@@ -85,19 +86,55 @@ namespace LongRoad.Services
             if (GetCount(item) < 1)
                 yield break;
 
-            if (!BoundEventCatalog.HasAny(BoundGameEventKind.Item, item.Tag))
-                yield break;
-
             if (!TryRemove(item, 1))
                 yield break;
 
-            OnItemUsed?.Invoke(item, source, target);
+            var hasBoundEvent = BoundEventCatalog.HasAny(BoundGameEventKind.Item, item.Tag);
 
-            yield return BoundEventRunner.Run(
-                BoundGameEventKind.Item,
-                item,
-                target, 
-                host);
+            if (item.IsFuel)
+            {
+                _data.Car.SetFuel(_data.Car.Fuel + item.FuelResotre);
+            }
+
+            if (targets.Length == 0)
+            {
+                OnItemUsed?.Invoke(item, null);
+
+                if (hasBoundEvent)
+                {
+                    yield return BoundEventRunner.Run(
+                        BoundGameEventKind.Item,
+                        item,
+                        null,
+                        host);
+                }
+            }
+            else
+            {
+                foreach (PersonEntity target in targets)
+                {
+                    OnItemUsed?.Invoke(item, target);
+
+                    if (item.IsMedicine)
+                    {
+                        target.SetHeal(target.Heal + item.MedicineRestore);
+                    }
+
+                    if (item.IsFood)
+                    {
+                        target.SetHunger(target.Hunger + item.HungerResotre);
+                    }
+
+                    if (hasBoundEvent)
+                    {
+                        yield return BoundEventRunner.Run(
+                            BoundGameEventKind.Item,
+                            item,
+                            target,
+                            host);
+                    }
+                }
+            }
         }
 
         private float GetMaxWeight()

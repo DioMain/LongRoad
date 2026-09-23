@@ -18,12 +18,14 @@ namespace LongRoad.Core.Scriptables
         public float Weight = 1f;
         [Space]
         public bool IsFood;
-        public float HungerResotre;
+        public int HungerResotre;
         [Space]
         public bool IsMedicine;
-        public float MedicineResotre;
+        public int MedicineRestore;
         [Space]
         public bool IsFuel;
-        public float FuelResotre;
+        public int FuelResotre;
+        [Space]
+        public ItemTargetKind TargetKind;
     }
 }

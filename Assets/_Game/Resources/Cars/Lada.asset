@@ -17,5 +17,5 @@ MonoBehaviour:
   Durability: 100
   MaxWeight: 100
   DistancePerTurn: 10
-  DefaultFuel: 50
+  DefaultFuel: 70
   Model: {fileID: 5558016714250436308, guid: fcbf47d1a3044ae4090ef0c82fba201f, type: 3}

@@ -47,6 +47,22 @@ MonoBehaviour:
     m_Key: fuel_low_desc
     m_Metadata:
       m_Items: []
+  - m_Id: 21893820525658112
+    m_Key: big_medicine_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21893822660558848
+    m_Key: big_medicine_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21893891635888128
+    m_Key: apple_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21893892722212864
+    m_Key: apple_desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

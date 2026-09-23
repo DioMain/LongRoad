@@ -1,5 +1,6 @@
 using LongRoad.Core;
 using LongRoad.Core.Localization;
+using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace LongRoad {
     public class GameManager : MonoBehaviour, IInit
     {
         public static GameManager Instance;
+
+        public GameStartPreset StartPreset;
 
         [SerializeField]
         private LocalizationManager localization;
