@@ -5,5 +5,5 @@
 
 #dialog-button-item {
     min-height: 110px;
-    max-width: 512px;
+    max-width: 100%;
 }

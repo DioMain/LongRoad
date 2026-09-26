@@ -16,6 +16,7 @@ namespace LongRoad.UI
         public VisualElement Dialog { get; private set; }
 
         public PersonSelectorUI PersonSelector;
+        public DialogUI DialogUI;
 
         public override void Init()
         {

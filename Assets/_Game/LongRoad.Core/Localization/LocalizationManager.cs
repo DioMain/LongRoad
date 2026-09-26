@@ -13,6 +13,8 @@ namespace LongRoad.Core.Localization
         private TableReference MainTable;
         [SerializeField]
         private TableReference EntitiesTable;
+        [SerializeField]
+        private TableReference EventsTable;
 
         public void ChangeLanguage(Locale locale)
         {
@@ -29,6 +31,13 @@ namespace LongRoad.Core.Localization
         public string GetEntityString(string tag, params object[] args)
         {
             var lstr = new LocalizedString(EntitiesTable, tag);
+
+            return lstr.GetLocalizedString(args);
+        }
+
+        public string GetEventString(string tag, params object[] args)
+        {
+            var lstr = new LocalizedString(EventsTable, tag);
 
             return lstr.GetLocalizedString(args);
         }

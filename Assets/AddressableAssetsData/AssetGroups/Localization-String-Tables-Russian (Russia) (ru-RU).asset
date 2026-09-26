@@ -20,12 +20,20 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru-RU
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 540c54bcc2c06864ab53ba7a1ca24078
+    m_Address: Events_ru-RU
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76e599542b8b503469ea6f19f3c5c874
     m_Address: Entities_ru-RU
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru-RU
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: f752ae441b7b2914e95dce58d78fa13e, type: 2}

@@ -63,3 +63,5 @@ MonoBehaviour:
     m_TableCollectionName: Main
   EntitiesTable:
     m_TableCollectionName: Entities
+  EventsTable:
+    m_TableCollectionName: Events

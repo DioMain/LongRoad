@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 530290862}
   - component: {fileID: 530290863}
   - component: {fileID: 530290864}
+  - component: {fileID: 530290865}
   m_Layer: 0
   m_Name: ElementsPool
   m_TagString: Untagged
@@ -566,6 +567,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.PersonSelectorUI
   selectorItemPrefab: {fileID: 9197481963319205126, guid: d321d11c66c58c6488e899b135955445, type: 3}
+--- !u!114 &530290865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530290854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4a5b68437b70f478472f45f8453a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: LongRoad::LongRoad.UI.Elements.DialogUI
+  selectButtonPrefab: {fileID: 9197481963319205126, guid: 7f98c5620acc3f54b9561e9156c271fa, type: 3}
 --- !u!1 &581623578
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: LongRoad::LongRoad.GameUIManager
   document: {fileID: 581623579}
   PersonSelector: {fileID: 530290864}
+  DialogUI: {fileID: 530290865}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

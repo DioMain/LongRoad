@@ -84,7 +84,7 @@
             <ui:VisualElement name="" class="dialog-body" style="flex-grow: 0; min-width: 100%; min-height: auto; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_17&quot;);">
                 <ui:Label text="Some event text" name="dialog-text" class="dialog-body-text"/>
             </ui:VisualElement>
-            <ui:VisualElement name="dialog-button-slot" class="dialog-button-slot"/>
+            <ui:VisualElement name="dialog-button-slot" class="dialog-button-slot" style="justify-content: space-around; flex-direction: row;"/>
         </ui:VisualElement>
         <ui:VisualElement name="person-selector" style="display: none;">
             <ui:VisualElement style="flex-grow: 0; flex-direction: row; justify-content: center; align-self: stretch; min-height: 10%;">
