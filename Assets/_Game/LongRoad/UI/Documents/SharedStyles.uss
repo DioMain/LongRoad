@@ -28,7 +28,7 @@
 
 .text {
     -unity-font-definition: resource("Fonts/Raw/Tiny5-Regular");
-    color: rgb(205, 174, 132);
+    color: rgb(235, 192, 145);
     font-size: 48px;
 }
 

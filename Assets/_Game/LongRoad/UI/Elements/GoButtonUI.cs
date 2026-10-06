@@ -1,4 +1,6 @@
-﻿using UnityEngine.UIElements;
+﻿using LongRoad.GamePipeline;
+using LongRoad.GamePipeline.GamePhaseStrategies;
+using UnityEngine.UIElements;
 
 namespace LongRoad.UI.Elements
 {
@@ -17,9 +19,9 @@ namespace LongRoad.UI.Elements
             goButton.clicked += GoButton_clicked;
         }
 
-        private void Pipeline_OnPhaseChanged(GamePhase phase)
+        private void Pipeline_OnPhaseChanged(IGamePhaseStrategy phase)
         {
-            if (phase == GamePhase.Player)
+            if (phase is PlayerGamePhaseStrategy)
             {
                 goButton.style.display = DisplayStyle.Flex;
             }

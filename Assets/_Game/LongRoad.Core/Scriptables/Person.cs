@@ -1,4 +1,5 @@
 ﻿using LongRoad.Core.Scriptables.Abstractions;
+using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace LongRoad.Core.Scriptables
     [CreateAssetMenu(fileName = "Character", menuName = "Entities/Character")]
     public class Person : LongRoadScriptable 
     {
+        [ShowAssetPreview]
         public Sprite Sprite;
 
         public Specailty Specailty;

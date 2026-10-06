@@ -1,4 +1,5 @@
-﻿using LongRoad.Core;
+﻿using LongRoad.GamePipeline;
+using LongRoad.Core;
 using LongRoad.Core.Inventory;
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
@@ -21,9 +22,11 @@ namespace LongRoad
         private GameUIManager ui;
         [SerializeField]
         private CarModelManager carModel;
+        [SerializeField]
+        private BackgroundManager background;
 
         public GameData Data { get; private set; }
-        public GamePipeline Pipeline { get; private set; }
+        public GamePipeline.GamePipeline Pipeline { get; private set; }
         public PersonService Persons { get; private set; }
         public InventoryService Inventory { get; private set; }
         public GameTimeService Time { get; private set; }
@@ -32,6 +35,7 @@ namespace LongRoad
         public MoneyService Money { get; private set; }
         public GameUIManager UI => ui;
         public CarModelManager CarModel => carModel;
+        public BackgroundManager Background => background;
 
         private void Start()
         {
@@ -68,7 +72,9 @@ namespace LongRoad
                 Inventory.TryAdd(item.Item, item.Count);
             }
 
-            Pipeline = new GamePipeline(Persons, Time, Travel);
+            background.Init();
+
+            Pipeline = new GamePipeline.GamePipeline(Persons, Time, Travel, background, Data);
 
             carModel.Init();
 

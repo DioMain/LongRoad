@@ -1,5 +1,7 @@
-﻿using LongRoad.Core;
+﻿using LongRoad.GamePipeline;
+using LongRoad.Core;
 using LongRoad.Core.Scriptables;
+using LongRoad.GamePipeline.GamePhaseStrategies;
 using UnityEngine;
 
 namespace LongRoad
@@ -46,13 +48,13 @@ namespace LongRoad
                 return;
             }
 
-            if (Local.Pipeline.Phase == GamePhase.Player || Local.Data.CurrentLocation != null)
+            if (Local.Pipeline.Phase is PlayerGamePhaseStrategy || Local.Data.CurrentLocation != null)
             {
                 SetState(CarModelState.Idle);
                 return;
             }
 
-            if (Local.Pipeline.Phase == GamePhase.Modifiers || Local.Pipeline.Phase == GamePhase.Event)
+            if (Local.Pipeline.Phase is ModifiersGamePhaseStrategy || Local.Pipeline.Phase is EventGamePhaseStrategy)
             {
                 SetState(CarModelState.Drive);
                 return;
@@ -88,7 +90,7 @@ namespace LongRoad
                 Car.OnFuelChanged -= HandleFuelChanged;
         }
 
-        private void HandlePhaseChanged(GamePhase _)
+        private void HandlePhaseChanged(IGamePhaseStrategy _)
         {
             RefreshState();
         }

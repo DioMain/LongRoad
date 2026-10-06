@@ -7,7 +7,7 @@ namespace LongRoad.UI
     public class GameUIManager : LongRoadBehaviour
     {
         [SerializeField]
-        private UIDocument document;
+        private PanelRenderer panelRenderer;
 
         public VisualElement Root { get; private set; }
 
@@ -18,29 +18,40 @@ namespace LongRoad.UI
         public PersonSelectorUI PersonSelector;
         public DialogUI DialogUI;
 
+
+        bool uiInited = false;
+
         public override void Init()
         {
-            if (document == null)
+            if (panelRenderer == null)
             {
-                Debug.LogError($"{nameof(GameUIManager)}: {nameof(document)} is not assigned.", this);
+                Debug.LogError($"{nameof(GameUIManager)}: {nameof(panelRenderer)} is not assigned.", this);
                 return;
             }
 
-            var elements = GetComponentsInChildren<LongRoadUIElement>();
-
-            Root = document.rootVisualElement;
-            
-            Hud = Root.Q("hud");
-            Inventory = Root.Q("inventory");
-            Dialog = Root.Q("dialog");
-
-            if (elements == null)
-                return;
-
-            foreach (var item in elements)
+            panelRenderer.RegisterUIReloadCallback((render, root, version) =>
             {
-                item.Init();
-            }
+                if (uiInited)
+                    return;
+
+                var elements = GetComponentsInChildren<LongRoadUIElement>();
+
+                Root = root;
+
+                Hud = Root.Q("hud");
+                Inventory = Root.Q("inventory");
+                Dialog = Root.Q("dialog");
+
+                if (elements == null)
+                    return;
+
+                foreach (var item in elements)
+                {
+                    item.Init();
+                }
+
+                uiInited = true;
+            });
         }
     }
 }
