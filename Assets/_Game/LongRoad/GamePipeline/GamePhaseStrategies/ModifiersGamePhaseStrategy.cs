@@ -17,6 +17,8 @@ namespace LongRoad.GamePipeline.GamePhaseStrategies
                 services.Background.StartScroll();
             }
 
+            yield return new WaitForSeconds(1);
+
             services.People?.ApplyPhaseModifiers();
 
             if (services.People == null)

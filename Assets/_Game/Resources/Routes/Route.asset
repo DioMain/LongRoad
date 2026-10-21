@@ -15,4 +15,8 @@ MonoBehaviour:
   Tag: Route
   Stops:
   - Location: {fileID: 11400000, guid: 03144e753967319438aa0a515e80e1cc, type: 2}
-    DistanceFromStartKm: 100
+    DistanceFromStartKm: 20
+  - Location: {fileID: 11400000, guid: 03144e753967319438aa0a515e80e1cc, type: 2}
+    DistanceFromStartKm: 40
+  - Location: {fileID: 11400000, guid: 03144e753967319438aa0a515e80e1cc, type: 2}
+    DistanceFromStartKm: 60

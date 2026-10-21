@@ -83,8 +83,6 @@ namespace LongRoad.GamePipeline
                     Travel = _travel
                 }, listener);
 
-                yield return new WaitForSeconds(1);
-
                 if (currentOrder < maxPhaseOrder)
                 {
                     currentOrder++;
