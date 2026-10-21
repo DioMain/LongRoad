@@ -9,11 +9,13 @@ namespace LongRoad.GameEvents
     {
         public override IEnumerator Event()
         {
-            Debug.Log("SupplyFindEvent: found abandoned supplies");
+            int aidAmount = Random.Range(1, 3);
+
+            LocalManager.Instance.UI.Notification.Notify(@$"Finded {aidAmount} <sprite name=""aid""> aids!");
+
+            LocalManager.Instance.Inventory.TryAdd(GameManager.Instance.ItemService.GetItemByTag("big_medicine"), aidAmount);
 
             yield return new WaitForSeconds(1);
-
-            Debug.Log("SupplyFindEvent: ended");
         }
     }
 }

@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/MainUI.uss?fileID=7433441132597879392&amp;guid=9d5c4b3a2e1f0d9c8b7a695847362514&amp;type=3#MainUI"/>
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/SharedStyles.uss?fileID=7433441132597879392&amp;guid=dc8a010e021c2594baa1fdf5ae619031&amp;type=3#SharedStyles"/>
     <ui:VisualElement name="main-root" picking-mode="Ignore" enabled="true">
-        <ui:VisualElement name="hud" style="position: absolute; flex-direction: column; flex-grow: 1; height: 100%; display: flex;">
+        <ui:VisualElement name="hud" style="position: absolute; flex-direction: column; flex-grow: 1; height: 100%; display: flex; top: 2px; left: -1px;">
             <ui:VisualElement name="" style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 160px; flex-shrink: 0;">
                 <ui:VisualElement name="main-info" style="width: 1049px; flex-grow: 0;">
                     <ui:VisualElement name="day-content" style="padding-left: 28px;">
@@ -72,6 +72,9 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement name="location" style="height: 50%; padding-left: 16px; padding-right: 16px; display: none;">
+            <ui:Label text="Ура вы в городе, ну или нет..." class="text"/>
+        </ui:VisualElement>
         <ui:VisualElement name="inventory" style="display: none;">
             <ui:VisualElement name="inventory-content" style="flex-grow: 0; display: flex; width: 42%;">
                 <ui:ScrollView name="inventory-scroll-view" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible"/>
@@ -101,5 +104,6 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement name="notifications"/>
     </ui:VisualElement>
 </ui:UXML>

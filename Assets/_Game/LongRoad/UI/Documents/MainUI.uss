@@ -188,3 +188,27 @@
 }
 
 
+
+#notifications {
+    flex-grow: 1;
+    position: absolute;
+    bottom: 0;
+    opacity: 0.83;
+    margin-bottom: 6px;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    margin-right: 0;
+    width: auto;
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 16px;
+}
+
+
+
+#location {
+    flex-grow: 1;
+    position: absolute;
+    top: 190px;
+    width: 100%;
+}

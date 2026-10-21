@@ -29,12 +29,12 @@ namespace LongRoad.UI.Elements
 
         public override void Init()
         {
-            root = UI.Root.Q("person-selector");
+            root = UI.MainRoot.Q("person-selector");
 
-            closeButton = UI.Root.Q<Button>("close-modal-button");
+            closeButton = UI.MainRoot.Q<Button>("close-modal-button");
             closeButton.clicked += CloseButton_clicked;
 
-            content = UI.Root.Q("person-selector-content");
+            content = UI.MainRoot.Q("person-selector-content");
         }
 
         private void CloseButton_clicked()

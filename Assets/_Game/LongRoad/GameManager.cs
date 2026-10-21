@@ -16,6 +16,7 @@ namespace LongRoad {
 
         public PlayerInput Input { get; private set; }
         public LocalizationManager Localization => localization;
+        public ItemService ItemService { get; private set; }
 
         private void Awake()
         {
@@ -35,6 +36,7 @@ namespace LongRoad {
 
         public void Init()
         {
+            ItemService = new ItemService();
             Input = new PlayerInput();
         }
     }

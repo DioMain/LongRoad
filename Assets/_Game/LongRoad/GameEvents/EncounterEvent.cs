@@ -9,11 +9,9 @@ namespace LongRoad.GameEvents
     {
         public override IEnumerator Event()
         {
-            Debug.Log("EncounterEvent: travelers appear on the road");
+            LocalManager.Instance.UI.Notification.Notify(@"Travelers appear on the road!");
 
             yield return new WaitForSeconds(1);
-
-            Debug.Log("EncounterEvent: ended");
         }
     }
 }

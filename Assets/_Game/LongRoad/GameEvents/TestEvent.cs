@@ -17,11 +17,11 @@ namespace LongRoad.GameEvents
 
             if (dialogUI.SelectResult.Value.Tag == DialogUIConstants.YES_VARIANT.Tag)
             {
-                Debug.Log("Selected 'yes' variant!");
+                LocalManager.Instance.UI.Notification.Notify("Selected 'yes' variant!");
             }
             else if (dialogUI.SelectResult.Value.Tag == DialogUIConstants.NO_VARIANT.Tag)
             {
-                Debug.Log("Selected 'no' variant!");
+                LocalManager.Instance.UI.Notification.Notify("Selected 'no' variant!");
             }
         }
     }

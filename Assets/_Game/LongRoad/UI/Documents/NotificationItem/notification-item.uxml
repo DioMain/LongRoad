@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="notification-item" style="flex-grow: 0; background-image: resource(&quot;Sprites/Hud_Ui#Hud_Ui_23&quot;); padding-left: 26px; padding-right: 26px; margin-top: 6px; flex-direction: row; align-items: auto; flex-shrink: 0; width: auto; aspect-ratio: auto; margin-bottom: -1px;">
+        <ui:Label text="Restored 15 &lt;sprite name=&quot;fuel&quot;&gt; fuel points" class="text" style="flex-grow: 0; flex-shrink: 1;"/>
+    </ui:VisualElement>
+</ui:UXML>

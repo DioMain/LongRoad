@@ -12,7 +12,10 @@ namespace LongRoad.GamePipeline.GamePhaseStrategies
 
         public IEnumerator Invoke(GamePipeline pipeline, GamePhaseStrategyServices services, MonoBehaviour listener)
         {
-            services.Background.StartScroll();
+            if (services.GameData.Car.Fuel > 0)
+            {
+                services.Background.StartScroll();
+            }
 
             services.People?.ApplyPhaseModifiers();
 

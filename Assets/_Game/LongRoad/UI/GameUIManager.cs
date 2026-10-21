@@ -7,9 +7,9 @@ namespace LongRoad.UI
     public class GameUIManager : LongRoadBehaviour
     {
         [SerializeField]
-        private PanelRenderer panelRenderer;
+        private PanelRenderer mainPanelRenderer;
 
-        public VisualElement Root { get; private set; }
+        public VisualElement MainRoot { get; private set; }
 
         public VisualElement Hud { get; private set; }
         public VisualElement Inventory { get; private set; }
@@ -17,30 +17,30 @@ namespace LongRoad.UI
 
         public PersonSelectorUI PersonSelector;
         public DialogUI DialogUI;
+        public NotificationUI Notification;
 
-
-        bool uiInited = false;
+        bool mainUiInited = false;
 
         public override void Init()
         {
-            if (panelRenderer == null)
+            if (mainPanelRenderer == null)
             {
-                Debug.LogError($"{nameof(GameUIManager)}: {nameof(panelRenderer)} is not assigned.", this);
+                Debug.LogError($"{nameof(GameUIManager)}: {nameof(mainPanelRenderer)} is not assigned.", this);
                 return;
             }
 
-            panelRenderer.RegisterUIReloadCallback((render, root, version) =>
+            mainPanelRenderer.RegisterUIReloadCallback((render, root, version) =>
             {
-                if (uiInited)
+                if (mainUiInited)
                     return;
 
                 var elements = GetComponentsInChildren<LongRoadUIElement>();
 
-                Root = root;
+                MainRoot = root;
 
-                Hud = Root.Q("hud");
-                Inventory = Root.Q("inventory");
-                Dialog = Root.Q("dialog");
+                Hud = MainRoot.Q("hud");
+                Inventory = MainRoot.Q("inventory");
+                Dialog = MainRoot.Q("dialog");
 
                 if (elements == null)
                     return;
@@ -50,7 +50,7 @@ namespace LongRoad.UI
                     item.Init();
                 }
 
-                uiInited = true;
+                mainUiInited = true;
             });
         }
     }

@@ -9,11 +9,9 @@ namespace LongRoad.GameEvents
     {
         public override IEnumerator Event()
         {
-            Debug.Log("WeatherEvent: a storm rolls in");
+            LocalManager.Instance.UI.Notification.Notify("A storm rolls in!");
 
             yield return new WaitForSeconds(1);
-
-            Debug.Log("WeatherEvent: ended");
         }
     }
 }
