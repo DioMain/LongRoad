@@ -12,7 +12,7 @@ namespace LongRoad
 
         public int Turn { get; set; }
 
-        public int Day { get; set; } = 1;
+        public int Day { get; set; } = 0;
 
         public bool IsDaytime { get; set; } = true;
 

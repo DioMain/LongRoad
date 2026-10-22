@@ -1,7 +1,9 @@
 using LongRoad.Core.GameEvent.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using UnityEngine.Assemblies;
 
 namespace LongRoad.Core.GameEvent
 {
@@ -26,48 +28,35 @@ namespace LongRoad.Core.GameEvent
             return Get(kind, tag).Count > 0;
         }
 
-        private static void EnsureBuilt()
+        public static void EnsureBuilt()
         {
             if (_map != null)
                 return;
 
             _map = new Dictionary<(BoundGameEventKind, string), List<Type>>();
 
-            foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+            foreach (var assembly in CurrentAssemblies.GetLoadedAssemblies())
             {
-                Type[] types;
-                try
-                {
-                    types = assembly.GetTypes();
-                }
-                catch (ReflectionTypeLoadException ex)
-                {
-                    types = ex.Types;
-                }
-
-                if (types == null)
-                    continue;
+                var types = assembly.GetTypes()
+                    .Where(type => !type.IsAbstract 
+                                && typeof(GameEventBase).IsAssignableFrom(type) 
+                                && type.IsDefined(typeof(BoundGameEventAttribute), true));
 
                 foreach (var type in types)
                 {
-                    if (type == null || type.IsAbstract || !typeof(GameEventBase).IsAssignableFrom(type))
+                    var attribute = type.GetCustomAttribute<BoundGameEventAttribute>();
+
+                    if (string.IsNullOrEmpty(attribute.Tag))
                         continue;
 
-                    var attributes = type.GetCustomAttributes<BoundGameEventAttribute>();
-                    foreach (var attribute in attributes)
+                    var key = (attribute.Kind, attribute.Tag);
+                    if (!_map.TryGetValue(key, out var list))
                     {
-                        if (string.IsNullOrEmpty(attribute.Tag))
-                            continue;
-
-                        var key = (attribute.Kind, attribute.Tag);
-                        if (!_map.TryGetValue(key, out var list))
-                        {
-                            list = new List<Type>();
-                            _map[key] = list;
-                        }
-
-                        list.Add(type);
+                        list = new List<Type>();
+                        _map[key] = list;
                     }
+
+                    list.Add(type);
                 }
             }
         }

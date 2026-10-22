@@ -5,7 +5,7 @@ namespace LongRoad.Services
 {
     public class GameTimeService : IService
     {
-        public const int TurnsPerPeriod = 3;
+        public const int TurnsPerPeriod = 1;
 
         private readonly GameData _data;
 
@@ -16,9 +16,6 @@ namespace LongRoad.Services
         public GameTimeService(GameData data)
         {
             _data = data ?? throw new ArgumentNullException(nameof(data));
-
-            if (_data.Day <= 0)
-                _data.Day = 1;
         }
 
         public void AdvanceTurn()

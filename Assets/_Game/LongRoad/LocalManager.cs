@@ -1,19 +1,13 @@
-﻿using LongRoad.GamePipeline;
-using LongRoad.Core;
-using LongRoad.Core.Inventory;
-using LongRoad.Core.Scriptables;
+﻿using LongRoad.Core;
 using LongRoad.Domain.Interfaces;
 using LongRoad.Services;
 using LongRoad.UI;
-using NaughtyAttributes;
-using System;
 using UnityEngine;
+using LongRoad.Managers;
+using LongRoad.UI.Elements;
 
 namespace LongRoad
 {
-
-
-
     public class LocalManager : MonoBehaviour, IInit
     {
         public static LocalManager Instance;
@@ -36,6 +30,8 @@ namespace LongRoad
         public GameUIManager UI => ui;
         public CarModelManager CarModel => carModel;
         public BackgroundManager Background => background;
+
+        public static NotificationUI Notification => Instance.UI.Notification;
 
         private void Start()
         {

@@ -1,10 +1,8 @@
-﻿using LongRoad.GamePipeline;
-using LongRoad.Core;
-using LongRoad.Core.Scriptables;
+﻿using LongRoad.Core;
 using LongRoad.GamePipeline.GamePhaseStrategies;
 using UnityEngine;
 
-namespace LongRoad
+namespace LongRoad.Managers
 {
     public class CarModelManager : LongRoadBehaviour
     {

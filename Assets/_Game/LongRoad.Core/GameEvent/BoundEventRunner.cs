@@ -20,7 +20,7 @@ namespace LongRoad.Core.GameEvent
             var types = BoundEventCatalog.Get(kind, source.Tag);
             for (var i = 0; i < types.Count; i++)
             {
-                if (!(Activator.CreateInstance(types[i]) is GameEventBase gameEvent))
+                if (Activator.CreateInstance(types[i]) is not GameEventBase gameEvent)
                     continue;
 
                 if (gameEvent is ContextualGameEventBase contextual)

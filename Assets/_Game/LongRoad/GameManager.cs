@@ -1,4 +1,5 @@
 using LongRoad.Core;
+using LongRoad.Core.GameEvent;
 using LongRoad.Core.Localization;
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
@@ -36,6 +37,8 @@ namespace LongRoad {
 
         public void Init()
         {
+            BoundEventCatalog.EnsureBuilt();
+
             ItemService = new ItemService();
             Input = new PlayerInput();
         }

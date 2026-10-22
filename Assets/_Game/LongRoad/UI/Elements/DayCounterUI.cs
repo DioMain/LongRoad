@@ -23,13 +23,13 @@ namespace LongRoad.UI.Elements
             dayOfWeek = dayContent.Q<Label>("week-day-text");
 
             Local.Time.OnDayChanged += OnDayChanged;
-            OnDayChanged(1);
+            OnDayChanged(0);
         }
 
         public void OnDayChanged(int day)
         {
             var calendar = calendarSprites[Random.Range(0, calendarSprites.Length)];
-            var dayText = Game.Localization.GetMainString("hud_day", new[] { day.ToString() });
+            var dayText = Game.Localization.GetMainString("hud_day", new[] { (day + 1).ToString() });
             var weekDayText = Game.Localization.GetMainString(GetWeekDayKey(day));
 
             dayImage.sprite = calendar;
@@ -40,7 +40,7 @@ namespace LongRoad.UI.Elements
 
         public string GetWeekDayKey(int day)
         {
-            return (day - 1 % 6) switch
+            return (day % 7) switch
             {
                 0 => "weakday_monday",
                 1 => "weakday_tuesday",

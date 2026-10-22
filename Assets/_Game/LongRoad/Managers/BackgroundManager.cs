@@ -1,7 +1,7 @@
 ﻿using LongRoad.Misc;
 using System.Linq;
 
-namespace LongRoad
+namespace LongRoad.Managers
 {
     public class BackgroundManager : LongRoadBehaviour
     {
