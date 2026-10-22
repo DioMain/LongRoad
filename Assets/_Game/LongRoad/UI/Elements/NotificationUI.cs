@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -6,6 +7,11 @@ namespace LongRoad.UI.Elements
 {
     public class NotificationUI : LongRoadUIElement
     {
+        public enum WarnLevel
+        {
+            Regular, Warning
+        }
+
         [SerializeField]
         private VisualTreeAsset notificationItemPrefab;
 
@@ -16,7 +22,7 @@ namespace LongRoad.UI.Elements
             root = UI.MainRoot.Q("notifications");
         }
 
-        public void Notify(string text)
+        public void Notify(string text, WarnLevel warnLevel = WarnLevel.Regular)
         {
             var instance = notificationItemPrefab.Instantiate();
             instance.style.flexDirection = FlexDirection.Row;
@@ -48,6 +54,17 @@ namespace LongRoad.UI.Elements
             {
                 instance.RemoveFromHierarchy();
             };
+
+            if (warnLevel == WarnLevel.Warning)
+            {
+                var root = instance.Children().First();
+
+                DOTween.To(
+                    () => root.style.backgroundColor.value,
+                    (value) => root.style.backgroundColor = value, new Color(1, 0, 0, 0), 1f)
+                    .From(Color.red)
+                    .Play();
+            }
 
             anim.Play();
         }

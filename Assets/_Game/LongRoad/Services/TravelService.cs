@@ -10,21 +10,25 @@ namespace LongRoad.Services
     public class TravelService : IService
     {
         private readonly GameData _data;
-        private readonly List<RouteStop> _stops;
-        private int _nextStopIndex;
+        private readonly List<Route.RouteStop> _stops;
 
         public event Action<float> OnTravelProgress;
         public event Action<Location> OnArrived;
         public event Action<Location> OnDeparted;
+        public event Action OnTranslateToEndlessMode;
+
+        private int nextStopIndex;
+        private float distanceToNextStop;
 
         public TravelService(GameData data)
         {
             _data = data ?? throw new ArgumentNullException(nameof(data));
-            _nextStopIndex = 0;
+            nextStopIndex = 0;
 
             if (_data.Route?.Stops == null)
             {
-                _stops = new List<RouteStop>();
+                _stops = new List<Route.RouteStop>();
+                SetEndlessMode();
                 return;
             }
 
@@ -45,7 +49,10 @@ namespace LongRoad.Services
             if (_data.CurrentLocation != null)
                 LeaveLocation();
 
-            _data.TravelledKm += Mathf.RoundToInt(_data.Car.DistancePerTurn * UnityEngine.Random.Range(0.75f, 1.25f));
+            var reachedDistance = Mathf.RoundToInt(_data.Car.DistancePerTurn * UnityEngine.Random.Range(0.75f, 1.25f));
+
+            _data.TravelledKm += reachedDistance;
+            distanceToNextStop -= reachedDistance;
             _data.Car.SetFuel(_data.Car.Fuel - _data.Car.FuelConsumption);
             OnTravelProgress?.Invoke(_data.TravelledKm);
 
@@ -62,18 +69,61 @@ namespace LongRoad.Services
             OnDeparted?.Invoke(left);
         }
 
+        public void SetEndlessMode()
+        {
+            _data.IsEndlessMode = true;
+
+            distanceToNextStop = 
+                UnityEngine.Random.Range(_data.Route.MinAvarangeStopDistance, _data.Route.MaxAvarangeStopDistance); 
+
+            OnTranslateToEndlessMode?.Invoke();
+        }
+
         private void TryArriveAtReachedStops()
         {
-            while (_nextStopIndex < _stops.Count)
+            if (_data.IsEndlessMode)
             {
-                var stop = _stops[_nextStopIndex];
-                if (_data.TravelledKm < stop.DistanceFromStartKm)
-                    break;
+                if (distanceToNextStop <= 0)
+                {
+                    distanceToNextStop =
+                        UnityEngine.Random.Range(_data.Route.MinAvarangeStopDistance, _data.Route.MaxAvarangeStopDistance);
 
-                _nextStopIndex++;
-                _data.CurrentLocation = stop.Location;
-                OnArrived?.Invoke(stop.Location);
-                break;
+                    Route.EndlessModeRouteStop stop;
+                    while (true)
+                    {
+                        int locId = UnityEngine.Random.Range(0, _data.Route.EndlessModeStops.Count);
+
+                        stop = _data.Route.EndlessModeStops[locId];
+
+                        float probability = UnityEngine.Random.Range(0f, 1f);
+                        if (probability < stop.Probability)
+                        {
+                            _data.CurrentLocation = stop.Location;
+                            OnArrived?.Invoke(stop.Location);
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                while (nextStopIndex < _stops.Count)
+                {
+                    var stop = _stops[nextStopIndex];
+                    if (_data.TravelledKm < stop.DistanceFromStartKm)
+                        break;
+
+                    nextStopIndex++;
+                    _data.CurrentLocation = stop.Location;
+                    OnArrived?.Invoke(stop.Location);
+
+                    if (_stops.Count >= nextStopIndex)
+                    {
+                        SetEndlessMode();
+                    }
+
+                    break;
+                }
             }
         }
     }

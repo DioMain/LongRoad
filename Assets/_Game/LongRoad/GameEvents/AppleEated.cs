@@ -8,7 +8,7 @@ namespace LongRoad.GameEvents
     {
         public override IEnumerator Event()
         {
-            LocalManager.Notification.Notify("Вы съели <sprite name=\"apple\"> яблоко");
+            LocalManager.Notification.Notify("Вы съели <sprite name=\"apple\"> яблоко", UI.Elements.NotificationUI.WarnLevel.Warning);
 
             yield break;
         }

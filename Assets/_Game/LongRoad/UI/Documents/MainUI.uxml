@@ -62,7 +62,7 @@
                 <ui:VisualElement style="flex-grow: 0; height: 220px; flex-direction: row; justify-content: space-between; flex-shrink: 0;">
                     <ui:VisualElement name="party-content" style="flex-direction: row;"/>
                     <ui:VisualElement name="distance-status">
-                        <ui:Label text="Пройденное расстояние" class="text" style="color: rgb(235, 192, 145); -unity-text-align: upper-center; font-size: 32px; margin-top: 24px;">
+                        <ui:Label text="Пройденное расстояние" name="distance-status-label" class="text" style="color: rgb(235, 192, 145); -unity-text-align: upper-center; font-size: 32px; margin-top: 24px;">
                             <Bindings>
                                 <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(269059844554752)"/>
                             </Bindings>

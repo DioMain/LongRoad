@@ -20,3 +20,8 @@ MonoBehaviour:
     DistanceFromStartKm: 40
   - Location: {fileID: 11400000, guid: 03144e753967319438aa0a515e80e1cc, type: 2}
     DistanceFromStartKm: 60
+  MinAvarangeStopDistance: 40
+  MaxAvarangeStopDistance: 80
+  EndlessModeStops:
+  - Location: {fileID: 11400000, guid: 03144e753967319438aa0a515e80e1cc, type: 2}
+    Probability: 1

@@ -20,6 +20,8 @@ namespace LongRoad
 
         public float TravelledKm { get; set; }
 
+        public bool IsEndlessMode { get; set; } = false;
+
         public Location CurrentLocation { get; set; }
 
         public Route Route { get; set; }

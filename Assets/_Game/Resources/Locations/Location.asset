@@ -21,4 +21,7 @@ MonoBehaviour:
   EntertainmentMoodBonus: 10
   HasHospital: 0
   PriceForHospital: 0
-  ShopItems: []
+  ShopItems:
+  - Price: 0
+    Limit: 0
+    Item: {fileID: 0}
