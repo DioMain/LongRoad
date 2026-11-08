@@ -22,7 +22,7 @@ namespace LongRoad.UI.Elements
 
         public override void Dispose()
         {
-            Local.Travel.OnTravelProgress -= UpdateDistance; // git test
+            Local.Travel.OnTravelProgress -= UpdateDistance;
         }
     }
 }
