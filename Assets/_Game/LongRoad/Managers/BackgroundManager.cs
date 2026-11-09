@@ -19,19 +19,19 @@ namespace LongRoad.Managers
             }
         }
 
-        public void StartScroll(float speedFactor = 1)
+        public void StartScroll(float easeTime, float speedFactor = 1)
         {
             foreach (var scroll in scrolls)
             {
-                scroll.StartScroll(speedFactor);
+                scroll.StartScroll(easeTime, speedFactor);
             }
         }
 
-        public void StopScroll(float speedFactor = 1)
+        public void StopScroll(float easeTime)
         {
             foreach (var scroll in scrolls)
             {
-                scroll.StopScroll();
+                scroll.StopScroll(easeTime);
             }
         }
 

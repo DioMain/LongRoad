@@ -69,10 +69,9 @@ namespace LongRoad
             }
 
             background.Init();
-
-            Pipeline = new GamePipeline.GamePipeline(Persons, Time, Travel, background, Data);
-
             carModel.Init();
+
+            Pipeline = new GamePipeline.GamePipeline(Persons, Time, Travel, background, carModel, Data);
 
             ui.Init();
 

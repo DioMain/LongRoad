@@ -63,6 +63,14 @@ MonoBehaviour:
     m_Key: apple_desc
     m_Metadata:
       m_Items: []
+  - m_Id: 38836965212725248
+    m_Key: loc_test_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38837273137553408
+    m_Key: loc_test_desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

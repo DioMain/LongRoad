@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 10
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 513994389}
 --- !u!1 &513994387
 GameObject:
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 10
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 320036731}
 --- !u!212 &513994390
 SpriteRenderer:
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 2
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 1289672594}
 --- !u!1 &759802350
 GameObject:
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 10
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 2069482941}
 --- !u!212 &759802353
 SpriteRenderer:
@@ -1345,7 +1345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 8
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 1602769742}
 --- !u!1 &1020960518
 GameObject:
@@ -1453,7 +1453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 4
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 1918227501}
 --- !u!1 &1248810890
 GameObject:
@@ -1594,7 +1594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 2
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 639429928}
 --- !u!212 &1289672595
 SpriteRenderer:
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 6
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 2057246784}
 --- !u!212 &1548212661
 SpriteRenderer:
@@ -1930,7 +1930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 8
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 988641802}
 --- !u!212 &1602769743
 SpriteRenderer:
@@ -2092,7 +2092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 4
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 1020960521}
 --- !u!212 &1918227502
 SpriteRenderer:
@@ -2274,7 +2274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 6
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 1548212660}
 --- !u!1 &2069482938
 GameObject:
@@ -2382,7 +2382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: LongRoad::LongRoad.Misc.InfiniteSpriteScroll
   defaultSpeed: 10
-  easeTime: 2
+  easeTime: 8
   nextChain: {fileID: 759802352}
 --- !u!114 &2111101428
 MonoBehaviour:

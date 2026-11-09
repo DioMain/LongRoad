@@ -3,6 +3,7 @@ using LongRoad.Core.GameEvent;
 using LongRoad.Core.Inventory;
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
+using LongRoad.Managers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -123,6 +124,8 @@ namespace LongRoad.Services
                     if (item.IsFood)
                     {
                         target.SetHunger(target.Hunger + item.HungerResotre);
+
+                        GameManager.Instance.Audio.PlaySfx(AudioManager.CommonSfxClip.Eat);
                     }
 
                     if (hasBoundEvent)

@@ -25,77 +25,16 @@ namespace LongRoad.Managers
             }
 
             model = Car.SpawnModel(CarContainer);
-            Subscribe();
-            RefreshState();
-        }
-
-        public void SetState(CarModelState state)
-        {
-            model?.SetState(state);
-        }
-
-        public void RefreshState()
-        {
-            if (model == null || Local?.Data == null)
-                return;
-
-            var car = Car;
-            if (car == null || car.Fuel <= 0)
-            {
-                SetState(CarModelState.Off);
-                return;
-            }
-
-            if (Local.Pipeline.Phase is PlayerGamePhaseStrategy || Local.Data.CurrentLocation != null)
-            {
-                SetState(CarModelState.Idle);
-                return;
-            }
-
-            if (Local.Pipeline.Phase is ModifiersGamePhaseStrategy || Local.Pipeline.Phase is EventGamePhaseStrategy)
-            {
-                SetState(CarModelState.Drive);
-                return;
-            }
-
-            SetState(CarModelState.Idle);
         }
 
         public override void Dispose()
         {
-            Unsubscribe();
             model.Dispose();
         }
 
         private void OnDestroy()
         {
             Dispose();
-        }
-
-        private void Subscribe()
-        {
-            Local.Pipeline.OnPhaseChanged += HandlePhaseChanged;
-
-            if (Car != null)
-                Car.OnFuelChanged += HandleFuelChanged;
-        }
-
-        private void Unsubscribe()
-        {
-            Local.Pipeline.OnPhaseChanged -= HandlePhaseChanged;
-
-            if (Car != null)
-                Car.OnFuelChanged -= HandleFuelChanged;
-        }
-
-        private void HandlePhaseChanged(IGamePhaseStrategy _)
-        {
-            RefreshState();
-        }
-
-        private void HandleFuelChanged(CarEntity _, int __)
-        {
-            RefreshState();
         }
     }
 }

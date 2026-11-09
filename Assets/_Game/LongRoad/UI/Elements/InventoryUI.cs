@@ -1,6 +1,7 @@
 ﻿using LongRoad.Core;
 using LongRoad.Core.Inventory;
 using LongRoad.Core.Scriptables;
+using LongRoad.Managers;
 using LongRoad.UI.Elements.Models;
 using System;
 using System.Collections;
@@ -93,6 +94,8 @@ namespace LongRoad.UI.Elements
         {
             isOpen = !isOpen;
 
+            Game.Audio.PlaySfx(AudioManager.CommonSfxClip.Click);
+
             if (isOpen)
             {
                 inventory.style.display = DisplayStyle.Flex;
@@ -128,6 +131,8 @@ namespace LongRoad.UI.Elements
         {
             PersonEntity[] persons;
             bool canceled = false;
+
+            Game.Audio.PlaySfx(AudioManager.CommonSfxClip.Click);
 
             switch (stack.Item.TargetKind)
             {

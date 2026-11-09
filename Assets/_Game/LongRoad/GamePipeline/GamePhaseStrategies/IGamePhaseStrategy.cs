@@ -10,8 +10,9 @@ namespace LongRoad.GamePipeline.GamePhaseStrategies
         public PersonService People;
         public GameTimeService Time;
         public TravelService Travel;
-        public BackgroundManager Background;
         public GameData GameData;
+        public CarModelManager CarModelManager;
+        public BackgroundManager BackgroundManager;
     }
 
     public interface IGamePhaseStrategy

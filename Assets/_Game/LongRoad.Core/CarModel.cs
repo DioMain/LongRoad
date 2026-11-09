@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 namespace LongRoad.Core
@@ -12,29 +13,35 @@ namespace LongRoad.Core
 
     public class CarModel : LongRoadBehaviourCore
     {
+        [Header("Links:")]
         [SerializeField]
         private Transform body;
-
         [SerializeField]
         private Transform wheelFront;
-
         [SerializeField]
         private Transform wheelRear;
-
+        [SerializeField]
+        private AudioSource carAudioSource;
+        [Header("Animation settings:")]
         [SerializeField]
         private float idleBodyStrength = 0.02f;
-
         [SerializeField]
         private float driveBodyStrength = 0.035f;
-
         [SerializeField]
         private float wheelShakeStrength = 0.04f;
-
         [SerializeField]
         private float idleDuration = 0.08f;
-
         [SerializeField]
         private float driveDuration = 0.06f;
+        [Header("Audio settings:")]
+        [SerializeField]
+        private AudioClip idleSound;
+        [SerializeField]
+        private AudioClip startRideSound;
+        [SerializeField]
+        private AudioClip rideSound;
+        [SerializeField]
+        private AudioClip endRideSound;
 
         private Vector3 _bodyRestPos;
         private Quaternion _bodyRestRot;
@@ -45,30 +52,67 @@ namespace LongRoad.Core
 
         public CarModelState State { get; private set; } = CarModelState.Off;
 
+        public float StartRoadTime => startRideSound.length;
+        public float StopRoadTime => endRideSound.length;
+
         public override void Init()
         {
             CacheRests();
             SetState(CarModelState.Off);
         }
 
-        public void SetState(CarModelState state)
+        public IEnumerator SetState(CarModelState newState)
         {
-            if (State == state)
-                return;
+            if (State == newState)
+                yield break;
 
-            State = state;
             KillTweens();
             ResetTransforms();
+            carAudioSource.Stop();
 
-            switch (state)
+            switch (newState)
             {
                 case CarModelState.Idle:
-                    PlayIdle();
+                    {
+                        if (State == CarModelState.Drive)
+                        {
+                            PlayDrive();
+
+                            carAudioSource.clip = endRideSound;
+                            carAudioSource.loop = false;
+                            carAudioSource.Play();
+
+                            yield return new WaitWhile(() => carAudioSource.isPlaying);
+                        }
+
+                        carAudioSource.clip = idleSound;
+                        carAudioSource.loop = true;
+                        carAudioSource.Play();
+
+                        PlayIdle();
+                    }
                     break;
                 case CarModelState.Drive:
-                    PlayDrive();
+                    {
+                        PlayDrive();
+
+                        carAudioSource.clip = startRideSound;
+                        carAudioSource.loop = false;
+                        carAudioSource.Play();
+
+                        yield return new WaitWhile(() => carAudioSource.isPlaying);
+
+                        carAudioSource.clip = rideSound;
+                        carAudioSource.loop = true;
+                        carAudioSource.Play();
+                    }
+                    break;
+                default:
+                case CarModelState.Off:
                     break;
             }
+
+            State = newState;
         }
 
         public override void Dispose()

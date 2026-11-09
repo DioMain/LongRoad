@@ -18,12 +18,13 @@ namespace LongRoad.GamePipeline
 
     public class GamePipeline
     {
-        private readonly IEnumerable<IGamePhaseStrategy> phases;
+        private readonly List<IGamePhaseStrategy> phases;
 
         private readonly PersonService _people;
         private readonly GameTimeService _time;
         private readonly TravelService _travel;
         private readonly BackgroundManager _background;
+        private readonly CarModelManager _carModelManager;
         private readonly GameData _gameData;
 
         private bool _pipelinePaused;
@@ -38,18 +39,19 @@ namespace LongRoad.GamePipeline
             private set
             {
                 phase = value;
-                OnPhaseChanged(value);
+                OnPhaseChanged?.Invoke(value);
             }
         }
 
-
         public event Action<GameEndState> OnEnded;
         public event Action<IGamePhaseStrategy> OnPhaseChanged;
+        public event Action OnPause;
+        public event Action OnContinue;
 
-        public GamePipeline(PersonService people, GameTimeService time, TravelService travel, BackgroundManager background, GameData gameData)
+        public GamePipeline(PersonService people, GameTimeService time, TravelService travel, BackgroundManager background, CarModelManager carModelManager, GameData gameData)
         {
             var phasesTypes = GetType().Assembly.GetTypes().Where(type => typeof(IGamePhaseStrategy).IsAssignableFrom(type) && !type.IsAbstract);
-            phases = phasesTypes.Select(type => Activator.CreateInstance(type) as IGamePhaseStrategy).OrderBy(phase => phase.Order);
+            phases = phasesTypes.Select(type => Activator.CreateInstance(type) as IGamePhaseStrategy).OrderBy(phase => phase.Order).ToList();
 
             foreach (var phase in phases)
             {
@@ -61,14 +63,15 @@ namespace LongRoad.GamePipeline
             _travel = travel;
             _background = background;
             _gameData = gameData;
+            _carModelManager = carModelManager;
         }
 
         public IEnumerator Run(MonoBehaviour listener)
         {
-            var maxPhaseOrder = phases.Max(phase => phase.Order);
-            var minPhaseOrder = phases.Min(phase => phase.Order);
+            int maxPhaseOrder = phases.Max(phase => phase.Order);
+            int minPhaseOrder = phases.Min(phase => phase.Order);
 
-            var currentOrder = minPhaseOrder;
+            int currentOrder = minPhaseOrder;
 
             while (EndState == GameEndState.None)
             {
@@ -78,10 +81,11 @@ namespace LongRoad.GamePipeline
                 yield return phase.Invoke(this, new()
                 {
                     GameData = _gameData,
-                    Background = _background,
                     People = _people,
                     Time = _time,
-                    Travel = _travel
+                    Travel = _travel,
+                    CarModelManager = _carModelManager,
+                    BackgroundManager = _background
                 }, listener);
 
                 if (currentOrder < maxPhaseOrder)
@@ -100,11 +104,15 @@ namespace LongRoad.GamePipeline
         public void Continue()
         {
             _pipelinePaused = false;
+
+            OnContinue?.Invoke();
         }
 
         public void Pause()
         {
             _pipelinePaused = true;
+
+            OnPause?.Invoke();
         }
 
         public void Win()

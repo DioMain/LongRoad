@@ -1,4 +1,5 @@
 ﻿using LongRoad.Core.Inventory;
+using LongRoad.Managers;
 using LongRoad.Services;
 using System;
 using UnityEngine;
@@ -53,6 +54,8 @@ namespace LongRoad.UI.Elements.Models
 
         private void OnDeleteButtonClicked(ClickEvent clickEvent)
         {
+            GameManager.Instance.Audio.PlaySfx(AudioManager.CommonSfxClip.Click);
+
             if (!_invetoryService.TryRemove(_stack.Item, 1))
             {
                 Debug.LogError($"Error item deletetion: {_stack.Item.name}");

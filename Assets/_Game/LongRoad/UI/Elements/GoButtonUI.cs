@@ -1,5 +1,4 @@
-﻿using LongRoad.GamePipeline;
-using LongRoad.GamePipeline.GamePhaseStrategies;
+﻿using LongRoad.Managers;
 using UnityEngine.UIElements;
 
 namespace LongRoad.UI.Elements
@@ -12,34 +11,31 @@ namespace LongRoad.UI.Elements
         {
             goButton = UI.Hud.Q<Button>("go-button");
 
-            Local.Pipeline.OnPhaseChanged += Pipeline_OnPhaseChanged;
+            Local.Pipeline.OnPause += Pipeline_OnPause;
 
             goButton.style.display = DisplayStyle.Flex;
 
             goButton.clicked += GoButton_clicked;
         }
 
-        private void Pipeline_OnPhaseChanged(IGamePhaseStrategy phase)
+        private void Pipeline_OnPause()
         {
-            if (phase is PlayerGamePhaseStrategy)
-            {
-                goButton.style.display = DisplayStyle.Flex;
-            }
-            else
-            {
-                goButton.style.display = DisplayStyle.None;
-            }
+            goButton.style.display = DisplayStyle.Flex;
         }
 
         private void GoButton_clicked()
         {
             Local.Pipeline.Continue();
+
+            Game.Audio.PlaySfx(AudioManager.CommonSfxClip.Click);
+
+            goButton.style.display = DisplayStyle.None;
         }
 
         public override void Dispose()
         {
             goButton.clicked -= GoButton_clicked;
-            Local.Pipeline.OnPhaseChanged -= Pipeline_OnPhaseChanged;
+            Local.Pipeline.OnPause -= Pipeline_OnPause;
         }
     }
 }

@@ -9,8 +9,6 @@ namespace LongRoad.Misc
         [SerializeField]
         private float defaultSpeed = 1f;
         [SerializeField]
-        private float easeTime = 3f;
-        [SerializeField]
         private InfiniteSpriteScroll nextChain;
 
         public bool IsEasing => speedTranslateTween != null;
@@ -48,7 +46,7 @@ namespace LongRoad.Misc
             if (spriteRenderer.bounds.max.x < cameraLeftX)
             {
                 Vector2 current = transform.position;
-                current.x = nextChainSpriteRenderer.bounds.max.x + spriteWidth / 2f;
+                current.x = nextChainSpriteRenderer.bounds.max.x + spriteWidth / 2f - 0.05f;
 
                 transform.position = current;
             }
@@ -56,7 +54,7 @@ namespace LongRoad.Misc
             transform.Translate(Vector2.left * currentOffsetSpeed * Time.deltaTime);
         }
 
-        public void StartScroll(float speedFactor = 1f)
+        public void StartScroll(float easeTime, float speedFactor = 1f)
         {
             Dispose();
 
@@ -73,7 +71,7 @@ namespace LongRoad.Misc
             };
         }
 
-        public void StopScroll()
+        public void StopScroll(float easeTime)
         {
             Dispose();
 

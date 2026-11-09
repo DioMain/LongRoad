@@ -1,9 +1,10 @@
-﻿using LongRoad.UI.Elements.Models;
-using System.Collections.Generic;
+﻿using LongRoad.Core;
+using LongRoad.Managers;
+using LongRoad.UI.Elements.Models;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using LongRoad.Core;
 
 namespace LongRoad.UI.Elements
 {
@@ -39,6 +40,8 @@ namespace LongRoad.UI.Elements
 
         private void CloseButton_clicked()
         {
+            Game.Audio.PlaySfx(AudioManager.CommonSfxClip.Click);
+
             isSelecting = false;
             IsCanceled = true;
         }
@@ -77,6 +80,8 @@ namespace LongRoad.UI.Elements
 
                 item.OnClick += (person) =>
                 {
+                    Game.Audio.PlaySfx(AudioManager.CommonSfxClip.Click);
+
                     SelectResult = person;
                     isSelecting = false;
                 };

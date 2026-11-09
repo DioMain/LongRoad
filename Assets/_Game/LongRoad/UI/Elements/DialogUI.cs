@@ -1,4 +1,5 @@
-﻿using LongRoad.UI.Elements.Models;
+﻿using LongRoad.Managers;
+using LongRoad.UI.Elements.Models;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -96,6 +97,8 @@ namespace LongRoad.UI.Elements
 
         private void Item_OnClick(Variant variant)
         {
+            Game.Audio.PlaySfx(AudioManager.CommonSfxClip.Click);
+
             SelectResult = variant;
         }
 

@@ -3,6 +3,7 @@ using LongRoad.Core.GameEvent;
 using LongRoad.Core.Localization;
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
+using LongRoad.Managers;
 using UnityEngine;
 
 namespace LongRoad {
@@ -14,10 +15,13 @@ namespace LongRoad {
 
         [SerializeField]
         private LocalizationManager localization;
+        [SerializeField]
+        private AudioManager audioManager;
 
         public PlayerInput Input { get; private set; }
         public LocalizationManager Localization => localization;
         public ItemService ItemService { get; private set; }
+        public AudioManager Audio => audioManager;
 
         private void Awake()
         {
@@ -41,6 +45,9 @@ namespace LongRoad {
 
             ItemService = new ItemService();
             Input = new PlayerInput();
+
+            localization.Init();
+            audioManager.Init();
         }
     }
 }
