@@ -14,6 +14,8 @@ namespace LongRoad.Core.Scriptables
 
         public Specailty Specailty;
 
+        public PersonAIConfig AIConfig;
+
         public List<Trait> Traits = new();
 
         public int DefaultHeal = 100;

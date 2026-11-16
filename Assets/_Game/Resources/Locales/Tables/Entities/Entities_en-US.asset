@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 15105533493248
-    m_Localized: test
+    m_Localized: Kris
     m_Metadata:
       m_Items: []
   - m_Id: 15130221166592
-    m_Localized: testification
+    m_Localized: Delta warrior
     m_Metadata:
       m_Items: []
   - m_Id: 15583503794176
@@ -72,6 +72,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 38837273137553408
     m_Localized: Testograd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41327407804227584
+    m_Localized: McGnome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41327468130902016
+    m_Localized: '!!!'
     m_Metadata:
       m_Items: []
   references:

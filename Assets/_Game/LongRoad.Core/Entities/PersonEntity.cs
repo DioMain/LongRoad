@@ -1,4 +1,5 @@
 using LongRoad.Core.Entities.Abstraction;
+using LongRoad.Core.PersonAI.Abstractions;
 using LongRoad.Core.Scriptables;
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,27 @@ namespace LongRoad.Core
         public event Action<PersonEntity, LiveStatus> OnStatusAdded;
         public event Action<PersonEntity, LiveStatus> OnStatusRemoved;
 
+        public PersonAIBase AI;
+        public bool HasAI => AI != null;
+
         public PersonEntity(Person entity) : base(entity)
         {
             Heal = entity.DefaultHeal;
             Hunger = entity.DefaultHunger;
             Mood = entity.DefaultMood;
+
+            AI = null;
+        }
+
+        public void InitAI(PersonAIBase ai)
+        {
+            if (ai == null)
+            {
+                Debug.LogError("Person AI type not found");
+                return;
+            }
+
+            AI = ai;
         }
 
         public void SetHeal(int value)

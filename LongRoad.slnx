@@ -6,4 +6,5 @@
   <Project Path="LongRoad.Core.csproj" />
   <Project Path="LongRoad.Domain.csproj" />
   <Project Path="LongRoad.Packages.csproj" />
+  <Project Path="LongRoad.Editor.csproj" />
 </Solution>

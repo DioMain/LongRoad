@@ -99,6 +99,14 @@ MonoBehaviour:
     m_Key: hud_inventory_item_count
     m_Metadata:
       m_Items: []
+  - m_Id: 38712241220526080
+    m_Key: notification_appear_to_location
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38712243439312896
+    m_Key: notification_fuel_is_gone
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

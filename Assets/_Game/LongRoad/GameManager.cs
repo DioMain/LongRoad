@@ -23,6 +23,11 @@ namespace LongRoad {
         public ItemService ItemService { get; private set; }
         public AudioManager Audio => audioManager;
 
+        /// <summary>
+        /// LocalizationManager
+        /// </summary>
+        public static LocalizationManager L => Instance.localization;
+
         private void Awake()
         {
             if (Instance == null)

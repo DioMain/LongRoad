@@ -1,11 +1,7 @@
-﻿using LongRoad.Core;
-using LongRoad.Core.Scriptables;
+﻿using LongRoad.Core.Scriptables;
 
-namespace LongRoad
+namespace LongRoad.Core
 {
-    /// <summary>
-    /// Session data store only. Logic and UI notifications live in services / GamePipeline.
-    /// </summary>
     public class GameData
     {
         public CarEntity Car { get; set; }

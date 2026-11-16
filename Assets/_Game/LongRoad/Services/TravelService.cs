@@ -1,3 +1,4 @@
+using LongRoad.Core;
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
 using System;

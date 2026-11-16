@@ -13,9 +13,9 @@ namespace LongRoad.GamePipeline.GamePhaseStrategies
         {
             if (services.GameData.Car.Fuel <= 0 && services.CarModelManager.State != Core.CarModelState.Off)
             {
-                LocalManager.Notification.Notify("Двигатель заглох!", UI.Elements.NotificationUI.WarnLevel.Warning); //TODO: Localization
+                LocalManager.Notification.Notify(GameManager.L.GetMainString("notification_fuel_is_gone"), UI.Elements.NotificationUI.WarnLevel.Warning);
 
-                services.BackgroundManager.StopScroll(2f);
+                services.BackgroundManager.StopScroll(3f);
 
                 yield return services.CarModelManager.Model.SetState(Core.CarModelState.Off);
 
@@ -24,7 +24,7 @@ namespace LongRoad.GamePipeline.GamePhaseStrategies
 
             if (services.GameData.CurrentLocation != null && services.CarModelManager.State != Core.CarModelState.Idle)
             {
-                LocalManager.Notification.Notify($"Добро пожаловать в {services.GameData.CurrentLocation.GetName(GameManager.Instance.Localization)}"); //TODO: Localization
+                LocalManager.Notification.Notify(GameManager.L.GetMainString("notification_appear_to_location", services.GameData.CurrentLocation.GetName(GameManager.L)));
 
                 services.BackgroundManager.StopScroll(services.CarModelManager.Model.StopRoadTime);
 

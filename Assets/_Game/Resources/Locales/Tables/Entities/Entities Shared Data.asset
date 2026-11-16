@@ -16,11 +16,11 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 5b58f71790744404fa955bd25ae084d3
   m_Entries:
   - m_Id: 15105533493248
-    m_Key: test_name
+    m_Key: kris_name
     m_Metadata:
       m_Items: []
   - m_Id: 15130221166592
-    m_Key: test_desc
+    m_Key: kris_desc
     m_Metadata:
       m_Items: []
   - m_Id: 15583503794176
@@ -69,6 +69,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 38837273137553408
     m_Key: loc_test_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41327407804227584
+    m_Key: mcgnome_name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41327468130902016
+    m_Key: mcgnome_desc
     m_Metadata:
       m_Items: []
   m_Metadata:

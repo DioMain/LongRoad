@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78a16d20b4df34d4d902448a58402f8d, type: 3}
-  m_Name: Test
+  m_Name: Kris
   m_EditorClassIdentifier: LongRoad.Core::LongRoad.Core.Scriptables.Person
-  Tag: test
+  Tag: kris
   Sprite: {fileID: 3542127132570728493, guid: 9387dafd3f0de144891c58256fc92de5, type: 3}
   Specailty: {fileID: 11400000, guid: ee83799dd9d8df04ba2ecd5395ffa8f5, type: 2}
+  AIConfig: {fileID: 11400000, guid: 2652ddd0768d0dd43863a616c1fa09be, type: 2}
   Traits: []
   DefaultHeal: 100
   DefaultHunger: 100

@@ -15,6 +15,7 @@ MonoBehaviour:
   Tag: sp_default
   StartingPersons:
   - {fileID: 11400000, guid: 37f4c7b81c58fc641a99039c2d4b7747, type: 2}
+  - {fileID: 11400000, guid: c5565bcea89a71b46b6a12ac0aa96e1f, type: 2}
   SelectedCar: {fileID: 11400000, guid: 3f3ad6f1d18a584418f5235bd93ed72c, type: 2}
   StartingRoute: {fileID: 11400000, guid: 1281ee473b68874409923b4ff4ae88bc, type: 2}
   StartingMoney: 100

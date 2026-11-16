@@ -1,15 +1,19 @@
 using LongRoad.Core;
+using LongRoad.Core.PersonAI.Abstractions;
 using LongRoad.Core.Scriptables;
 using LongRoad.Domain.Interfaces;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace LongRoad.Services
 {
     public class PersonService : IService, IEnumerable<PersonEntity>
     {
+        private readonly List<Type> _personAiTypes;
+
         private const int HungerDrainPerTurn = 5;
         private const int StarvationDamagePerTurn = 5;
 
@@ -19,6 +23,13 @@ namespace LongRoad.Services
         public event Action<PersonEntity> OnPersonAdded;
         public event Action<PersonEntity> OnPersonRemoved;
         public event Action OnModifiersApplied;
+
+        public PersonService()
+        {
+            _personAiTypes = GetType().Assembly.GetTypes()
+                .Where(type => typeof(PersonAIBase).IsAssignableFrom(type))
+                .ToList();
+        }
 
         public void LoadRoster(IEnumerable<Person> roster)
         {
@@ -33,6 +44,19 @@ namespace LongRoad.Services
                     continue;
 
                 var entity = new PersonEntity(person);
+
+                if (_people.Count > 0 && entity.Prototype.AIConfig != null)
+                {
+                    var aiType = _personAiTypes.FirstOrDefault(type => type.Name == entity.Prototype.AIConfig.AITypeName);
+
+                    if (aiType != null)
+                    {
+                        var ai = (PersonAIBase)Activator.CreateInstance(aiType, new object[] { entity });
+
+                        entity.InitAI(ai);
+                    }
+                }
+
                 _people.Add(entity);
                 OnPersonAdded?.Invoke(entity);
             }
@@ -44,6 +68,19 @@ namespace LongRoad.Services
                 return null;
 
             var entity = new PersonEntity(person);
+
+            if (_people.Count > 0 && entity.Prototype.AIConfig != null)
+            {
+                var aiType = _personAiTypes.FirstOrDefault(type => type.Name == entity.Prototype.AIConfig.AITypeName);
+
+                if (aiType != null)
+                {
+                    var ai = (PersonAIBase)Activator.CreateInstance(aiType, new object[] { entity });
+
+                    entity.InitAI(ai);
+                }
+            }
+
             _people.Add(entity);
             OnPersonAdded?.Invoke(entity);
             return entity;
