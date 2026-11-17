@@ -1,15 +1,13 @@
+using LongRoad.UI.Abstractions;
 using LongRoad.UI.Elements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace LongRoad.UI
 {
-    public class GameUIManager : LongRoadBehaviour
+    public class GameUIManager : GameUIManagerBase
     {
-        [SerializeField]
-        private PanelRenderer mainPanelRenderer;
-
-        public VisualElement MainRoot { get; private set; }
+        public VisualElement MainRoot => Root;
 
         public VisualElement Hud { get; private set; }
         public VisualElement Inventory { get; private set; }
@@ -19,39 +17,21 @@ namespace LongRoad.UI
         public DialogUI DialogUI;
         public NotificationUI Notification;
 
-        bool mainUiInited = false;
-
-        public override void Init()
+        public override void OnElementsInit()
         {
-            if (mainPanelRenderer == null)
-            {
-                Debug.LogError($"{nameof(GameUIManager)}: {nameof(mainPanelRenderer)} is not assigned.", this);
-                return;
-            }
+            Hud = MainRoot.Q("hud");
+            Inventory = MainRoot.Q("inventory");
+            Dialog = MainRoot.Q("dialog");
+        }
 
-            mainPanelRenderer.RegisterUIReloadCallback((render, root, version) =>
-            {
-                if (mainUiInited)
-                    return;
+        public void Hide()
+        {
 
-                var elements = GetComponentsInChildren<LongRoadUIElement>();
+        }
 
-                MainRoot = root;
+        public void Show()
+        {
 
-                Hud = MainRoot.Q("hud");
-                Inventory = MainRoot.Q("inventory");
-                Dialog = MainRoot.Q("dialog");
-
-                if (elements == null)
-                    return;
-
-                foreach (var item in elements)
-                {
-                    item.Init();
-                }
-
-                mainUiInited = true;
-            });
         }
     }
 }

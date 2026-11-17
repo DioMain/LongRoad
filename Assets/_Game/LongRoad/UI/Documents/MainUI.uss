@@ -50,6 +50,7 @@
     padding: 16px;
     justify-content: space-between;
     height: auto;
+    padding-top: 38px;
 }
 
 #main-info {
@@ -187,8 +188,6 @@
     min-width: 20%;
 }
 
-
-
 #notifications {
     flex-grow: 1;
     position: absolute;
@@ -203,8 +202,6 @@
     padding-left: 0;
     margin-left: 16px;
 }
-
-
 
 #location {
     flex-grow: 1;

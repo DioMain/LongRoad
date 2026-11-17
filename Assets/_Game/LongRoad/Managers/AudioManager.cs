@@ -78,7 +78,6 @@ namespace LongRoad.Managers
                 default: throw new ApplicationException("Unknown common sfx");
             }
         }
-
         public void PlaySfx(AudioClip clip)
         {
             var freeSlot = sfxSlots.FirstOrDefault(slot => !slot.isPlaying);

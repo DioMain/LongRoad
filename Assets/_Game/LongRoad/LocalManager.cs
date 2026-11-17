@@ -5,6 +5,7 @@ using LongRoad.UI;
 using UnityEngine;
 using LongRoad.Managers;
 using LongRoad.UI.Elements;
+using LongRoad.Shop;
 
 namespace LongRoad
 {
@@ -18,6 +19,11 @@ namespace LongRoad
         private CarModelManager carModel;
         [SerializeField]
         private BackgroundManager background;
+        [SerializeField]
+        private ShopManager shop;
+        [SerializeField]
+        private SunManager sun;
+
 
         public GameData Data { get; private set; }
         public GamePipeline.GamePipeline Pipeline { get; private set; }
@@ -30,6 +36,8 @@ namespace LongRoad
         public GameUIManager UI => ui;
         public CarModelManager CarModel => carModel;
         public BackgroundManager Background => background;
+        public ShopManager Shop => shop;
+        public SunManager Sun => sun;
 
         public static NotificationUI Notification => Instance.UI.Notification;
 
@@ -68,8 +76,10 @@ namespace LongRoad
                 Inventory.TryAdd(item.Item, item.Count);
             }
 
+            sun.Init();
             background.Init();
             carModel.Init();
+            shop.Init();
 
             Pipeline = new GamePipeline.GamePipeline(Persons, Time, Travel, background, carModel, Data);
 

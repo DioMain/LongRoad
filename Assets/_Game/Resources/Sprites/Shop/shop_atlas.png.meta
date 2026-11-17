@@ -1,0 +1,886 @@
+fileFormatVersion: 2
+guid: 96e066c9b611ada46948016cc2155eaf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1182660463728374249
+    second: shop_atlas_0
+  - first:
+      213: 8931629918632265330
+    second: shop_atlas_1
+  - first:
+      213: -3980598780485975314
+    second: shop_atlas_2
+  - first:
+      213: 5469485068003010394
+    second: shop_atlas_3
+  - first:
+      213: -743807092920206282
+    second: shop_atlas_4
+  - first:
+      213: -7250929515845687423
+    second: shop_atlas_5
+  - first:
+      213: 1789157614438218325
+    second: shop_atlas_6
+  - first:
+      213: -4549415750094593288
+    second: shop_atlas_7
+  - first:
+      213: -597030760263953809
+    second: shop_atlas_8
+  - first:
+      213: -6231659670273169398
+    second: shop_atlas_9
+  - first:
+      213: 2023306957247444727
+    second: shop_atlas_10
+  - first:
+      213: 561535955096458547
+    second: shop_atlas_11
+  - first:
+      213: -1068029998954953702
+    second: shop_atlas_12
+  - first:
+      213: -7416329097046587328
+    second: shop_atlas_13
+  - first:
+      213: 8680599389686235744
+    second: shop_atlas_14
+  - first:
+      213: -1681502058983328636
+    second: shop_atlas_15
+  - first:
+      213: 1867105416501050515
+    second: shop_atlas_16
+  - first:
+      213: 7782289491233352865
+    second: shop_atlas_17
+  - first:
+      213: -908741847358512439
+    second: shop_atlas_18
+  - first:
+      213: 3202301539385150018
+    second: shop_atlas_19
+  - first:
+      213: -355376293212127867
+    second: shop_atlas_20
+  - first:
+      213: 2271010937097455202
+    second: shop_atlas_21
+  - first:
+      213: 4856418316473411169
+    second: shop_atlas_22
+  - first:
+      213: 7191815346910701878
+    second: shop_atlas_23
+  - first:
+      213: -590696185491613589
+    second: shop_atlas_24
+  - first:
+      213: -6323077532757426505
+    second: shop_atlas_25
+  - first:
+      213: -9127826806575164702
+    second: shop_atlas_26
+  - first:
+      213: -6928348046601916081
+    second: shop_atlas_27
+  - first:
+      213: 380555863498229175
+    second: shop_atlas_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shop_atlas_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 151
+        width: 162
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e42910398569fe0800000000000000
+      internalID: -1182660463728374249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 151
+        width: 162
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 276c355d61683fb70800000000000000
+      internalID: 8931629918632265330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_2
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 151
+        width: 162
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2c7cfcf7212c8c0800000000000000
+      internalID: -3980598780485975314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_3
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 182
+        width: 262
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 11, y: 48, z: 11, w: 12}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a576f96d0b387eb40800000000000000
+      internalID: 5469485068003010394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 97
+        width: 492
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c331dc3677da5f0800000000000000
+      internalID: -743807092920206282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_5
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 99
+        width: 148
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 10, w: 10}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1876f9cb5068f5b90800000000000000
+      internalID: -7250929515845687423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_6
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 136
+        width: 104
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 0, z: 10, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a76c7fe5d54d810800000000000000
+      internalID: 1789157614438218325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_7
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 107
+        width: 50
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 0, z: 5, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f26b08aa7a3dd0c0800000000000000
+      internalID: -4549415750094593288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_8
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 109
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f625c7ecfabe6b7f0800000000000000
+      internalID: -597030760263953809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_9
+      rect:
+        serializedVersion: 2
+        x: 707
+        y: 109
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a086d30fb82b489a0800000000000000
+      internalID: -6231659670273169398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_10
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 109
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f67f4a25fa341c10800000000000000
+      internalID: 2023306957247444727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_11
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 109
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 335522cd9f9fac700800000000000000
+      internalID: 561535955096458547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 148
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1444d6ef589d21f0800000000000000
+      internalID: -1068029998954953702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_13
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 2
+        width: 45
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0480529caf7e31990800000000000000
+      internalID: -7416329097046587328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_14
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 6
+        width: 55
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06288b3372fa77870800000000000000
+      internalID: 8680599389686235744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_15
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1
+        width: 85
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 484f53d49ca1aa8e0800000000000000
+      internalID: -1681502058983328636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_16
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 35
+        width: 60
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39cb0c4eb7a49e910800000000000000
+      internalID: 1867105416501050515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_17
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 54
+        width: 114
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 25, y: 0, z: 10, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac28385f0f300c60800000000000000
+      internalID: 7782289491233352865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_18
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 67
+        width: 64
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2e9a3ca108363f0800000000000000
+      internalID: -908741847358512439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_19
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 59
+        width: 72
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 0, z: 10, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24a0db6984cd07c20800000000000000
+      internalID: 3202301539385150018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_20
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 59
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58dfe79e423711bf0800000000000000
+      internalID: -355376293212127867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_21
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 29
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26688ba3a60448f10800000000000000
+      internalID: 2271010937097455202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_22
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 30
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 166291a7ab6756340800000000000000
+      internalID: 4856418316473411169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_23
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 32
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 639a0d244f57ec360800000000000000
+      internalID: 7191815346910701878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_24
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 37
+        width: 62
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68189de2fc6dc7f0800000000000000
+      internalID: -590696185491613589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_25
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 19
+        width: 72
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 0, z: 10, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be7dbc2c7aef38a0800000000000000
+      internalID: -6323077532757426505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_26
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 19
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e29cc671e1735180800000000000000
+      internalID: -9127826806575164702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_27
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 17
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 0, z: 2, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f41750ad82099df90800000000000000
+      internalID: -6928348046601916081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_atlas_28
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 17
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 2, y: 0, z: 2, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b50105aa81084500800000000000000
+      internalID: 380555863498229175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f2125ac33bfd4b84f9090b5cdb4d5e6a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      shop_atlas_0: -1182660463728374249
+      shop_atlas_1: 8931629918632265330
+      shop_atlas_10: 2023306957247444727
+      shop_atlas_11: 561535955096458547
+      shop_atlas_12: -1068029998954953702
+      shop_atlas_13: -7416329097046587328
+      shop_atlas_14: 8680599389686235744
+      shop_atlas_15: -1681502058983328636
+      shop_atlas_16: 1867105416501050515
+      shop_atlas_17: 7782289491233352865
+      shop_atlas_18: -908741847358512439
+      shop_atlas_19: 3202301539385150018
+      shop_atlas_2: -3980598780485975314
+      shop_atlas_20: -355376293212127867
+      shop_atlas_21: 2271010937097455202
+      shop_atlas_22: 4856418316473411169
+      shop_atlas_23: 7191815346910701878
+      shop_atlas_24: -590696185491613589
+      shop_atlas_25: -6323077532757426505
+      shop_atlas_26: -9127826806575164702
+      shop_atlas_27: -6928348046601916081
+      shop_atlas_28: 380555863498229175
+      shop_atlas_3: 5469485068003010394
+      shop_atlas_4: -743807092920206282
+      shop_atlas_5: -7250929515845687423
+      shop_atlas_6: 1789157614438218325
+      shop_atlas_7: -4549415750094593288
+      shop_atlas_8: -597030760263953809
+      shop_atlas_9: -6231659670273169398
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

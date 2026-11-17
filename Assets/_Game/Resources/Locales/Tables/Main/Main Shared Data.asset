@@ -107,6 +107,18 @@ MonoBehaviour:
     m_Key: notification_fuel_is_gone
     m_Metadata:
       m_Items: []
+  - m_Id: 41665800895504384
+    m_Key: hud_shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41665829626486784
+    m_Key: hud_hospital
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41666395765252096
+    m_Key: hud_hotel
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

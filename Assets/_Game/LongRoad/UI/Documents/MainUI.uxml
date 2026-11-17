@@ -3,7 +3,7 @@
     <Style src="project://database/Assets/_Game/LongRoad/UI/Documents/SharedStyles.uss?fileID=7433441132597879392&amp;guid=dc8a010e021c2594baa1fdf5ae619031&amp;type=3#SharedStyles"/>
     <ui:VisualElement name="main-root" picking-mode="Ignore" enabled="true">
         <ui:VisualElement name="hud" style="position: absolute; flex-direction: column; flex-grow: 1; height: 100%; display: flex; top: 2px; left: -1px;">
-            <ui:VisualElement name="" style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 160px; flex-shrink: 0;">
+            <ui:VisualElement name="top-panel" style="flex-grow: 0; flex-direction: row; justify-content: space-between; height: 160px; flex-shrink: 0;">
                 <ui:VisualElement name="main-info" style="width: 1049px; flex-grow: 0;">
                     <ui:VisualElement name="day-content" style="padding-left: 28px;">
                         <ui:Image source="project://database/Assets/_Game/Resources/Sprites/Hud_Ui.png?fileID=-829042481604233788&amp;guid=29f49fac81d973c45bb244903a5f1ba8&amp;type=3#Hud_Ui_8" name="day-image"/>
@@ -51,7 +51,7 @@
                     </Bindings>
                 </ui:Button>
             </ui:VisualElement>
-            <ui:VisualElement style="flex-grow: 0; justify-content: flex-end;">
+            <ui:VisualElement name="bottom-panel" style="flex-grow: 0; justify-content: flex-end;">
                 <ui:VisualElement name="" style="flex-grow: 0; height: 110px; margin-bottom: 12px; flex-direction: row; justify-content: flex-end;">
                     <ui:Button text="Button" name="go-button" class="button" style="width: 442px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; display: none;">
                         <Bindings>
@@ -72,8 +72,22 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="location" picking-mode="Ignore" style="display: none;">
-            <ui:Label text="Ура вы в городе, ну или нет..." class="text"/>
+        <ui:VisualElement name="location" picking-mode="Ignore" style="display: none; flex-direction: column; width: 15%; top: 215px;">
+            <ui:Button text="Button" name="shop-button" class="button" style="height: 95px;">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(41665800895504384)"/>
+                </Bindings>
+            </ui:Button>
+            <ui:Button text="Button" name="hospital-button" class="button" style="height: 95px;">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(41665829626486784)"/>
+                </Bindings>
+            </ui:Button>
+            <ui:Button text="Button" name="hotel-button" class="button" style="height: 95px;">
+                <Bindings>
+                    <UnityEngine.Localization.LocalizedString property="text" table="GUID:87861cec3d9b57048a524b00d4259aed" entry="Id(41666395765252096)"/>
+                </Bindings>
+            </ui:Button>
         </ui:VisualElement>
         <ui:VisualElement name="inventory" style="display: none;">
             <ui:VisualElement name="inventory-content" style="flex-grow: 0; display: flex; width: 42%;">
